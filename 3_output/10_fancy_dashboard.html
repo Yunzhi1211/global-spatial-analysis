@@ -229,6 +229,7 @@
       grid-template-columns: repeat(6, 1fr);
       gap: 14px;
       margin-bottom: 20px;
+      width: 100%;
     }
 
     .stat-card {
@@ -1449,63 +1450,105 @@
 
     /* ============ OVERVIEW PAGE INTRO ============ */
     .project-intro {
-      max-width: 900px;
+      max-width: 100%;
       margin: 0 auto;
-      padding: 0 22px 32px;
+      padding: 0 0 40px;
     }
     .intro-card {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.09);
       border-radius: 18px;
-      padding: 24px 28px;
-      margin-bottom: 16px;
+      padding: 28px 32px;
+      margin-bottom: 18px;
     }
     .intro-card h2 {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #6ee7b7;
-      margin: 0 0 12px 0;
+      margin: 0 0 14px 0;
     }
     .intro-card p {
-      color: rgba(255, 255, 255, 0.75);
-      line-height: 1.75;
-      margin: 0 0 8px 0;
-      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.85;
+      margin: 0 0 10px 0;
+      font-size: 1rem;
     }
     .intro-card ul {
-      color: rgba(255, 255, 255, 0.75);
-      padding-left: 20px;
-      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.82);
+      padding-left: 22px;
+      line-height: 2.0;
       margin: 0;
-      font-size: 0.88rem;
+      font-size: 0.98rem;
     }
     .intro-highlights {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 16px;
+      gap: 16px;
+      margin-top: 18px;
     }
     .highlight-item {
       background: rgba(16,185,129,0.08);
       border: 1px solid rgba(16,185,129,0.15);
       border-radius: 14px;
-      padding: 16px 18px;
+      padding: 20px 18px;
       text-align: center;
     }
-    .highlight-item .hi-icon { font-size: 1.6rem; margin-bottom: 6px; }
+    .highlight-item .hi-icon { font-size: 1.8rem; margin-bottom: 8px; }
     .highlight-item .hi-label {
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       color: rgba(255,255,255,0.6);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     .highlight-item .hi-value {
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: #6ee7b7;
-      margin-top: 2px;
+      margin-top: 4px;
     }
+    /* References section */
+    .references-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid #6ee7b7;
+      border-radius: 14px;
+      padding: 26px 32px;
+      margin-bottom: 18px;
+    }
+    .references-card h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #6ee7b7;
+      margin: 0 0 18px 0;
+    }
+    .ref-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ref-list li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      padding: 7px 0 7px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+    }
+    .ref-list li:last-child { border-bottom: none; }
+    .ref-list li::before {
+      content: '[' counter(ref-counter) ']';
+      counter-increment: ref-counter;
+      position: absolute;
+      left: 0;
+      color: #6ee7b7;
+      font-weight: 600;
+      font-size: 0.82rem;
+    }
+    .ref-list { counter-reset: ref-counter; }
+    .ref-list .ref-authors { font-style: normal; }
+    .ref-list .ref-title { font-style: italic; }
+    .ref-list .ref-journal { color: rgba(255,255,255,0.5); }
     @media (max-width: 768px) {
       .side-nav { width: 60px; padding: 14px 6px; }
       .side-nav-title, .nav-item span { display: none; }
@@ -1554,7 +1597,6 @@
           <div class="logo-icon">🌍</div>
           <h1>Global Urban Livability Intelligence</h1>
         </div>
-        <p class="tagline">AI-Enhanced Analysis of Green Spaces, Demographics &amp; Urban Development</p>
       </header>
       <div class="container">
         <!-- Stats Row -->
@@ -1627,6 +1669,25 @@
         </div>
       </div>
     </div>
+
+      <!-- References -->
+      <div class="project-intro" style="padding-top:0;">
+        <div class="references-card">
+          <h2><i class="fas fa-book-open"></i> &nbsp;References</h2>
+          <ol class="ref-list">
+            <li><span class="ref-authors">OpenStreetMap contributors.</span> <span class="ref-title">OpenStreetMap geographic data</span> [Dataset]. <span class="ref-journal">OpenStreetMap Foundation, 2024. Available at: https://www.openstreetmap.org</span></li>
+            <li><span class="ref-authors">World Bank Group.</span> <span class="ref-title">World Development Indicators: Population, Forest Area, Urban Population</span> [Dataset]. <span class="ref-journal">The World Bank, 2023. Available at: https://databank.worldbank.org/source/world-development-indicators</span></li>
+            <li><span class="ref-authors">United Nations, Department of Economic and Social Affairs.</span> <span class="ref-title">World Urbanization Prospects: The 2022 Revision</span>. <span class="ref-journal">United Nations, New York, 2022. https://population.un.org/wup/</span></li>
+            <li><span class="ref-authors">Lehner, B., Verdin, K., &amp; Jarvis, A.</span> <span class="ref-title">New global hydrography derived from spaceborne elevation data</span>. <span class="ref-journal">Eos, Transactions, American Geophysical Union, 89(10), 93–94, 2008.</span></li>
+            <li><span class="ref-authors">Groenewegen, P. P., van den Berg, A. E., de Vries, S., &amp; Verheij, R. A.</span> <span class="ref-title">Vitamin G: effects of green space on health, well-being, and social safety</span>. <span class="ref-journal">BMC Public Health, 6(1), 149, 2006. https://doi.org/10.1186/1471-2458-6-149</span></li>
+            <li><span class="ref-authors">Toftager, M., Ekholm, O., Schipperijn, J., Stigsdotter, U., Bentsen, P., Grønbæk, M., &amp; Kamper-Jørgensen, F.</span> <span class="ref-title">Distance to green space and physical activity: a Danish national representative survey</span>. <span class="ref-journal">Journal of Physical Activity and Health, 8(6), 741–749, 2011.</span></li>
+            <li><span class="ref-authors">Cohen, D. A., McKenzie, T. L., Sehgal, A., Williamson, S., Golinelli, D., &amp; Lurie, N.</span> <span class="ref-title">Contribution of public parks to physical activity</span>. <span class="ref-journal">American Journal of Public Health, 97(3), 509–514, 2007.</span></li>
+            <li><span class="ref-authors">Overpass API Contributors.</span> <span class="ref-title">Overpass API: A read-only API that serves custom selected parts of OpenStreetMap map data</span>. <span class="ref-journal">OpenStreetMap, 2024. Available at: https://overpass-api.de/</span></li>
+            <li><span class="ref-authors">MacQueen, J.</span> <span class="ref-title">Some methods for classification and analysis of multivariate observations</span>. <span class="ref-journal">Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability, Vol. 1, 281–297, 1967.</span></li>
+            <li><span class="ref-authors">Tobler, W. R.</span> <span class="ref-title">A computer movie simulating urban growth in the Detroit region</span>. <span class="ref-journal">Economic Geography, 46(Supplement), 234–240, 1970. https://doi.org/10.2307/143141</span></li>
+          </ol>
+        </div>
+      </div>
 
       </div><!-- end .container -->
     </div><!-- end #page-overview -->
