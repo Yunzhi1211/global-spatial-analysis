@@ -111,24 +111,51 @@
       width: 100%; height: 100%;
       background-image:
         radial-gradient(rgba(16, 185, 129, 0.15) 1px, transparent 1px);
+    .ai-summary-note {
+      margin-top: 6px;
+      max-width: 760px;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.62);
+    }
       background-size: 50px 50px;
       animation: particleMove 60s linear infinite;
     }
-
+      color: rgba(110,231,183,0.92);
     @keyframes particleMove {
       0% { background-position: 0 0; }
       100% { background-position: 500px 500px; }
     }
 
     /* Glass Effect Enhanced */
-    .glass {
+      color: rgba(255,255,255,0.76);
       background: var(--glass-bg-solid);
       backdrop-filter: blur(var(--blur));
       -webkit-backdrop-filter: blur(var(--blur));
       border: 1px solid var(--glass-border);
+    .ai-country-selector-note {
+      width: 100%;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.62);
+      padding-top: 4px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
       border-radius: 24px;
       box-shadow: var(--glass-shadow), inset 0 1px 1px rgba(255,255,255,0.3);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .layer-info-empty {
+      color: rgba(255,255,255,0.78);
+      line-height: 1.75;
+    }
+    .layer-info-empty h4 {
+      margin: 0 0 10px 0;
+      font-size: 1rem;
+      color: #6ee7b7;
+    }
+    .layer-info-empty p {
+      margin: 0;
     }
 
     .glass:hover {
@@ -1444,14 +1471,14 @@
       left: 0;
       top: 0;
       height: 100vh;
-      width: 200px;
+      width: 220px;
       background: rgba(10, 20, 30, 0.92);
       backdrop-filter: blur(24px);
       border-right: 1px solid rgba(16, 185, 129, 0.18);
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      padding: 18px 12px 24px;
+      padding: 18px 14px 24px;
       gap: 4px;
       z-index: 2000;
       box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
@@ -1464,7 +1491,7 @@
     }
     .side-nav-logo { font-size: 2rem; line-height: 1; margin-bottom: 5px; }
     .side-nav-title {
-      font-size: 0.6rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: rgba(255, 255, 255, 0.45);
       text-transform: uppercase;
@@ -1473,15 +1500,15 @@
     .nav-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 11px 14px;
+      gap: 12px;
+      padding: 13px 16px;
       border: none;
       border-radius: 12px;
       background: transparent;
       color: rgba(255, 255, 255, 0.55);
       font-family: 'Inter', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 500;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
       text-align: left;
@@ -1493,13 +1520,61 @@
       color: #6ee7b7;
       box-shadow: 0 2px 14px rgba(16, 185, 129, 0.18);
     }
-    .nav-item i { width: 18px; text-align: center; font-size: 0.95rem; }
+    .nav-item i { width: 20px; text-align: center; font-size: 1.05rem; }
 
     /* ============ PAGE LAYOUT ============ */
-    .page-content { margin-left: 200px; min-height: 100vh; }
+    .page-content { margin-left: 220px; min-height: 100vh; }
     .page { display: none; }
     .page.active { display: block; }
     #page-map, #page-data, #page-ai { padding-top: 56px; }
+
+    .page-hero {
+      padding: 6px 0 22px;
+      position: relative;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 460px;
+      height: 140px;
+      background: radial-gradient(ellipse, rgba(16, 185, 129, 0.18) 0%, transparent 72%);
+      filter: blur(30px);
+      pointer-events: none;
+    }
+    .page-hero-content {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .page-hero-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      color: white;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.24);
+    }
+    .page-hero-text h1 {
+      font-size: 2.15rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #f4fffb;
+      text-shadow: 0 8px 26px rgba(0,0,0,0.28);
+    }
+    .page-hero-text p {
+      margin-top: 6px;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: rgba(240,255,249,0.78);
+      max-width: 760px;
+    }
 
     /* ============ OVERVIEW PAGE INTRO ============ */
     .project-intro {
@@ -1507,12 +1582,43 @@
       margin: 0 auto;
       padding: 0 0 40px;
     }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      margin-bottom: 18px;
+      align-items: stretch;
+    }
     .intro-card {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.09);
       border-radius: 18px;
       padding: 28px 32px;
       margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+    }
+    .intro-card::before,
+    .references-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(110, 231, 183, 0.1), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+    .intro-card:hover,
+    .references-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(110, 231, 183, 0.28);
+      box-shadow: 0 18px 42px rgba(5, 150, 105, 0.14), inset 0 1px 1px rgba(255,255,255,0.18);
+      background: rgba(255, 255, 255, 0.055);
+    }
+    .intro-card:hover::before,
+    .references-card:hover::before {
+      opacity: 1;
     }
     .intro-card h2 {
       font-size: 1.15rem;
@@ -1532,6 +1638,33 @@
       line-height: 2.0;
       margin: 0;
       font-size: 0.98rem;
+    }
+    .key-indicators-card {
+      margin-bottom: 18px;
+    }
+    .key-indicators-card .stats-row {
+      margin-bottom: 0;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .key-indicators-card .stat-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+    }
+    .ref-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 10px;
+      color: #86efac;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .ref-link:hover {
+      color: #d9ffe9;
+      border-color: rgba(134, 239, 172, 0.65);
     }
     .intro-highlights {
       display: grid;
@@ -1568,6 +1701,9 @@
       border-radius: 14px;
       padding: 28px 36px;
       margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
     }
     .references-card h2 {
       font-size: 1.15rem;
@@ -1611,6 +1747,92 @@
       .side-nav-title, .nav-item span { display: none; }
       .page-content { margin-left: 60px; }
       .intro-highlights { grid-template-columns: 1fr; }
+      .overview-grid { grid-template-columns: 1fr; }
+      .key-indicators-card .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .page-hero-content { align-items: flex-start; }
+      .page-hero-text h1 { font-size: 1.8rem; }
+    }
+
+    @media (max-width: 1100px) {
+      .overview-grid { grid-template-columns: 1fr; }
+      .key-indicators-card .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    #page-map .panel,
+    #page-map .layer-info-panel,
+    #page-data .chart-card,
+    #page-data .comparison-panel,
+    #page-ai .ai-panel {
+      background: rgba(8, 24, 20, 0.52);
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18), inset 0 1px 1px rgba(255,255,255,0.08);
+    }
+
+    #page-map .panel-title,
+    #page-data .panel-title,
+    #page-map .region-item,
+    #page-map .country-item,
+    #page-map .layer-info-block h4,
+    #page-map .layer-info-block p,
+    #page-map .layer-info-empty,
+    #page-map .ref-list li,
+    #page-data .category-label,
+    #page-data .measurement-label,
+    #page-data .compare-country .name,
+    #page-data .compare-country .label,
+    #page-data .add-country-card span,
+    #page-data .metrics-table th,
+    #page-data .metrics-table td,
+    #page-ai .ai-title h3,
+    #page-ai .ai-title span,
+    #page-ai .ai-summary-note,
+    #page-ai .ai-country-selector-label,
+    #page-ai .ai-country-selector .ai-selected-countries,
+    #page-ai .ai-country-selector-note,
+    #page-ai .ai-response-placeholder p,
+    #page-ai .ai-response-content,
+    #page-ai .ai-response-content h4,
+    #page-ai .ai-response-content li {
+      color: rgba(247, 255, 252, 0.92);
+    }
+
+    #page-map .map-overlay,
+    #page-map .layer-panel,
+    #page-map #rankingMetric,
+    #page-data .compare-btn,
+    #page-data .measure-btn,
+    #page-ai .context-tag,
+    #page-ai .ai-country-selector {
+      background: rgba(255,255,255,0.08);
+      color: rgba(247,255,252,0.92);
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    #page-map .layer-title,
+    #page-map .map-overlay h4,
+    #page-map .legend-item,
+    #page-map .layer-btn,
+    #page-map #rankingMetric,
+    #page-data .compare-btn,
+    #page-data .measure-btn,
+    #page-data .metrics-table td:first-child,
+    #page-ai .context-tag,
+    #page-ai .ai-response-placeholder i {
+      color: rgba(247,255,252,0.92);
+    }
+
+    #page-data .metrics-table th {
+      background: rgba(255,255,255,0.08);
+    }
+
+    #page-data .category-controls,
+    #page-data .measurement-controls,
+    #page-data .add-country-card,
+    #page-data .compare-country,
+    #page-map .country-item,
+    #page-map .region-legend {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.12);
     }
   </style>
 </head>
@@ -1656,95 +1878,77 @@
         </div>
       </header>
       <div class="container">
-        <!-- Stats Row -->
-    <div class="stats-row">
-      <div class="stat-card glass">
-        <div class="stat-icon green"><i class="fas fa-globe-americas"></i></div>
-        <div class="stat-value">196</div>
-        <div class="stat-label">Countries</div>
-      </div>
-      <div class="stat-card glass">
-        <div class="stat-icon blue"><i class="fas fa-users"></i></div>
-        <div class="stat-value">8.0B</div>
-        <div class="stat-label">Population</div>
-      </div>
-      <div class="stat-card glass">
-        <div class="stat-icon purple"><i class="fas fa-user-clock"></i></div>
-        <div class="stat-value">9.8%</div>
-        <div class="stat-label">Elderly (65+)</div>
-      </div>
-      <div class="stat-card glass">
-        <div class="stat-icon teal"><i class="fas fa-tree"></i></div>
-        <div class="stat-value">31%</div>
-        <div class="stat-label">Forest Cover</div>
-      </div>
-      <div class="stat-card glass">
-        <div class="stat-icon orange"><i class="fas fa-city"></i></div>
-        <div class="stat-value">56%</div>
-        <div class="stat-label">Urban Rate</div>
-      </div>
-      <div class="stat-card glass">
-        <div class="stat-icon pink"><i class="fas fa-heart"></i></div>
-        <div class="stat-value">72.8</div>
-        <div class="stat-label">Life Expectancy</div>
-      </div>
-    </div>
+        <div class="project-intro">
+          <div class="overview-grid">
+            <div class="intro-card">
+              <h2><i class="fas fa-info-circle"></i> &nbsp;About This Project</h2>
+              <p>This platform provides a comprehensive global analysis of urban livability, integrating data on pet-friendly green spaces, demographic aging trends, urbanization rates, forest cover, and dog park accessibility across 96 countries.</p>
+              <p>Using OpenStreetMap data, World Bank indicators, and AI-powered clustering, it ranks and compares countries on their ability to provide high-quality urban environments for residents and their pets.</p>
+            </div>
+            <div class="intro-card">
+              <h2><i class="fas fa-database"></i> &nbsp;Data Sources &amp; Indicators</h2>
+              <ul>
+                <li><strong>Dog Parks:</strong> OpenStreetMap (OSM) nodes and ways tagged as dog parks, collected via Overpass API for 96 countries</li>
+                <li><strong>Population:</strong> World Bank population estimates (2023)</li>
+                <li><strong>Forest Cover:</strong> World Bank forest area as % of land (2023)</li>
+                <li><strong>Urbanization:</strong> UN urban population as % of total (2023)</li>
+                <li><strong>Elderly Ratio:</strong> World Bank population aged 65+ as % (2023)</li>
+              </ul>
+            </div>
+          </div>
 
-    <!-- Project Introduction -->
-    <div class="project-intro">
-      <div class="intro-card">
-        <h2><i class="fas fa-info-circle"></i> &nbsp;About This Project</h2>
-        <p>This platform provides a comprehensive global analysis of urban livability, integrating data on pet-friendly green spaces, demographic aging trends, urbanization rates, forest cover, and dog park accessibility across 96 countries.</p>
-        <p>Using OpenStreetMap data, World Bank indicators, and AI-powered clustering, we rank and compare countries on their ability to provide high-quality urban environments for residents and their pets.</p>
-      </div>
-      <div class="intro-card">
-        <h2><i class="fas fa-database"></i> &nbsp;Data Sources &amp; Methodology</h2>
-        <ul>
-          <li><strong>Dog Parks:</strong> OpenStreetMap (OSM) nodes and ways tagged as dog parks, collected via Overpass API for 96 countries</li>
-          <li><strong>Population:</strong> World Bank population estimates (2023)</li>
-          <li><strong>Forest Cover:</strong> World Bank forest area as % of land (2023)</li>
-          <li><strong>Urbanization:</strong> UN urban population as % of total (2023)</li>
-          <li><strong>Elderly Ratio:</strong> World Bank population aged 65+ as % (2023)</li>
-          <li><strong>Clustering:</strong> K-means clustering on standardized indicators to group countries by profile</li>
-        </ul>
-      </div>
-      <div class="intro-highlights">
-        <div class="highlight-item">
-          <div class="hi-icon">🗺️</div>
-          <div class="hi-label">Countries Analyzed</div>
-          <div class="hi-value">96</div>
-        </div>
-        <div class="highlight-item">
-          <div class="hi-icon">🐕</div>
-          <div class="hi-label">Dog Parks Mapped</div>
-          <div class="hi-value">11,800+</div>
-        </div>
-        <div class="highlight-item">
-          <div class="hi-icon">📊</div>
-          <div class="hi-label">Indicators Tracked</div>
-          <div class="hi-value">5</div>
-        </div>
-      </div>
-    </div>
+          <div class="intro-card key-indicators-card">
+            <h2><i class="fas fa-chart-simple"></i> &nbsp;Key Indicators</h2>
+            <div class="stats-row">
+              <div class="stat-card glass">
+                <div class="stat-icon green"><i class="fas fa-globe-americas"></i></div>
+                <div class="stat-value">196</div>
+                <div class="stat-label">Countries</div>
+              </div>
+              <div class="stat-card glass">
+                <div class="stat-icon blue"><i class="fas fa-users"></i></div>
+                <div class="stat-value">8.0B</div>
+                <div class="stat-label">Population</div>
+              </div>
+              <div class="stat-card glass">
+                <div class="stat-icon purple"><i class="fas fa-user-clock"></i></div>
+                <div class="stat-value">9.8%</div>
+                <div class="stat-label">Elderly (65+)</div>
+              </div>
+              <div class="stat-card glass">
+                <div class="stat-icon teal"><i class="fas fa-tree"></i></div>
+                <div class="stat-value">31%</div>
+                <div class="stat-label">Forest Cover</div>
+              </div>
+              <div class="stat-card glass">
+                <div class="stat-icon orange"><i class="fas fa-city"></i></div>
+                <div class="stat-value">56%</div>
+                <div class="stat-label">Urban Rate</div>
+              </div>
+              <div class="stat-card glass">
+                <div class="stat-icon pink"><i class="fas fa-heart"></i></div>
+                <div class="stat-value">72.8</div>
+                <div class="stat-label">Life Expectancy</div>
+              </div>
+            </div>
+          </div>
 
-      <!-- References -->
-      <div class="project-intro" style="padding-top:0;">
-        <div class="references-card">
-          <h2><i class="fas fa-book-open"></i> &nbsp;References</h2>
-          <ol class="ref-list">
-            <li><span class="ref-authors">OpenStreetMap contributors.</span> <span class="ref-title">OpenStreetMap geographic data</span> [Dataset]. <span class="ref-journal">OpenStreetMap Foundation, 2024. Available at: https://www.openstreetmap.org</span></li>
-            <li><span class="ref-authors">World Bank Group.</span> <span class="ref-title">World Development Indicators: Population, Forest Area, Urban Population</span> [Dataset]. <span class="ref-journal">The World Bank, 2023. Available at: https://databank.worldbank.org/source/world-development-indicators</span></li>
-            <li><span class="ref-authors">United Nations, Department of Economic and Social Affairs.</span> <span class="ref-title">World Urbanization Prospects: The 2022 Revision</span>. <span class="ref-journal">United Nations, New York, 2022. https://population.un.org/wup/</span></li>
-            <li><span class="ref-authors">Lehner, B., Verdin, K., &amp; Jarvis, A.</span> <span class="ref-title">New global hydrography derived from spaceborne elevation data</span>. <span class="ref-journal">Eos, Transactions, American Geophysical Union, 89(10), 93–94, 2008.</span></li>
-            <li><span class="ref-authors">Groenewegen, P. P., van den Berg, A. E., de Vries, S., &amp; Verheij, R. A.</span> <span class="ref-title">Vitamin G: effects of green space on health, well-being, and social safety</span>. <span class="ref-journal">BMC Public Health, 6(1), 149, 2006. https://doi.org/10.1186/1471-2458-6-149</span></li>
-            <li><span class="ref-authors">Toftager, M., Ekholm, O., Schipperijn, J., Stigsdotter, U., Bentsen, P., Grønbæk, M., &amp; Kamper-Jørgensen, F.</span> <span class="ref-title">Distance to green space and physical activity: a Danish national representative survey</span>. <span class="ref-journal">Journal of Physical Activity and Health, 8(6), 741–749, 2011.</span></li>
-            <li><span class="ref-authors">Cohen, D. A., McKenzie, T. L., Sehgal, A., Williamson, S., Golinelli, D., &amp; Lurie, N.</span> <span class="ref-title">Contribution of public parks to physical activity</span>. <span class="ref-journal">American Journal of Public Health, 97(3), 509–514, 2007.</span></li>
-            <li><span class="ref-authors">Overpass API Contributors.</span> <span class="ref-title">Overpass API: A read-only API that serves custom selected parts of OpenStreetMap map data</span>. <span class="ref-journal">OpenStreetMap, 2024. Available at: https://overpass-api.de/</span></li>
-            <li><span class="ref-authors">MacQueen, J.</span> <span class="ref-title">Some methods for classification and analysis of multivariate observations</span>. <span class="ref-journal">Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability, Vol. 1, 281–297, 1967.</span></li>
-            <li><span class="ref-authors">Tobler, W. R.</span> <span class="ref-title">A computer movie simulating urban growth in the Detroit region</span>. <span class="ref-journal">Economic Geography, 46(Supplement), 234–240, 1970. https://doi.org/10.2307/143141</span></li>
-          </ol>
+          <div class="references-card">
+            <h2><i class="fas fa-book-open"></i> &nbsp;References</h2>
+            <ol class="ref-list">
+              <li><span class="ref-authors">OpenStreetMap contributors.</span> <span class="ref-title">OpenStreetMap geographic data</span> [Dataset]. <span class="ref-journal">OpenStreetMap Foundation, 2024.</span> <a class="ref-link" href="https://www.openstreetmap.org" target="_blank" rel="noopener noreferrer">Open link</a></li>
+              <li><span class="ref-authors">World Bank Group.</span> <span class="ref-title">World Development Indicators: Population, Forest Area, Urban Population</span> [Dataset]. <span class="ref-journal">The World Bank, 2023.</span> <a class="ref-link" href="https://databank.worldbank.org/source/world-development-indicators" target="_blank" rel="noopener noreferrer">Open link</a></li>
+              <li><span class="ref-authors">United Nations, Department of Economic and Social Affairs.</span> <span class="ref-title">World Urbanization Prospects: The 2022 Revision</span>. <span class="ref-journal">United Nations, New York, 2022.</span> <a class="ref-link" href="https://population.un.org/wup/" target="_blank" rel="noopener noreferrer">Open link</a></li>
+              <li><span class="ref-authors">Lehner, B., Verdin, K., &amp; Jarvis, A.</span> <span class="ref-title">New global hydrography derived from spaceborne elevation data</span>. <span class="ref-journal">Eos, Transactions, American Geophysical Union, 89(10), 93–94, 2008.</span> <a class="ref-link" href="https://scholar.google.com/scholar?q=New+global+hydrography+derived+from+spaceborne+elevation+data" target="_blank" rel="noopener noreferrer">Open link</a></li>
+              <li><span class="ref-authors">Groenewegen, P. P., van den Berg, A. E., de Vries, S., &amp; Verheij, R. A.</span> <span class="ref-title">Vitamin G: effects of green space on health, well-being, and social safety</span>. <span class="ref-journal">BMC Public Health, 6(1), 149, 2006.</span> <a class="ref-link" href="https://doi.org/10.1186/1471-2458-6-149" target="_blank" rel="noopener noreferrer">Open link</a></li>
+              <li><span class="ref-authors">Toftager, M., Ekholm, O., Schipperijn, J., Stigsdotter, U., Bentsen, P., Grønbæk, M., &amp; Kamper-Jørgensen, F.</span> <span class="ref-title">Distance to green space and physical activity: a Danish national representative survey</span>. <span class="ref-journal">Journal of Physical Activity and Health, 8(6), 741–749, 2011.</span> <a class="ref-link" href="https://scholar.google.com/scholar?q=Distance+to+green+space+and+physical+activity%3A+a+Danish+national+representative+survey" target="_blank" rel="noopener noreferrer">Open link</a></li>
+              <li><span class="ref-authors">Cohen, D. A., McKenzie, T. L., Sehgal, A., Williamson, S., Golinelli, D., &amp; Lurie, N.</span> <span class="ref-title">Contribution of public parks to physical activity</span>. <span class="ref-journal">American Journal of Public Health, 97(3), 509–514, 2007.</span> <a class="ref-link" href="https://scholar.google.com/scholar?q=Contribution+of+public+parks+to+physical+activity" target="_blank" rel="noopener noreferrer">Open link</a></li>
+              <li><span class="ref-authors">Overpass API Contributors.</span> <span class="ref-title">Overpass API: A read-only API that serves custom selected parts of OpenStreetMap map data</span>. <span class="ref-journal">OpenStreetMap, 2024.</span> <a class="ref-link" href="https://overpass-api.de/" target="_blank" rel="noopener noreferrer">Open link</a></li>
+              <li><span class="ref-authors">MacQueen, J.</span> <span class="ref-title">Some methods for classification and analysis of multivariate observations</span>. <span class="ref-journal">Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability, Vol. 1, 281–297, 1967.</span> <a class="ref-link" href="https://scholar.google.com/scholar?q=Some+methods+for+classification+and+analysis+of+multivariate+observations" target="_blank" rel="noopener noreferrer">Open link</a></li>
+              <li><span class="ref-authors">Tobler, W. R.</span> <span class="ref-title">A computer movie simulating urban growth in the Detroit region</span>. <span class="ref-journal">Economic Geography, 46(Supplement), 234–240, 1970.</span> <a class="ref-link" href="https://doi.org/10.2307/143141" target="_blank" rel="noopener noreferrer">Open link</a></li>
+            </ol>
+          </div>
         </div>
-      </div>
 
       </div><!-- end .container -->
     </div><!-- end #page-overview -->
@@ -1752,6 +1956,18 @@
     <!-- ======= PAGE 2: MAP ======= -->
     <div class="page" id="page-map">
       <div class="container">
+
+    <header class="page-hero">
+      <div class="page-hero-content">
+        <div class="page-hero-icon" style="background: linear-gradient(135deg, #10b981, #14b8a6);">
+          <i class="fas fa-map-marked-alt"></i>
+        </div>
+        <div class="page-hero-text">
+          <h1>Interactive Map Explorer</h1>
+          <p>Explore country-level livability patterns, switch between thematic layers, and read the indicator definitions directly alongside the geographic view.</p>
+        </div>
+      </div>
+    </header>
 
     <!-- Main Grid -->
     <div class="main-grid">
@@ -1812,7 +2028,12 @@
     </div>
 
     <!-- Layer Academic Info Panel — shown directly below map+sidebar -->
-    <div class="layer-info-panel glass" id="layerInfoPanel"></div>
+    <div class="layer-info-panel glass" id="layerInfoPanel">
+      <div class="layer-info-empty">
+        <h4><i class="fas fa-book-open"></i> Layer Definitions</h4>
+        <p>Select a map layer to see its definition, measurement logic, and key academic references. This panel explains how each layer is constructed so the map can be read as an analytical view instead of only a visual ranking.</p>
+      </div>
+    </div>
 
       </div><!-- end .container -->
     </div><!-- end #page-map -->
@@ -1820,6 +2041,18 @@
     <!-- ======= PAGE 3: DATA ======= -->
     <div class="page" id="page-data">
       <div class="container">
+
+    <header class="page-hero">
+      <div class="page-hero-content">
+        <div class="page-hero-icon" style="background: linear-gradient(135deg, #3b82f6, #22d3ee);">
+          <i class="fas fa-chart-column"></i>
+        </div>
+        <div class="page-hero-text">
+          <h1>Comparative Data Dashboard</h1>
+          <p>Inspect indicator distributions, compare country performance across categories, and read the comparative metrics in a more structured analytical layout.</p>
+        </div>
+      </div>
+    </header>
 
     <!-- Charts Row -->
     <div class="charts-row">
@@ -1904,6 +2137,18 @@
     <div class="page" id="page-ai">
       <div class="container">
 
+    <header class="page-hero">
+      <div class="page-hero-content">
+        <div class="page-hero-icon" style="background: linear-gradient(135deg, #667eea, #8b5cf6);">
+          <i class="fas fa-brain"></i>
+        </div>
+        <div class="page-hero-text">
+          <h1>AI Insights</h1>
+          <p>Review synthesized observations generated from the collected dataset and the baseline analysis in this dashboard, with suggestions meant for interpretation rather than exact prediction.</p>
+        </div>
+      </div>
+    </header>
+
     <!-- AI Analysis Panel -->
     <div class="ai-panel glass">
       <div class="ai-header">
@@ -1913,7 +2158,8 @@
           </div>
           <div>
             <h3>AI Insights</h3>
-            <span>Advanced analysis powered by machine learning</span>
+            <span>Data-grounded summary powered by machine learning</span>
+            <div class="ai-summary-note">This section interprets the collected dataset and the baseline analysis already completed in the dashboard. It offers synthesized observations and practical suggestions, but it should be read as directional support rather than fully precise or definitive output.</div>
           </div>
         </div>
         <button class="ai-analyze-btn" id="aiAnalyzeBtn" onclick="performAIAnalysis()">
@@ -1931,19 +2177,20 @@
 
       <!-- Country selection for AI analysis -->
       <div class="ai-country-selector">
-        <div class="ai-country-selector-label"><i class="fas fa-flag"></i> &nbsp;Select countries to include in analysis:</div>
+        <div class="ai-country-selector-label"><i class="fas fa-flag"></i> &nbsp;Countries included in this summary:</div>
         <div class="ai-selected-countries" id="aiSelectedCountries">
-          No countries selected for AI analysis
+          Choose one or more countries to focus the summary, or leave it empty to use the full collected dataset.
         </div>
         <button class="ai-add-country-btn" onclick="openCountryPicker()">
           <i class="fas fa-plus"></i> Add Country
         </button>
+        <div class="ai-country-selector-note">The generated text is based on the indicators and exploratory analysis already shown in this project. It summarizes patterns in the available data and proposes combined suggestions instead of claiming exact prediction-level accuracy.</div>
       </div>
 
       <div class="ai-response">
         <div class="ai-response-placeholder">
           <i class="fas fa-lightbulb"></i>
-          <p>Click "Analyze" to generate AI-powered insights about global urban livability trends.</p>
+          <p>Click "Analyze" to generate a data-grounded summary of the collected indicators, regional patterns, and practical suggestions.</p>
         </div>
       </div>
     </div><!-- end ai-panel -->
@@ -2274,7 +2521,16 @@
     function updateLayerInfo(layer) {
       const panel = document.getElementById('layerInfoPanel');
       const info = LAYER_INFO[layer];
-      if (!panel || !info) return;
+      if (!panel) return;
+      if (!info) {
+        panel.innerHTML = `
+          <div class="layer-info-empty">
+            <h4><i class="fas fa-book-open"></i> Layer Definitions</h4>
+            <p>Select a map layer to see its definition, measurement logic, and key academic references. This panel explains how each layer is constructed so the map can be read as an analytical view instead of only a visual ranking.</p>
+          </div>
+        `;
+        return;
+      }
       panel.innerHTML = `
         <div class="layer-info-header">
           <span class="layer-info-badge" style="background:${info.badge.color};">
@@ -2699,6 +2955,7 @@
 
         response.innerHTML = `
           <div class="ai-response-content">
+            <p class="ai-country-selector-note" style="margin:0 0 16px 0; padding-top:0; border-top:none;">This summary is generated from the collected dashboard dataset and the baseline comparative analysis already available here. It is intended to synthesize patterns and suggest actions, not to provide exact forecasts or fully authoritative causal claims.</p>
             <h4><i class="fas fa-chart-line"></i> Global Trends Analysis</h4>
             <p>${analysis.trends}</p>
 
@@ -2723,22 +2980,22 @@
     // Generate AI analysis content
     function generateAIAnalysis() {
       const selectedNames = selectedCountries.length > 0
-        ? findCountryData(selectedCountries).map(c => c.name).join(', ')
-        : 'all countries';
+        ? findCountryData(selectedCountries).map(c => c.country_name || c.country_name_full || c.country_code).join(', ')
+        : 'the full collected dataset';
 
       return {
-        trends: `The global urban livability index shows a strong correlation between green space coverage and overall livability scores. Countries with higher forest cover tend to have better air quality, lower urban heat island effects, and more sustainable urban environments.`,
+        trends: `Based on ${selectedNames}, the comparative dataset suggests a consistent relationship between greener urban environments and stronger livability outcomes. Higher forest cover and better park access tend to align with stronger urban comfort, lower heat stress exposure, and more resilient day-to-day living conditions.`,
 
-        regions: `European nations dominate the livability rankings, with Nordic countries leading in green infrastructure and elderly-friendly design. Asian megacities show rapid improvement in park accessibility, while African countries face challenges in urban planning but show strong potential for green development.`,
+        regions: `The regional pattern in the collected indicators remains uneven. European countries generally lead on integrated green infrastructure and age-friendly urban conditions, several Asian cities show active improvement in park provision, and lower-scoring countries often appear constrained by weaker green-space coverage or uneven urban service access rather than by a single factor alone.`,
 
         insights: [
-          "Every 10% increase in forest cover correlates with 2-3 point improvement in livability scores",
-          "Countries with integrated green-blue infrastructure show 15% higher resident satisfaction",
-          "Urban heat islands reduce livability by 8-12 points in dense metropolitan areas",
-          "Elderly-friendly cities see 20% higher life satisfaction among senior populations"
+          "Stronger park access and greener land-cover indicators tend to appear together in higher-ranked countries",
+          "Countries with more balanced performance across environment, aging, and urbanization indicators usually outperform places that rely on one strong metric alone",
+          "Dense urban systems appear to benefit most when green infrastructure is distributed rather than concentrated in only a few flagship spaces",
+          "The dashboard patterns support practical planning recommendations, but they should still be checked against local policy and ground conditions"
         ],
 
-        recommendations: "Prioritize creating interconnected green networks, implement heat mitigation strategies, develop age-inclusive urban designs, and establish cross-city knowledge sharing platforms to accelerate best practices adoption."
+        recommendations: "Use the current dataset as a directional planning guide: expand connected green networks, improve neighborhood-level park access, design for aging populations, and compare policy choices with countries showing similar profiles before translating these findings into local action."
       };
     }
 
