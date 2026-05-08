@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/3_output/10_fancy_dashboard.html",
+      "permanent": false
+    }
+  ]
+}
