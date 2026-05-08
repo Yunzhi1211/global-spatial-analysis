@@ -1,8 +1,0 @@
-OSM Overpass API was unavailable. Please run the following in R:
-# library(osmdata)
-# hk_parks <- opq(bbox = c(113.83, 22.15, 114.43, 22.56)) |>
-#   add_osm_feature(key = "leisure", value = "park") |>
-#   osmdata_sf()
-# OR go to https://overpass-turbo.eu/ and run:
-# [out:json];way[leisure=park](22.15,113.83,22.56,114.43);out center;
-# Then export as GeoJSON

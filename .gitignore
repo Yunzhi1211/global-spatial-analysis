@@ -56,3 +56,7 @@ analysis_results_global/
 *.tmp
 *.temp
 *~
+
+# Custom directories to ignore
+0_cache/
+0_proposal_draft/
