@@ -1069,6 +1069,54 @@
       box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
     }
 
+    /* AI Country Selector */
+    .ai-country-selector {
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .ai-country-selector-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      flex-shrink: 0;
+    }
+    .ai-country-selector .ai-selected-countries {
+      flex: 1;
+      min-width: 200px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      padding: 0;
+      background: none;
+      border: none;
+    }
+    .ai-add-country-btn {
+      flex-shrink: 0;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #059669, #10b981);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(5,150,105,0.3);
+    }
+    .ai-add-country-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(5,150,105,0.4);
+    }
+
     .ai-analyze-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 24px rgba(102, 126, 234, 0.4);
@@ -1447,6 +1495,7 @@
     .page-content { margin-left: 200px; min-height: 100vh; }
     .page { display: none; }
     .page.active { display: block; }
+    #page-map, #page-data, #page-ai { padding-top: 32px; }
 
     /* ============ OVERVIEW PAGE INTRO ============ */
     .project-intro {
@@ -1872,8 +1921,15 @@
         <button class="context-tag" data-context="future">Future Projections</button>
       </div>
 
-      <div class="ai-selected-countries" id="aiSelectedCountries">
-        No countries selected for AI analysis
+      <!-- Country selection for AI analysis -->
+      <div class="ai-country-selector">
+        <div class="ai-country-selector-label"><i class="fas fa-flag"></i> &nbsp;Select countries to include in analysis:</div>
+        <div class="ai-selected-countries" id="aiSelectedCountries">
+          No countries selected for AI analysis
+        </div>
+        <button class="ai-add-country-btn" onclick="openCountryPicker()">
+          <i class="fas fa-plus"></i> Add Country
+        </button>
       </div>
 
       <div class="ai-response">
@@ -1895,12 +1951,6 @@
       </div>
     </div>
 
-    <footer class="footer">
-      <div class="footer-content">
-        <p>Global Urban Livability Intelligence Platform</p>
-        <p>Built with advanced AI and geospatial analytics</p>
-      </div>
-    </footer>
   </div><!-- end .page-content -->
 
   <script>
