@@ -33,6 +33,7 @@
       --glow: 0 0 40px rgba(16, 185, 129, 0.4);
     }
 
+    html { font-size: 18px; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -423,7 +424,7 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 6px;
-      font-size: 0.72rem;
+      font-size: 0.84rem;
       color: var(--text-light);
     }
 
@@ -453,7 +454,7 @@
     }
 
     .panel-title {
-      font-size: 0.92rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--text);
       display: flex;
@@ -568,7 +569,7 @@
     }
 
     .layer-info-block h4 {
-      font-size: 0.82rem;
+      font-size: 0.94rem;
       font-weight: 700;
       color: var(--text);
       margin-bottom: 8px;
@@ -580,7 +581,7 @@
     }
 
     .layer-info-block p {
-      font-size: 0.78rem;
+      font-size: 0.88rem;
       color: #374151;
       line-height: 1.7;
     }
@@ -592,7 +593,7 @@
     }
 
     .ref-list li {
-      font-size: 0.73rem;
+      font-size: 0.83rem;
       color: #6b7280;
       line-height: 1.6;
       padding: 3px 0;
@@ -626,6 +627,33 @@
       font-size: 0.7rem;
       font-weight: 600;
       border: 1px solid;
+    }
+
+    /* Section Divider */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 28px 0 20px;
+    }
+    .section-divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(16,185,129,0.4), transparent);
+    }
+    .section-divider-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      padding: 6px 18px;
+      background: rgba(16,185,129,0.08);
+      border-radius: 20px;
+      border: 1px solid rgba(16,185,129,0.2);
     }
 
     /* Country Comparison */
@@ -1469,6 +1497,16 @@
       </div>
     </div>
 
+    <!-- Layer Academic Info Panel — shown directly below map+sidebar -->
+    <div class="layer-info-panel glass" id="layerInfoPanel"></div>
+
+    <!-- Section Divider -->
+    <div class="section-divider">
+      <div class="section-divider-line"></div>
+      <span class="section-divider-label"><i class="fas fa-chart-bar"></i> Data Analysis &amp; Comparison</span>
+      <div class="section-divider-line"></div>
+    </div>
+
     <!-- Charts Row -->
     <div class="charts-row">
       <div class="chart-card glass">
@@ -1496,9 +1534,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Layer Academic Info Panel -->
-    <div class="layer-info-panel glass" id="layerInfoPanel"></div>
 
     <!-- Country Comparison -->
     <div class="comparison-panel glass">
@@ -1641,8 +1676,8 @@
     function initMap() {
       map = L.map('map').setView([30, 0], 2);
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '© OpenStreetMap contributors © CARTO',
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
         maxZoom: 19
       }).addTo(map);
