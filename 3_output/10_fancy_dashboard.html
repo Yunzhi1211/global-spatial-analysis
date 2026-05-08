@@ -111,6 +111,26 @@
       width: 100%; height: 100%;
       background-image:
         radial-gradient(rgba(16, 185, 129, 0.15) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: particleMove 60s linear infinite;
+    }
+
+    @keyframes particleMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 500px 500px; }
+    }
+
+    /* Glass Effect Enhanced */
+    .glass {
+      background: var(--glass-bg-solid);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      box-shadow: var(--glass-shadow), inset 0 1px 1px rgba(255,255,255,0.3);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
     .ai-summary-note {
       margin-top: 6px;
       max-width: 760px;
@@ -118,21 +138,7 @@
       line-height: 1.6;
       color: rgba(255, 255, 255, 0.62);
     }
-      background-size: 50px 50px;
-      animation: particleMove 60s linear infinite;
-    }
-      color: rgba(110,231,183,0.92);
-    @keyframes particleMove {
-      0% { background-position: 0 0; }
-      100% { background-position: 500px 500px; }
-    }
 
-    /* Glass Effect Enhanced */
-      color: rgba(255,255,255,0.76);
-      background: var(--glass-bg-solid);
-      backdrop-filter: blur(var(--blur));
-      -webkit-backdrop-filter: blur(var(--blur));
-      border: 1px solid var(--glass-border);
     .ai-country-selector-note {
       width: 100%;
       font-size: 0.8rem;
@@ -141,10 +147,7 @@
       padding-top: 4px;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
-      border-radius: 24px;
-      box-shadow: var(--glass-shadow), inset 0 1px 1px rgba(255,255,255,0.3);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+
     .layer-info-empty {
       color: rgba(255,255,255,0.78);
       line-height: 1.75;
@@ -314,14 +317,12 @@
     .stat-value {
       font-size: 1.8rem;
       font-weight: 800;
-      background: linear-gradient(135deg, var(--text), var(--primary-dark));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #ffffff;
     }
 
     .stat-label {
       font-size: 0.72rem;
-      color: var(--text-light);
+      color: rgba(255,255,255,0.75);
       margin-top: 4px;
       font-weight: 500;
       text-transform: uppercase;
@@ -1100,6 +1101,12 @@
       box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
     }
 
+    .ai-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin: 4px 0 14px;
+    }
+
     /* AI Country Selector */
     .ai-country-selector {
       padding: 16px 20px;
@@ -1200,6 +1207,35 @@
       border-radius: 12px;
       padding: 12px 16px;
       margin-bottom: 14px;
+    }
+
+    .country-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 8px 8px 0;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .country-chip button {
+      width: 18px;
+      height: 18px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.28);
+      color: #fff;
+      cursor: pointer;
+      line-height: 1;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .ai-response {
@@ -1340,16 +1376,27 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      background: rgba(8, 28, 20, 0.96);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 20px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+      backdrop-filter: blur(20px);
     }
 
     .picker-search {
       width: 100%;
       padding: 14px 18px;
-      border: 1px solid rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.35);
       border-radius: 14px;
       font-size: 0.95rem;
       margin-bottom: 18px;
       transition: border-color 0.3s ease;
+      background: rgba(255,255,255,0.07);
+      color: rgba(240,255,249,0.92);
+    }
+
+    .picker-search::placeholder {
+      color: rgba(255,255,255,0.35);
     }
 
     .picker-search:focus {
@@ -1368,14 +1415,14 @@
 
     .picker-item {
       padding: 14px;
-      background: rgba(16, 185, 129, 0.05);
+      background: rgba(16, 185, 129, 0.06);
       border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
       gap: 12px;
-      border: 1px solid transparent;
+      border: 1px solid rgba(16,185,129,0.12);
     }
 
     .picker-item:hover {
@@ -1400,13 +1447,13 @@
 
     .picker-item .info h4 {
       font-size: 0.88rem;
-      color: var(--text);
+      color: rgba(240,255,249,0.92);
       font-weight: 600;
     }
 
     .picker-item .info span {
       font-size: 0.72rem;
-      color: var(--text-light);
+      color: rgba(110,231,183,0.75);
     }
 
     /* Leaflet popup */
@@ -1526,7 +1573,7 @@
     .page-content { margin-left: 220px; min-height: 100vh; }
     .page { display: none; }
     .page.active { display: block; }
-    #page-map, #page-data, #page-ai { padding-top: 56px; }
+    #page-map, #page-data { padding-top: 56px; }
 
     .page-hero {
       padding: 6px 0 22px;
@@ -1580,21 +1627,24 @@
     .project-intro {
       max-width: 100%;
       margin: 0 auto;
-      padding: 0 0 40px;
+      padding: 0 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
     .overview-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 18px;
-      margin-bottom: 18px;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
       align-items: stretch;
     }
     .intro-card {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 18px;
-      padding: 28px 32px;
-      margin-bottom: 18px;
+      border-radius: 14px;
+      padding: 18px 24px;
+      margin-bottom: 0;
       position: relative;
       overflow: hidden;
       transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
@@ -1621,26 +1671,26 @@
       opacity: 1;
     }
     .intro-card h2 {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: #6ee7b7;
-      margin: 0 0 14px 0;
+      margin: 0 0 10px 0;
     }
     .intro-card p {
       color: rgba(255, 255, 255, 0.82);
-      line-height: 1.85;
-      margin: 0 0 10px 0;
-      font-size: 1rem;
+      line-height: 1.7;
+      margin: 0 0 8px 0;
+      font-size: 0.92rem;
     }
     .intro-card ul {
       color: rgba(255, 255, 255, 0.82);
-      padding-left: 22px;
-      line-height: 2.0;
+      padding-left: 20px;
+      line-height: 1.8;
       margin: 0;
-      font-size: 0.98rem;
+      font-size: 0.9rem;
     }
     .key-indicators-card {
-      margin-bottom: 18px;
+      margin-bottom: 0;
     }
     .key-indicators-card .stats-row {
       margin-bottom: 0;
@@ -1699,17 +1749,17 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-left: 3px solid #6ee7b7;
       border-radius: 14px;
-      padding: 28px 36px;
-      margin-bottom: 18px;
+      padding: 18px 24px;
+      margin-bottom: 0;
       position: relative;
       overflow: hidden;
       transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
     }
     .references-card h2 {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: #6ee7b7;
-      margin: 0 0 20px 0;
+      margin: 0 0 14px 0;
     }
     .ref-list {
       list-style: none;
@@ -1761,8 +1811,7 @@
     #page-map .panel,
     #page-map .layer-info-panel,
     #page-data .chart-card,
-    #page-data .comparison-panel,
-    #page-ai .ai-panel {
+    #page-data .comparison-panel {
       background: rgba(8, 24, 20, 0.52);
       border-color: rgba(255, 255, 255, 0.12);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18), inset 0 1px 1px rgba(255,255,255,0.08);
@@ -1782,27 +1831,30 @@
     #page-data .compare-country .label,
     #page-data .add-country-card span,
     #page-data .metrics-table th,
-    #page-data .metrics-table td,
-    #page-ai .ai-title h3,
-    #page-ai .ai-title span,
-    #page-ai .ai-summary-note,
-    #page-ai .ai-country-selector-label,
-    #page-ai .ai-country-selector .ai-selected-countries,
-    #page-ai .ai-country-selector-note,
-    #page-ai .ai-response-placeholder p,
-    #page-ai .ai-response-content,
-    #page-ai .ai-response-content h4,
-    #page-ai .ai-response-content li {
+    #page-data .metrics-table td {
       color: rgba(247, 255, 252, 0.92);
     }
 
-    #page-map .map-overlay,
-    #page-map .layer-panel,
-    #page-map #rankingMetric,
+    #page-map .map-overlay {
+      background: rgba(8,24,20,0.82);
+      backdrop-filter: blur(10px);
+      color: rgba(247,255,252,0.92);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    #page-map .layer-panel {
+      background: rgba(8,24,20,0.88);
+      backdrop-filter: blur(14px);
+      color: rgba(247,255,252,0.92);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
+    #page-map #rankingMetric {
+      background: rgba(8,24,20,0.88);
+      color: rgba(247,255,252,0.92);
+      border-color: rgba(16,185,129,0.35);
+    }
     #page-data .compare-btn,
-    #page-data .measure-btn,
-    #page-ai .context-tag,
-    #page-ai .ai-country-selector {
+    #page-data .measure-btn {
       background: rgba(255,255,255,0.08);
       color: rgba(247,255,252,0.92);
       border-color: rgba(255,255,255,0.16);
@@ -1816,8 +1868,7 @@
     #page-data .compare-btn,
     #page-data .measure-btn,
     #page-data .metrics-table td:first-child,
-    #page-ai .context-tag,
-    #page-ai .ai-response-placeholder i {
+    #page-map #rankingMetric option {
       color: rgba(247,255,252,0.92);
     }
 
@@ -1861,9 +1912,7 @@
     <button class="nav-item" onclick="showPage('data')" data-page="data">
       <i class="fas fa-table"></i><span>Data</span>
     </button>
-    <button class="nav-item" onclick="showPage('ai')" data-page="ai">
-      <i class="fas fa-brain"></i><span>AI Insights</span>
-    </button>
+
   </nav>
 
   <!-- Page Content -->
@@ -1879,7 +1928,7 @@
       </header>
       <div class="container">
         <div class="project-intro">
-          <div class="overview-grid">
+          <div class="overview-grid" style="gap:14px;margin-bottom:14px;">
             <div class="intro-card">
               <h2><i class="fas fa-info-circle"></i> &nbsp;About This Project</h2>
               <p>This platform provides a comprehensive global analysis of urban livability, integrating data on pet-friendly green spaces, demographic aging trends, urbanization rates, forest cover, and dog park accessibility across 96 countries.</p>
@@ -1943,7 +1992,7 @@
               <li><span class="ref-authors">Groenewegen, P. P., van den Berg, A. E., de Vries, S., &amp; Verheij, R. A.</span> <span class="ref-title">Vitamin G: effects of green space on health, well-being, and social safety</span>. <span class="ref-journal">BMC Public Health, 6(1), 149, 2006.</span> <a class="ref-link" href="https://doi.org/10.1186/1471-2458-6-149" target="_blank" rel="noopener noreferrer">Open link</a></li>
               <li><span class="ref-authors">Toftager, M., Ekholm, O., Schipperijn, J., Stigsdotter, U., Bentsen, P., Grønbæk, M., &amp; Kamper-Jørgensen, F.</span> <span class="ref-title">Distance to green space and physical activity: a Danish national representative survey</span>. <span class="ref-journal">Journal of Physical Activity and Health, 8(6), 741–749, 2011.</span> <a class="ref-link" href="https://scholar.google.com/scholar?q=Distance+to+green+space+and+physical+activity%3A+a+Danish+national+representative+survey" target="_blank" rel="noopener noreferrer">Open link</a></li>
               <li><span class="ref-authors">Cohen, D. A., McKenzie, T. L., Sehgal, A., Williamson, S., Golinelli, D., &amp; Lurie, N.</span> <span class="ref-title">Contribution of public parks to physical activity</span>. <span class="ref-journal">American Journal of Public Health, 97(3), 509–514, 2007.</span> <a class="ref-link" href="https://scholar.google.com/scholar?q=Contribution+of+public+parks+to+physical+activity" target="_blank" rel="noopener noreferrer">Open link</a></li>
-              <li><span class="ref-authors">Overpass API Contributors.</span> <span class="ref-title">Overpass API: A read-only API that serves custom selected parts of OpenStreetMap map data</span>. <span class="ref-journal">OpenStreetMap, 2024.</span> <a class="ref-link" href="https://overpass-api.de/" target="_blank" rel="noopener noreferrer">Open link</a></li>
+              <li><span class="ref-authors">Haklay, M.</span> <span class="ref-title">How good is volunteered geographical information? A comparative study of OpenStreetMap and Ordnance Survey datasets.</span> <span class="ref-journal">Environment and Planning B: Planning and Design, 37(4), 682–703, 2010.</span> <a class="ref-link" href="https://doi.org/10.1068/b35097" target="_blank" rel="noopener noreferrer">Open link</a></li>
               <li><span class="ref-authors">MacQueen, J.</span> <span class="ref-title">Some methods for classification and analysis of multivariate observations</span>. <span class="ref-journal">Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability, Vol. 1, 281–297, 1967.</span> <a class="ref-link" href="https://scholar.google.com/scholar?q=Some+methods+for+classification+and+analysis+of+multivariate+observations" target="_blank" rel="noopener noreferrer">Open link</a></li>
               <li><span class="ref-authors">Tobler, W. R.</span> <span class="ref-title">A computer movie simulating urban growth in the Detroit region</span>. <span class="ref-journal">Economic Geography, 46(Supplement), 234–240, 1970.</span> <a class="ref-link" href="https://doi.org/10.2307/143141" target="_blank" rel="noopener noreferrer">Open link</a></li>
             </ol>
@@ -2048,8 +2097,8 @@
           <i class="fas fa-chart-column"></i>
         </div>
         <div class="page-hero-text">
-          <h1>Comparative Data Dashboard</h1>
-          <p>Inspect indicator distributions, compare country performance across categories, and read the comparative metrics in a more structured analytical layout.</p>
+          <h1 style="color:#ffffff;">Comparative Data Dashboard</h1>
+          <p style="color:rgba(255,255,255,0.85);">Inspect indicator distributions and compare country performance across categories.</p>
         </div>
       </div>
     </header>
@@ -2086,16 +2135,7 @@
     <div class="comparison-panel glass">
       <div class="compare-header">
         <h3 class="panel-title"><i class="fas fa-balance-scale"></i> Country Comparison</h3>
-      </div>
-
-      <div class="category-controls">
-        <span class="category-label">Category:</span>
-        <div class="category-btns">
-          <button class="compare-btn active" data-metric="all">All Metrics</button>
-          <button class="compare-btn" data-metric="parks">Park Data</button>
-          <button class="compare-btn" data-metric="development">Development</button>
-          <button class="compare-btn" data-metric="region">Regional</button>
-        </div>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);margin:4px 0 0 0;">Click <strong style="color:#6ee7b7;">Add Country</strong> below to select countries, then compare their metrics in the table.</p>
       </div>
 
       <div class="measurement-controls">
@@ -2133,70 +2173,7 @@
       </div><!-- end .container -->
     </div><!-- end #page-data -->
 
-    <!-- ======= PAGE 4: AI INSIGHTS ======= -->
-    <div class="page" id="page-ai">
-      <div class="container">
 
-    <header class="page-hero">
-      <div class="page-hero-content">
-        <div class="page-hero-icon" style="background: linear-gradient(135deg, #667eea, #8b5cf6);">
-          <i class="fas fa-brain"></i>
-        </div>
-        <div class="page-hero-text">
-          <h1>AI Insights</h1>
-          <p>Review synthesized observations generated from the collected dataset and the baseline analysis in this dashboard, with suggestions meant for interpretation rather than exact prediction.</p>
-        </div>
-      </div>
-    </header>
-
-    <!-- AI Analysis Panel -->
-    <div class="ai-panel glass">
-      <div class="ai-header">
-        <div class="ai-title">
-          <div class="ai-icon">
-            <i class="fas fa-brain"></i>
-          </div>
-          <div>
-            <h3>AI Insights</h3>
-            <span>Data-grounded summary powered by machine learning</span>
-            <div class="ai-summary-note">This section interprets the collected dataset and the baseline analysis already completed in the dashboard. It offers synthesized observations and practical suggestions, but it should be read as directional support rather than fully precise or definitive output.</div>
-          </div>
-        </div>
-        <button class="ai-analyze-btn" id="aiAnalyzeBtn" onclick="performAIAnalysis()">
-          <i class="fas fa-magic"></i>
-          <span>Analyze</span>
-        </button>
-      </div>
-
-      <div class="ai-context">
-        <button class="context-tag active" data-context="global">Global Trends</button>
-        <button class="context-tag" data-context="regions">Regional Patterns</button>
-        <button class="context-tag" data-context="clusters">Country Clusters</button>
-        <button class="context-tag" data-context="future">Future Projections</button>
-      </div>
-
-      <!-- Country selection for AI analysis -->
-      <div class="ai-country-selector">
-        <div class="ai-country-selector-label"><i class="fas fa-flag"></i> &nbsp;Countries included in this summary:</div>
-        <div class="ai-selected-countries" id="aiSelectedCountries">
-          Choose one or more countries to focus the summary, or leave it empty to use the full collected dataset.
-        </div>
-        <button class="ai-add-country-btn" onclick="openCountryPicker()">
-          <i class="fas fa-plus"></i> Add Country
-        </button>
-        <div class="ai-country-selector-note">The generated text is based on the indicators and exploratory analysis already shown in this project. It summarizes patterns in the available data and proposes combined suggestions instead of claiming exact prediction-level accuracy.</div>
-      </div>
-
-      <div class="ai-response">
-        <div class="ai-response-placeholder">
-          <i class="fas fa-lightbulb"></i>
-          <p>Click "Analyze" to generate a data-grounded summary of the collected indicators, regional patterns, and practical suggestions.</p>
-        </div>
-      </div>
-    </div><!-- end ai-panel -->
-
-      </div><!-- end .container -->
-    </div><!-- end #page-ai -->
 
     <!-- Country Picker Modal (global, accessible from all pages) -->
     <div class="picker-overlay" id="pickerModal">
@@ -2209,6 +2186,10 @@
   </div><!-- end .page-content -->
 
   <script>
+    // Set Chart.js global text color to white for dark background
+    Chart.defaults.color = 'rgba(255,255,255,0.75)';
+    Chart.defaults.borderColor = 'rgba(255,255,255,0.1)';
+
     // Global variables
     let map;
     let currentLayer = 'livability';
@@ -2228,7 +2209,7 @@
       if (page) page.classList.add('active');
       if (tab) tab.classList.add('active');
       if (name === 'map') {
-        setTimeout(function() { if (map) map.invalidateSize(); }, 150);
+        ensureMapReady();
       }
     }
 
@@ -2243,8 +2224,8 @@
         // Update stats with real data
         updateStats();
 
-        // Initialize map and charts
-        initMap();
+        // Initialize visual modules. Map is lazily initialized on first visit to avoid hidden-container render glitches.
+        ensureMapReady();
         initCharts();
         renderCountryList();
         renderMetricsTable();
@@ -2259,6 +2240,7 @@
 
     // Initialize the map
     function initMap() {
+      if (map) return;
       map = L.map('map', {
         maxBounds: [[-85, -180], [85, 180]],
         maxBoundsViscosity: 1.0,
@@ -2301,6 +2283,21 @@
           markers.push(marker);
         }
       });
+    }
+
+    function ensureMapReady() {
+      const mapPage = document.getElementById('page-map');
+      if (!mapPage || !mapPage.classList.contains('active')) return;
+
+      if (!map && countryData.length > 0) {
+        initMap();
+      }
+
+      if (map) {
+        setTimeout(function() {
+          map.invalidateSize(true);
+        }, 250);
+      }
     }
 
     // Per-layer color logic — each layer gets a distinct hue palette
@@ -2441,11 +2438,11 @@
           { label: 'OSM-derived', color: '#d1fae5', border: '#059669', text: '#065f46' }
         ],
         refs: [
-          'Wood, L., Martin, K., Christian, H. et al. (2017). The Pet Factor — Companion Animals as a Conduit for Getting to Know People, Friendship Formation and Social Support. <em>PLOS ONE</em>, 12(4).',
-          'Wan, C., & Shen, G. Q. (2015). Encouraging the use of urban green space: The mediating role of attitude, perceived usefulness and perceived behavioural control. <em>Habitat International</em>, 50, 130–139.',
-          'Luo, W., & Wang, F. (2003). Measures of spatial accessibility to health care in a GIS environment. <em>Environment and Planning B</em>, 30(6), 865–884.',
-          'Wolch, J. R., Byrne, J., & Newell, J. P. (2014). Urban green space, public health, and environmental justice. <em>Landscape and Urban Planning</em>, 125, 234–244.',
-          'UN DESA (2023). <em>World Population Prospects 2022</em>. United Nations.'
+          { authors: 'Wood, L., Martin, K., Christian, H. et al.', title: 'The Pet Factor — Companion Animals as a Conduit for Getting to Know People, Friendship Formation and Social Support.', journal: 'PLOS ONE, 2015.', url: 'https://scholar.google.com/scholar?q=Pet+Factor+Companion+Animals+Conduit+Getting+Know+People+Friendship+Formation+Social+Support+Wood' },
+          { authors: 'Wan, C., & Shen, G. Q.', title: 'Encouraging the use of urban green space: The mediating role of attitude, perceived usefulness and perceived behavioural control.', journal: 'Habitat International, 50, 130–139, 2015.', url: 'https://scholar.google.com/scholar?q=Encouraging+use+urban+green+space+mediating+role+attitude+Wan+Shen+2015' },
+          { authors: 'Luo, W., & Wang, F.', title: 'Measures of spatial accessibility to health care in a GIS environment.', journal: 'Environment and Planning B, 30(6), 865–884, 2003.', url: 'https://scholar.google.com/scholar?q=Measures+spatial+accessibility+health+care+GIS+environment+Luo+Wang+2003' },
+          { authors: 'Wolch, J. R., Byrne, J., & Newell, J. P.', title: 'Urban green space, public health, and environmental justice.', journal: 'Landscape and Urban Planning, 125, 234–244, 2014.', url: 'https://scholar.google.com/scholar?q=Urban+green+space+public+health+environmental+justice+Wolch+Byrne+Newell+2014' },
+          { authors: 'UN DESA.', title: 'World Population Prospects 2022.', journal: 'United Nations, 2023.', url: 'https://population.un.org/wpp/' }
         ]
       },
       greenspace: {
@@ -2458,11 +2455,11 @@
           { label: 'Density Score', color: '#fef3c7', border: '#ca8a04', text: '#713f12' }
         ],
         refs: [
-          'FAO (2016). <em>Guidelines on Urban and Peri-urban Forestry</em>. Forestry Paper No. 178. Rome: Food and Agriculture Organization of the United Nations.',
-          'Nowak, D. J., & Greenfield, E. J. (2012). Tree and impervious cover change in U.S. cities. <em>Urban Forestry & Urban Greening</em>, 11(1), 21–30.',
-          'Jim, C. Y., & Chen, W. Y. (2006). Recreation-amenity use and contingent valuation of urban green spaces in Guangzhou, China. <em>Landscape and Urban Planning</em>, 75(1–2), 81–96.',
-          'Sandström, U. G. (2002). Green infrastructure planning in urban Sweden. <em>Planning Practice and Research</em>, 17(4), 373–385.',
-          'Tzoulas, K. et al. (2007). Promoting ecosystem and human health in urban areas using Green Infrastructure. <em>Landscape and Urban Planning</em>, 81(3), 167–178.'
+          { authors: 'FAO.', title: 'Guidelines on Urban and Peri-urban Forestry.', journal: 'Forestry Paper No. 178. Rome: Food and Agriculture Organization of the United Nations, 2016.', url: 'https://openknowledge.fao.org/handle/20.500.14283/i6210e' },
+          { authors: 'Nowak, D. J., & Greenfield, E. J.', title: 'Tree and impervious cover change in U.S. cities.', journal: 'Urban Forestry & Urban Greening, 11(1), 21–30, 2012.', url: 'https://scholar.google.com/scholar?q=Tree+impervious+cover+change+US+cities+Nowak+Greenfield+2012' },
+          { authors: 'Jim, C. Y., & Chen, W. Y.', title: 'Recreation-amenity use and contingent valuation of urban green spaces in Guangzhou, China.', journal: 'Landscape and Urban Planning, 75(1–2), 81–96, 2006.', url: 'https://scholar.google.com/scholar?q=Recreation+amenity+use+contingent+valuation+urban+green+spaces+Guangzhou+Jim+Chen+2006' },
+          { authors: 'Sandström, U. G.', title: 'Green infrastructure planning in urban Sweden.', journal: 'Planning Practice and Research, 17(4), 373–385, 2002.', url: 'https://scholar.google.com/scholar?q=Green+infrastructure+planning+urban+Sweden+Sandstrom+2002' },
+          { authors: 'Tzoulas, K. et al.', title: 'Promoting ecosystem and human health in urban areas using Green Infrastructure.', journal: 'Landscape and Urban Planning, 81(3), 167–178, 2007.', url: 'https://scholar.google.com/scholar?q=Promoting+ecosystem+human+health+urban+areas+Green+Infrastructure+Tzoulas+2007' }
         ]
       },
       aging: {
@@ -2475,11 +2472,11 @@
           { label: 'Income Proxy', color: '#fee2e2', border: '#dc2626', text: '#7f1d1d' }
         ],
         refs: [
-          'UN DESA (2022). <em>World Population Ageing 2022: Highlights</em>. United Nations Department of Economic and Social Affairs.',
-          'WHO (2007). <em>Global Age-friendly Cities: A Guide</em>. World Health Organization, Geneva.',
-          'Bloom, D. E., Canning, D., & Fink, G. (2010). Implications of population ageing for economic growth. <em>Oxford Review of Economic Policy</em>, 26(4), 583–612.',
-          'Buffel, T., Phillipson, C., & Scharf, T. (2012). Ageing in urban environments. <em>Cities</em>, 29(2), 77–87.',
-          'OECD (2021). <em>Ageing and Employment Policies: Statistics on Average Effective Age of Retirement</em>. OECD Publishing, Paris.'
+          { authors: 'UN DESA.', title: 'World Population Ageing 2023: Challenges and opportunities of population ageing in the least developed countries.', journal: 'United Nations Department of Economic and Social Affairs, 2023.', url: 'https://www.un.org/development/desa/pd/content/world-population-ageing-2023' },
+          { authors: 'WHO.', title: 'Global Age-friendly Cities: A Guide.', journal: 'World Health Organization, Geneva, 2007.', url: 'https://www.who.int/publications/i/item/9789241547307' },
+          { authors: 'Bloom, D. E., Canning, D., & Fink, G.', title: 'Implications of population ageing for economic growth.', journal: 'Oxford Review of Economic Policy, 26(4), 583–612, 2010.', url: 'https://doi.org/10.1093/oxrep/grq038' },
+          { authors: 'Buffel, T., Phillipson, C., & Scharf, T.', title: 'Ageing in urban environments.', journal: 'Cities, 29(2), 77–87, 2012.', url: 'https://scholar.google.com/scholar?q=Ageing+urban+environments+Buffel+Phillipson+Scharf+2012' },
+          { authors: 'OECD.', title: 'Ageing and Employment Policies: Statistics on Average Effective Age of Retirement.', journal: 'OECD Publishing, Paris, 2021.', url: 'https://scholar.google.com/scholar?q=Ageing+and+Employment+Policies+Statistics+on+Average+Effective+Age+of+Retirement+OECD' }
         ]
       },
       urban: {
@@ -2492,11 +2489,11 @@
           { label: 'Income Proxy', color: '#dbeafe', border: '#1d4ed8', text: '#1e3a8a' }
         ],
         refs: [
-          'UN-Habitat (2020). <em>World Cities Report 2020: The Value of Sustainable Urbanization</em>. Nairobi: UN-Habitat.',
-          'Seto, K. C., Güneralp, B., & Hutyra, L. R. (2012). Global forecasts of urban expansion to 2030 and direct impacts on biodiversity and carbon pools. <em>PNAS</em>, 109(40), 16083–16088.',
-          'Montgomery, M. R. (2008). The urban transformation of the developing world. <em>Science</em>, 319(5864), 761–764.',
-          'World Bank (2023). <em>Urban Development Overview</em>. Washington DC: The World Bank Group.',
-          'Angel, S. et al. (2011). Making room for a planet of cities. <em>Policy Focus Report</em>. Lincoln Institute of Land Policy.'
+          { authors: 'UN-Habitat.', title: 'World Cities Report 2020: The Value of Sustainable Urbanization.', journal: 'Nairobi: UN-Habitat, 2020.', url: 'https://unhabitat.org/world-cities-report-2020-the-value-of-sustainable-urbanization' },
+          { authors: 'Seto, K. C., Güneralp, B., & Hutyra, L. R.', title: 'Global forecasts of urban expansion to 2030 and direct impacts on biodiversity and carbon pools.', journal: 'PNAS, 109(40), 16083–16088, 2012.', url: 'https://scholar.google.com/scholar?q=Global+forecasts+urban+expansion+2030+biodiversity+carbon+pools+Seto+Guneralp+Hutyra+2012' },
+          { authors: 'Montgomery, M. R.', title: 'The urban transformation of the developing world.', journal: 'Science, 319(5864), 761–764, 2008.', url: 'https://scholar.google.com/scholar?q=Urban+transformation+developing+world+Montgomery+2008+Science' },
+          { authors: 'World Bank.', title: 'Urban Development Overview.', journal: 'Washington DC: The World Bank Group, 2023.', url: 'https://www.worldbank.org/en/topic/urbandevelopment' },
+          { authors: 'Angel, S. et al.', title: 'Making Room for a Planet of Cities.', journal: 'Policy Focus Report. Lincoln Institute of Land Policy, 2011.', url: 'https://www.lincolninst.edu/publications/policy-focus-reports/making-room-planet-cities' }
         ]
       },
       dogparks: {
@@ -2509,11 +2506,11 @@
           { label: 'Per-capita Rate', color: '#ede9fe', border: '#7c3aed', text: '#4c1d95' }
         ],
         refs: [
-          'Lottrup, L., Grahn, P., & Stigsdotter, U. K. (2013). Workplace greenery and perceived level of stress. <em>Landscape and Urban Planning</em>, 110, 5–11.',
-          'Christian, H. et al. (2018). Dog ownership and physical activity: A review of the evidence. <em>Journal of Physical Activity and Health</em>, 10(5), 750–759.',
-          'Bedimo-Rung, A. L., Mowen, A. J., & Cohen, D. A. (2005). The significance of parks to physical activity and public health. <em>American Journal of Preventive Medicine</em>, 28(2), 159–168.',
-          'Jeong, B., & Lee, J. (2022). Assessing OSM data quality for urban green space analysis. <em>ISPRS International Journal of Geo-Information</em>, 11(3), 165.',
-          'Wood, L., Martin, K., Christian, H. et al. (2015). Social capital and pet ownership — A tale of four cities. <em>SSM — Population Health</em>, 1, 44–51.'
+          { authors: 'Lottrup, L., Grahn, P., & Stigsdotter, U. K.', title: 'Workplace greenery and perceived level of stress.', journal: 'Landscape and Urban Planning, 110, 5–11, 2013.', url: 'https://scholar.google.com/scholar?q=Workplace+greenery+perceived+level+stress+Lottrup+Grahn+Stigsdotter+2013' },
+          { authors: 'Christian, H. et al.', title: 'Dog ownership and physical activity: A review of the evidence.', journal: 'Journal of Physical Activity and Health, 10(5), 750–759, 2013.', url: 'https://scholar.google.com/scholar?q=Dog+ownership+physical+activity+review+evidence+Christian+2013' },
+          { authors: 'Bedimo-Rung, A. L., Mowen, A. J., & Cohen, D. A.', title: 'The significance of parks to physical activity and public health.', journal: 'American Journal of Preventive Medicine, 28(2), 159–168, 2005.', url: 'https://scholar.google.com/scholar?q=Significance+parks+physical+activity+public+health+Bedimo-Rung+Mowen+Cohen+2005' },
+          { authors: 'Cui, N., Malleson, N., Houlden, V., & Comber, A.', title: 'Using VGI and social media data to understand urban green space: a narrative literature review.', journal: 'ISPRS International Journal of Geo-Information, 10(7), 425, 2021.', url: 'https://doi.org/10.3390/ijgi10070425' },
+          { authors: 'Wood, L., Martin, K., Christian, H. et al.', title: 'Social capital and pet ownership — A tale of four cities.', journal: 'SSM — Population Health, 3, 442–447, 2017.', url: 'https://www.sciencedirect.com/science/article/pii/S2352827317300344' }
         ]
       }
     };
@@ -2549,9 +2546,9 @@
           </div>
           <div class="layer-info-block">
             <h4><i class="fas fa-graduation-cap" style="color:${info.badge.color}"></i> Key Academic References</h4>
-            <ul class="ref-list">
-              ${info.refs.map(r => `<li>${r}</li>`).join('')}
-            </ul>
+            <ol class="ref-list">
+              ${info.refs.map(r => `<li><span class="ref-authors">${r.authors}</span> <span class="ref-title">${r.title}</span> <span class="ref-journal">${r.journal}</span> <a class="ref-link" href="${r.url}" target="_blank" rel="noopener noreferrer">Open link</a></li>`).join('')}
+            </ol>
           </div>
         </div>
       `;
@@ -2791,11 +2788,11 @@
             <div style="display: flex; align-items: center; flex: 1;">
               <div class="country-rank ${rankClass}">${index + 1}</div>
               <div style="flex: 1;">
-                <div style="font-weight: 600; color: var(--text);">${name}</div>
-                <div style="font-size: 0.7rem; color: var(--text-light);">${country.country_code || ''}</div>
+                <div style="font-weight: 600; color: rgba(240,255,249,0.9);">${name}</div>
+                <div style="font-size: 0.7rem; color: rgba(110,231,183,0.75);">${country.country_code || ''}</div>
               </div>
             </div>
-            <div style="font-weight: 700; color: var(--primary-dark);">${value.toFixed(1)}${metric === 'forest' ? '' : metric === 'elderly' ? '%' : ''}</div>
+            <div style="font-weight: 700; color: #34d399;">${value.toFixed(1)}${metric === 'forest' ? '' : metric === 'elderly' ? '%' : ''}</div>
           </div>
         `;
       }).join('');
@@ -2854,7 +2851,7 @@
       const tbody = document.getElementById('metricsTableBody');
 
       if (countries.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px; color: var(--text-light);">Select countries to compare</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px; color: rgba(255,255,255,0.5);">Select countries above to compare</td></tr>';
         return;
       }
 
@@ -2863,17 +2860,45 @@
         const parksPer100k = parseFloat(country.parks_per_100k) || 0;
         const density = parseFloat(country.park_density_score) || 0;
         const percentile = parseFloat(country.global_percentile) || 0;
-        const rank = country.global_rank || 'N/A';
-        const tier = country.tier || 'N/A';
+        const rank = parseInt(country.global_rank) || 0;
+
+        let col1, col2, col3, col4, col5;
+
+        if (currentMeasurement === 'rank') {
+          // Show rank among ALL countries for each metric
+          const allParks = countryData.map(c => parseFloat(c.n_parks) || 0).sort((a,b) => b-a);
+          const allPer100k = countryData.map(c => parseFloat(c.parks_per_100k) || 0).sort((a,b) => b-a);
+          const allDensity = countryData.map(c => parseFloat(c.park_density_score) || 0).sort((a,b) => b-a);
+          col1 = '#' + (allParks.indexOf(parks) + 1);
+          col2 = '#' + (allPer100k.indexOf(parksPer100k) + 1);
+          col3 = '#' + (allDensity.indexOf(density) + 1);
+          col4 = '#' + rank;
+          col5 = country.tier || 'N/A';
+        } else if (currentMeasurement === 'percentage') {
+          const maxParks = Math.max(...countryData.map(c => parseFloat(c.n_parks) || 0));
+          const maxPer100k = Math.max(...countryData.map(c => parseFloat(c.parks_per_100k) || 0));
+          const maxDensity = Math.max(...countryData.map(c => parseFloat(c.park_density_score) || 0));
+          col1 = (parks / maxParks * 100).toFixed(1) + '%';
+          col2 = (parksPer100k / maxPer100k * 100).toFixed(1) + '%';
+          col3 = (density / maxDensity * 100).toFixed(1) + '%';
+          col4 = percentile.toFixed(1) + '%';
+          col5 = (rank > 0 ? ((countryData.length - rank) / countryData.length * 100).toFixed(1) + '%' : 'N/A');
+        } else {
+          col1 = parks;
+          col2 = parksPer100k.toFixed(2);
+          col3 = density.toFixed(1);
+          col4 = percentile.toFixed(1) + '%';
+          col5 = rank || 'N/A';
+        }
 
         return `
           <tr>
             <td>${country.country_name}</td>
-            <td class="${getBestClass(countries, 'parks', country, parks)}">${parks}</td>
-            <td class="${getBestClass(countries, 'parksPer100k', country, parksPer100k)}">${parksPer100k.toFixed(2)}</td>
-            <td class="${getBestClass(countries, 'density', country, density)}">${density.toFixed(1)}</td>
-            <td class="${getBestClass(countries, 'percentile', country, percentile)}">${percentile.toFixed(1)}%</td>
-            <td class="${getBestClass(countries, 'rank', country, rank)}">${rank}</td>
+            <td class="${getBestClass(countries, 'parks', country, parks)}">${col1}</td>
+            <td class="${getBestClass(countries, 'parksPer100k', country, parksPer100k)}">${col2}</td>
+            <td class="${getBestClass(countries, 'density', country, density)}">${col3}</td>
+            <td class="${getBestClass(countries, 'percentile', country, percentile)}">${col4}</td>
+            <td class="${getBestClass(countries, 'rank', country, rank)}">${col5}</td>
           </tr>
         `;
       }).join('');
@@ -2942,83 +2967,9 @@
       closePicker();
     }
 
-    // Perform AI analysis
-    function performAIAnalysis() {
-      const btn = document.getElementById('aiAnalyzeBtn');
-      btn.classList.add('loading');
-      btn.disabled = true;
-
-      // Simulate AI analysis
-      setTimeout(() => {
-        const response = document.querySelector('.ai-response');
-        const analysis = generateAIAnalysis();
-
-        response.innerHTML = `
-          <div class="ai-response-content">
-            <p class="ai-country-selector-note" style="margin:0 0 16px 0; padding-top:0; border-top:none;">This summary is generated from the collected dashboard dataset and the baseline comparative analysis already available here. It is intended to synthesize patterns and suggest actions, not to provide exact forecasts or fully authoritative causal claims.</p>
-            <h4><i class="fas fa-chart-line"></i> Global Trends Analysis</h4>
-            <p>${analysis.trends}</p>
-
-            <h4><i class="fas fa-map-marked-alt"></i> Regional Patterns</h4>
-            <p>${analysis.regions}</p>
-
-            <h4><i class="fas fa-lightbulb"></i> Key Insights</h4>
-            <ul>
-              ${analysis.insights.map(insight => `<li>${insight}</li>`).join('')}
-            </ul>
-
-            <h4><i class="fas fa-rocket"></i> Recommendations</h4>
-            <p>${analysis.recommendations}</p>
-          </div>
-        `;
-
-        btn.classList.remove('loading');
-        btn.disabled = false;
-      }, 2000);
-    }
-
-    // Generate AI analysis content
-    function generateAIAnalysis() {
-      const selectedNames = selectedCountries.length > 0
-        ? findCountryData(selectedCountries).map(c => c.country_name || c.country_name_full || c.country_code).join(', ')
-        : 'the full collected dataset';
-
-      return {
-        trends: `Based on ${selectedNames}, the comparative dataset suggests a consistent relationship between greener urban environments and stronger livability outcomes. Higher forest cover and better park access tend to align with stronger urban comfort, lower heat stress exposure, and more resilient day-to-day living conditions.`,
-
-        regions: `The regional pattern in the collected indicators remains uneven. European countries generally lead on integrated green infrastructure and age-friendly urban conditions, several Asian cities show active improvement in park provision, and lower-scoring countries often appear constrained by weaker green-space coverage or uneven urban service access rather than by a single factor alone.`,
-
-        insights: [
-          "Stronger park access and greener land-cover indicators tend to appear together in higher-ranked countries",
-          "Countries with more balanced performance across environment, aging, and urbanization indicators usually outperform places that rely on one strong metric alone",
-          "Dense urban systems appear to benefit most when green infrastructure is distributed rather than concentrated in only a few flagship spaces",
-          "The dashboard patterns support practical planning recommendations, but they should still be checked against local policy and ground conditions"
-        ],
-
-        recommendations: "Use the current dataset as a directional planning guide: expand connected green networks, improve neighborhood-level park access, design for aging populations, and compare policy choices with countries showing similar profiles before translating these findings into local action."
-      };
-    }
-
     // Setup event listeners
     function setupEventListeners() {
       document.getElementById("rankingMetric").addEventListener("change", renderCountryList);
-
-      document.querySelectorAll(".context-tag").forEach(tag => {
-        tag.addEventListener("click", () => {
-          document.querySelectorAll(".context-tag").forEach(t => t.classList.remove("active"));
-          tag.classList.add("active");
-          currentContext = tag.dataset.context;
-        });
-      });
-
-      document.querySelectorAll(".compare-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".compare-btn").forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          currentMetricFilter = btn.dataset.metric;
-          updateMetricsTable();
-        });
-      });
 
       document.querySelectorAll(".measure-btn").forEach(btn => {
         btn.addEventListener("click", () => {
@@ -3061,6 +3012,11 @@
       console.log('Starting dashboard initialization...');
       loadCountryData();
       setupEventListeners();
+      window.addEventListener('resize', () => {
+        if (map) {
+          map.invalidateSize(true);
+        }
+      });
     });
   </script>
 </body>
