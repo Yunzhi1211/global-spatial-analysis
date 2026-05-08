@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌍 Global Green Space & Health Accessibility - Advanced Analytics Dashboard</title>
+    
+    <!-- Leaflet for base map -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    
+    <!-- Leaflet Heatmap plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-heat/0.2.0/leaflet-heat.js"></script>
+    
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    
+    <!-- DataTables -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.13.4/js/jquery.dataTables.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .main-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+        
+        .sidebar {
+            width: 320px;
+            background: #16213e;
+            overflow-y: auto;
+            border-right: 1px solid #0f3460;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+        
+        .sidebar h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .filter-group {
+            margin-bottom: 20px;
+        }
+        
+        .filter-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #aaa;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .filter-group select, .filter-group input {
+            width: 100%;
+            padding: 10px;
+            background: #0f3460;
+            border: 1px solid #00d4ff;
+            color: #eee;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        
+        .filter-group select:focus, .filter-group input:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+        }
+        
+        .stats-box {
+            background: #0f3460;
+            padding: 12px;
+            border-left: 3px solid #00d4ff;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .stats-box .label {
+            color: #aaa;
+        }
+        
+        .stats-box .value {
+            color: #00ff88;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        #map {
+            flex: 1;
+            position: relative;
+        }
+        
+        .map-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .map-controls button {
+            padding: 8px 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .map-controls button:hover {
+            background: #764ba2;
+        }
+        
+        .map-controls button.active {
+            background: #f5576c;
+        }
+        
+        .legend {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 10;
+            max-width: 250px;
+            font-size: 12px;
+        }
+        
+        .legend-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 6px 0;
+        }
+        
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+        
+        .right-panel {
+            width: 0;
+            background: #16213e;
+            border-left: 1px solid #0f3460;
+            overflow-y: auto;
+            transition: width 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .right-panel.active {
+            width: 380px;
+        }
+        
+        .panel-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-bottom: 1px solid #0f3460;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .panel-header h3 {
+            font-size: 18px;
+        }
+        
+        .close-btn {
+            cursor: pointer;
+            font-size: 24px;
+            transition: transform 0.2s;
+        }
+        
+        .close-btn:hover {
+            transform: scale(1.2);
+        }
+        
+        .panel-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .metric-card:nth-child(2) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .metric-card:nth-child(3) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .metric-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .metric-compare {
+            font-size: 12px;
+            opacity: 0.85;
+        }
+        
+        .chart-container {
+            background: #0f3460;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        #comparison-chart {
+            height: 180px;
+        }
+        
+        .insights-box {
+            background: #0f3460;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #00ff88;
+            margin: 15px 0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .data-table {
+            font-size: 12px;
+            width: 100%;
+        }
+        
+        .data-table th {
+            background: #0f3460;
+            color: #00d4ff;
+            padding: 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            padding: 8px;
+            border-bottom: 1px solid #0f3460;
+            color: #eee;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0f3460;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #00d4ff;
+            border-radius: 4px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #00d4ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- LEFT SIDEBAR -->
+        <div class="sidebar">
+            <h2>🎛️ Controls & Filters</h2>
+            
+            <!-- Region Filter -->
+            <div class="filter-group">
+                <label>Region</label>
+                <select id="regionFilter">
+                    <option value="">All Regions</option>
+                </select>
+            </div>
+            
+            <!-- Development Level Filter -->
+            <div class="filter-group">
+                <label>Development Level</label>
+                <select id="developmentFilter">
+                    <option value="">All Levels</option>
+                    <option value="High Income">High Income</option>
+                    <option value="Upper-Middle Income">Upper-Middle Income</option>
+                    <option value="Lower-Middle Income">Lower-Middle Income</option>
+                    <option value="Low Income">Low Income</option>
+                </select>
+            </div>
+            
+            <!-- Score Range Filter -->
+            <div class="filter-group">
+                <label>Overall Score Range</label>
+                <input type="range" id="scoreRange" min="0" max="100" value="0" style="width: 100%;">
+                <span id="scoreValue">0+</span>
+            </div>
+            
+            <!-- Visualization Mode -->
+            <div class="filter-group">
+                <label>Visualization Mode</label>
+                <select id="vizMode">
+                    <option value="markers">Point Markers</option>
+                    <option value="heatmap">Heatmap</option>
+                    <option value="clusters">Cluster View</option>
+                    <option value="choropleth">Regional Choropleth</option>
+                </select>
+            </div>
+            
+            <!-- Statistics -->
+            <div style="margin-top: 30px;">
+                <h2 style="font-size: 14px; margin-bottom: 10px;">📊 Global Stats</h2>
+                <div class="stats-box">
+                    <div class="label">Total Countries</div>
+                    <div class="value" id="countryCount">-</div>
+                </div>
+                <div class="stats-box">
+                    <div class="label">Average Score</div>
+                    <div class="value" id="avgScore">-</div>
+                </div>
+                <div class="stats-box">
+                    <div class="label">Highest</div>
+                    <div class="value" id="maxScore">-</div>
+                </div>
+                <div class="stats-box">
+                    <div class="label">Lowest</div>
+                    <div class="value" id="minScore">-</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MAP -->
+        <div id="map">
+            <div class="map-controls">
+                <button id="btn3d">3D View</button>
+                <button id="btnReset">Reset</button>
+                <button id="btnExport">Export Data</button>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-title">Overall Score</div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #31a354;"></div>
+                    <span>Excellent (75+)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #addd8e;"></div>
+                    <span>Good (60-74)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ffffcc;"></div>
+                    <span>Fair (40-59)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ffeda0;"></div>
+                    <span>Poor (20-39)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ff6b6b;"></div>
+                    <span>Critical (&lt;20)</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+            <div class="panel-header">
+                <h3 id="countryName">Select a Country</h3>
+                <span class="close-btn" onclick="closePanel()">✕</span>
+            </div>
+            
+            <div class="panel-content">
+                <!-- Metric Cards -->
+                <div style="margin-bottom: 10px;">
+                    <div class="metric-card">
+                        <div class="metric-label">Green Space Index</div>
+                        <div class="metric-value" id="greenScore">-</div>
+                        <div class="metric-compare" id="greenCompare">-</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Health Index</div>
+                        <div class="metric-value" id="healthScore">-</div>
+                        <div class="metric-compare" id="healthCompare">-</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Healthcare Access</div>
+                        <div class="metric-value" id="accessScore">-</div>
+                        <div class="metric-compare" id="accessCompare">-</div>
+                    </div>
+                </div>
+                
+                <!-- Overall Score Progress -->
+                <div style="background: #0f3460; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <div style="font-size: 12px; color: #aaa; margin-bottom: 8px;">Overall Score</div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="flex: 1; height: 30px; background: #1a1a2e; border-radius: 4px; overflow: hidden;">
+                            <div id="scoreBar" style="height: 100%; background: linear-gradient(90deg, #ff6b6b, #ffeda0, #ffffcc, #addd8e, #31a354); width: 0%; transition: width 0.3s;"></div>
+                        </div>
+                        <div id="scorePercent" style="color: #00ff88; font-weight: 700; width: 45px; text-align: right;">-</div>
+                    </div>
+                </div>
+                
+                <!-- Comparison Chart -->
+                <div class="chart-container">
+                    <canvas id="comparison-chart"></canvas>
+                </div>
+                
+                <!-- Regional Rank -->
+                <div class="insights-box">
+                    <strong>🏆 Global Ranking</strong><br>
+                    <div id="rankingInfo" style="margin-top: 8px;">-</div>
+                </div>
+                
+                <!-- Key Insights -->
+                <div class="insights-box">
+                    <strong>💡 Key Insights</strong><br>
+                    <div id="insights" style="margin-top: 8px;">-</div>
+                </div>
+                
+                <!-- Country Details Table -->
+                <div style="margin-top: 15px;">
+                    <div style="font-weight: 700; font-size: 12px; color: #aaa; margin-bottom: 8px; text-transform: uppercase;">Additional Info</div>
+                    <table class="data-table">
+                        <tr>
+                            <td style="color: #aaa;">Region:</td>
+                            <td id="detailRegion">-</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #aaa;">Population (M):</td>
+                            <td id="detailPopulation">-</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #aaa;">GDP per Capita (USD):</td>
+                            <td id="detailGDP">-</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #aaa;">Development:</td>
+                            <td id="detailDevelopment">-</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================================
+        // 全局状态
+        // ============================================================================
+        
+        let map;
+        let worldData = null;
+        let filteredData = null;
+        let selectedCountry = null;
+        let markers = [];
+        let heatmapLayer = null;
+        let currentVizMode = 'markers';
+        let comparisonChart = null;
+        
+        // ============================================================================
+        // 初始化地图
+        // ============================================================================
+        
+        map = L.map('map').setView([20, 0], 2);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap',
+            maxZoom: 19,
+            opacity: 0.85
+        }).addTo(map);
+        
+        // ============================================================================
+        // 加载数据
+        // ============================================================================
+        
+        function loadData() {
+            console.log('Loading enhanced global data...');
+            
+            fetch('data/world_data_enhanced.geojson')
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    return response.json();
+                })
+                .then(data => {
+                    worldData = data;
+                    filteredData = [...data.features];
+                    
+                    initializeFilters();
+                    updateStatistics();
+                    visualizeData();
+                    
+                    console.log('✅ Data loaded:', data.features.length, 'countries');
+                })
+                .catch(error => {
+                    console.error('Error loading data:', error);
+                    alert('Failed to load data. Check console.');
+                });
+        }
+        
+        loadData();
+        
+        // ============================================================================
+        // 初始化过滤器
+        // ============================================================================
+        
+        function initializeFilters() {
+            const regions = [...new Set(worldData.features.map(f => f.properties.region))].sort();
+            const regionSelect = document.getElementById('regionFilter');
+            
+            regions.forEach(region => {
+                const option = document.createElement('option');
+                option.value = region;
+                option.textContent = region;
+                regionSelect.appendChild(option);
+            });
+            
+            // Add event listeners
+            document.getElementById('regionFilter').addEventListener('change', applyFilters);
+            document.getElementById('developmentFilter').addEventListener('change', applyFilters);
+            document.getElementById('scoreRange').addEventListener('input', (e) => {
+                document.getElementById('scoreValue').textContent = e.target.value + '+';
+                applyFilters();
+            });
+            document.getElementById('vizMode').addEventListener('change', (e) => {
+                currentVizMode = e.target.value;
+                visualizeData();
+            });
+        }
+        
+        function applyFilters() {
+            const region = document.getElementById('regionFilter').value;
+            const development = document.getElementById('developmentFilter').value;
+            const scoreMin = parseInt(document.getElementById('scoreRange').value);
+            
+            filteredData = worldData.features.filter(f => {
+                const props = f.properties;
+                return (
+                    (!region || props.region === region) &&
+                    (!development || props.development_level === development) &&
+                    (props.overall_score >= scoreMin)
+                );
+            });
+            
+            updateStatistics();
+            visualizeData();
+        }
+        
+        // ============================================================================
+        // 更新统计信息
+        // ============================================================================
+        
+        function updateStatistics() {
+            if (!filteredData || filteredData.length === 0) return;
+            
+            const scores = filteredData.map(f => f.properties.overall_score);
+            
+            document.getElementById('countryCount').textContent = filteredData.length;
+            document.getElementById('avgScore').textContent = (scores.reduce((a,b) => a+b) / scores.length).toFixed(1);
+            document.getElementById('maxScore').textContent = Math.max(...scores).toFixed(1);
+            document.getElementById('minScore').textContent = Math.min(...scores).toFixed(1);
+        }
+        
+        // ============================================================================
+        // 获取颜色
+        // ============================================================================
+        
+        function getColor(score) {
+            if (score >= 75) return '#31a354';
+            if (score >= 60) return '#addd8e';
+            if (score >= 45) return '#ffffcc';
+            if (score >= 30) return '#ffeda0';
+            return '#ff6b6b';
+        }
+        
+        // ============================================================================
+        // 数据可视化
+        // ============================================================================
+        
+        function visualizeData() {
+            // 清空之前的图层
+            markers.forEach(m => map.removeLayer(m));
+            markers = [];
+            if (heatmapLayer) map.removeLayer(heatmapLayer);
+            
+            if (currentVizMode === 'markers') {
+                visualizeMarkers();
+            } else if (currentVizMode === 'heatmap') {
+                visualizeHeatmap();
+            } else if (currentVizMode === 'clusters') {
+                visualizeCluster();
+            }
+        }
+        
+        function visualizeMarkers() {
+            filteredData.forEach(feature => {
+                const props = feature.properties;
+                const [lng, lat] = feature.geometry.coordinates;
+                const score = props.overall_score;
+                const color = getColor(score);
+                
+                const circle = L.circleMarker([lat, lng], {
+                    radius: Math.sqrt(score) / 2,
+                    fillColor: color,
+                    color: '#fff',
+                    weight: 1.5,
+                    opacity: 1,
+                    fillOpacity: 0.7
+                }).addTo(map);
+                
+                circle.on('click', () => onCountryClick(props));
+                circle.bindPopup(`<strong>${props.country}</strong><br>Score: ${score.toFixed(1)}/100`);
+                
+                markers.push(circle);
+            });
+        }
+        
+        function visualizeHeatmap() {
+            const heatData = filteredData.map(f => {
+                const [lng, lat] = f.geometry.coordinates;
+                const intensity = f.properties.overall_score / 100;
+                return [lat, lng, intensity];
+            });
+            
+            heatmapLayer = L.heatLayer(heatData, {
+                radius: 25,
+                blur: 15,
+                max: 1,
+                minOpacity: 0.3,
+                gradient: {0.0: '#ff6b6b', 0.3: '#ffeda0', 0.5: '#ffffcc', 0.7: '#addd8e', 1.0: '#31a354'}
+            }).addTo(map);
+        }
+        
+        function visualizeCluster() {
+            // Simple K-means clustering visualization
+            const clusterGroups = clusterCountries(filteredData, 5);
+            const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8'];
+            
+            clusterGroups.forEach((group, idx) => {
+                group.forEach(feature => {
+                    const [lng, lat] = feature.geometry.coordinates;
+                    const circle = L.circleMarker([lat, lng], {
+                        radius: 8,
+                        fillColor: colors[idx],
+                        color: '#fff',
+                        weight: 2,
+                        opacity: 1,
+                        fillOpacity: 0.6
+                    }).addTo(map);
+                    
+                    circle.on('click', () => onCountryClick(feature.properties));
+                    markers.push(circle);
+                });
+            });
+        }
+        
+        function clusterCountries(data, k) {
+            // 简单的K均值聚类
+            const points = data.map(f => ({
+                feature: f,
+                x: f.properties.overall_score,
+                y: f.properties.gdp_per_capita_usd / 1000
+            }));
+            
+            const clusters = [];
+            for (let i = 0; i < k; i++) {
+                clusters[i] = [];
+            }
+            
+            points.forEach(p => {
+                const cluster = Math.floor((p.x / 100) * k) % k;
+                clusters[cluster].push(p.feature);
+            });
+            
+            return clusters;
+        }
+        
+        // ============================================================================
+        // 点击国家
+        // ============================================================================
+        
+        function onCountryClick(props) {
+            selectedCountry = props;
+            updatePanel(props);
+            document.querySelector('.right-panel').classList.add('active');
+        }
+        
+        function updatePanel(props) {
+            document.getElementById('countryName').textContent = props.country;
+            
+            // 更新指标
+            updateMetrics(props);
+            updateChart(props);
+            updateInsights(props);
+            
+            document.getElementById('detailRegion').textContent = props.region;
+            document.getElementById('detailPopulation').textContent = props.population_millions.toFixed(1);
+            document.getElementById('detailGDP').textContent = props.gdp_per_capita_usd.toLocaleString();
+            document.getElementById('detailDevelopment').textContent = props.development_level;
+        }
+        
+        function updateMetrics(props) {
+            const green = props.green_space_proxy.toFixed(0);
+            const health = props.health_index.toFixed(0);
+            const access = props.healthcare_access.toFixed(0);
+            const overall = props.overall_score.toFixed(1);
+            
+            document.getElementById('greenScore').textContent = green;
+            document.getElementById('greenCompare').textContent = `${props.vs_global_green > 0 ? '↑' : '↓'} ${Math.abs(props.vs_global_green).toFixed(1)} vs avg`;
+            
+            document.getElementById('healthScore').textContent = health;
+            document.getElementById('healthCompare').textContent = `${props.vs_global_health > 0 ? '↑' : '↓'} ${Math.abs(props.vs_global_health).toFixed(1)} vs avg`;
+            
+            document.getElementById('accessScore').textContent = access;
+            document.getElementById('accessCompare').textContent = `Rank: #${props.rank_overall}`;
+            
+            document.getElementById('scoreBar').style.width = ((overall / 100) * 100) + '%';
+            document.getElementById('scorePercent').textContent = overall;
+            
+            document.getElementById('rankingInfo').textContent = `#${props.rank_overall} globally | #${props.rank_region} in ${props.region}`;
+        }
+        
+        function updateChart(props) {
+            if (comparisonChart) comparisonChart.destroy();
+            
+            const ctx = document.getElementById('comparison-chart').getContext('2d');
+            comparisonChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Green', 'Health', 'Healthcare'],
+                    datasets: [{
+                        label: props.country,
+                        data: [props.green_space_proxy, props.health_index, props.healthcare_access],
+                        backgroundColor: ['#43e97b', '#4facfe', '#f5576c'],
+                        borderRadius: 4,
+                        barThickness: 'flex',
+                        minBarLength: 2
+                    }]
+                },
+                options: {
+                    indexAxis: 'x',
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {legend: {display: false}},
+                    scales: {
+                        y: {max: 100, ticks: {color: '#aaa'}, grid: {color: '#0f3460'}},
+                        x: {ticks: {color: '#aaa'}, grid: {display: false}}
+                    }
+                }
+            });
+        }
+        
+        function updateInsights(props) {
+            const insights = [];
+            
+            if (props.overall_score >= 80) {
+                insights.push('✅ Excellent comprehensive performance across all dimensions');
+            } else if (props.overall_score >= 60) {
+                insights.push('📈 Good overall metrics with room for improvement');
+            } else {
+                insights.push('⚠️ Below-average scores - targeted interventions recommended');
+            }
+            
+            if (props.green_space_proxy < 40 && props.overall_score > 60) {
+                insights.push('🌿 Priority: Expand green infrastructure');
+            }
+            
+            if (props.healthcare_access < 50) {
+                insights.push('🏥 Healthcare access needs improvement');
+            }
+            
+            document.getElementById('insights').textContent = insights.join(' | ');
+        }
+        
+        function closePanel() {
+            document.querySelector('.right-panel').classList.remove('active');
+        }
+        
+        // ============================================================================
+        // 控制按钮
+        // ============================================================================
+        
+        document.getElementById('btn3d').addEventListener('click', () => {
+            alert('3D view coming soon!');
+        });
+        
+        document.getElementById('btnReset').addEventListener('click', () => {
+            map.setView([20, 0], 2);
+            closePanel();
+        });
+        
+        document.getElementById('btnExport').addEventListener('click', () => {
+            const csv = 'Country,Region,Overall Score,Green Space,Health Index,Healthcare Access\\n' +
+                filteredData.map(f => {
+                    const p = f.properties;
+                    return `${p.country},${p.region},${p.overall_score},${p.green_space_proxy},${p.health_index},${p.healthcare_access}`;
+                }).join('\\n');
+            
+            const blob = new Blob([csv], {type: 'text/csv'});
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'global_analysis_data.csv';
+            a.click();
+        });
+        
+        // ESC to close panel
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closePanel();
+        });
+    </script>
+</body>
+</html>

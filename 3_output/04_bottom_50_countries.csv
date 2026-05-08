@@ -1,0 +1,51 @@
+global_rank,country_name,region,parks_per_100k,global_percentile,tier_numeric,performance_status
+47,Montenegro,Europe & Central Asia,0.3207230380169053,52.083333333333336,Low Tier,Above Global Average
+48,Armenia,Europe & Central Asia,0.23575373838070862,51.041666666666664,Low Tier,Above Global Average
+49,Japan,East Asia & Pacific,0.23176825214346272,50,Low Tier,Above Global Average
+50,Chile,Latin America & Caribbean,0.19945751646956514,48.95833333333333,Low Tier,Below Global Average
+51,Argentina,Latin America & Caribbean,0.16516948238791201,47.91666666666667,Low Tier,Below Global Average
+52,Colombia,Latin America & Caribbean,0.1642894816230038,46.875,Low Tier,Below Global Average
+53,Bhutan,South Asia,0.12805507392619417,45.83333333333333,Low Tier,Below Global Average
+54,United Arab Emirates,Middle East & North Africa,0.11910697165859534,44.79166666666667,Low Tier,Below Global Average
+55,Kazakhstan,Europe & Central Asia,0.11480134201770548,43.75,Low Tier,Below Global Average
+56,Brazil,Latin America & Caribbean,0.11411920078614815,42.70833333333333,Low Tier,Below Global Average
+57,Panama,Latin America & Caribbean,0.11361640330005661,41.66666666666667,Low Tier,Below Global Average
+58,United Kingdom,Europe & Central Asia,0.10502337139814212,40.625,Low Tier,Below Global Average
+59,"Taiwan, Province of China",East Asia & Pacific,0.104,39.58333333333333,Low Tier,Below Global Average
+60,Mexico,Latin America & Caribbean,0.09952328579362554,38.54166666666667,Low Tier,Below Global Average
+61,"Korea, Republic of",East Asia & Pacific,0.08321629992888491,37.5,Low Tier,Below Global Average
+62,"Moldova, Republic of",Europe & Central Asia,0.079093462371680745,36.45833333333333,Low Tier,Below Global Average
+63,Türkiye,Europe & Central Asia,0.06825142313337035,35.41666666666667,Low Tier,Below Global Average
+64,Ecuador,Latin America & Caribbean,0.061714898823753306,34.375,Low Tier,Below Global Average
+65,Uruguay,Latin America & Caribbean,0.05898116524959503,33.33333333333333,Low Tier,Below Global Average
+66,Peru,Latin America & Caribbean,0.04480897307452706,32.29166666666667,Low Tier,Below Global Average
+67,Kyrgyzstan,Europe & Central Asia,0.04300939611940555,31.25,Low Tier,Below Global Average
+68,Albania,Europe & Central Asia,0.04078908940805242,30.208333333333332,Low Tier,Below Global Average
+69,"Venezuela, Bolivarian Republic of",Latin America & Caribbean,0.035444631816583104,29.166666666666668,Low Tier,Below Global Average
+70,"Bolivia, Plurinational State of",Latin America & Caribbean,0.03312038581275026,28.125,Low Tier,Below Global Average
+71,Oman,Middle East & North Africa,0.021140638946215255,27.083333333333332,Low Tier,Below Global Average
+72,Cuba,Latin America & Caribbean,0.018083476946279417,26.041666666666668,Low Tier,Below Global Average
+73,Dominican Republic,Latin America & Caribbean,0.01780827504239705,25,Low Tier,Below Global Average
+74,Malaysia,East Asia & Pacific,0.017293312419569884,23.958333333333336,Low Tier,Needs Urgent Improvement
+75,Thailand,East Asia & Pacific,0.016728159147356807,22.916666666666664,Low Tier,Needs Urgent Improvement
+76,Tunisia,Middle East & North Africa,0.016502556988692612,21.875,Low Tier,Needs Urgent Improvement
+77,Paraguay,Latin America & Caribbean,0.014791884107363045,20.833333333333336,Low Tier,Needs Urgent Improvement
+78,Nepal,South Asia,0.010095763023635258,19.791666666666664,Low Tier,Needs Urgent Improvement
+79,Azerbaijan,Europe & Central Asia,0.00986022538897603,18.75,Low Tier,Needs Urgent Improvement
+80,Honduras,Latin America & Caribbean,0.009556691824976453,17.708333333333336,Low Tier,Needs Urgent Improvement
+81,Saudi Arabia,Middle East & North Africa,0.009323944411389335,16.666666666666664,Low Tier,Needs Urgent Improvement
+82,"Iran, Islamic Republic of",Middle East & North Africa,0.007819110813845894,15.625,Low Tier,Needs Urgent Improvement
+83,Algeria,Middle East & North Africa,0.00659668478328868,14.583333333333334,Low Tier,Needs Urgent Improvement
+84,Madagascar,Sub-Saharan Africa,0.006570893484798124,13.541666666666666,Low Tier,Needs Urgent Improvement
+85,Kenya,Sub-Saharan Africa,0.0055297030672949565,12.5,Low Tier,Needs Urgent Improvement
+86,Morocco,Middle East & North Africa,0.005357755554760227,11.458333333333332,Low Tier,Needs Urgent Improvement
+87,China,East Asia & Pacific,0.005240143749889355,10.416666666666668,Low Tier,Needs Urgent Improvement
+88,Namibia,NA,0.004,9.375,Low Tier,Needs Urgent Improvement
+89,Indonesia,East Asia & Pacific,0.0028691262856657992,8.333333333333332,Low Tier,Needs Urgent Improvement
+90,Uzbekistan,Europe & Central Asia,0.0028621348291613183,7.291666666666667,Low Tier,Needs Urgent Improvement
+91,Iraq,Middle East & North Africa,0.0022690889433172735,6.25,Low Tier,Needs Urgent Improvement
+92,Viet Nam,East Asia & Pacific,0.002006407361588866,5.208333333333334,Low Tier,Needs Urgent Improvement
+93,Jersey,Europe & Central Asia,0.002,4.166666666666666,Low Tier,Needs Urgent Improvement
+94,Egypt,Middle East & North Africa,0.0017759110978904395,3.125,Low Tier,Needs Urgent Improvement
+95,India,South Asia,0.001683710479663495,2.083333333333333,Low Tier,Needs Urgent Improvement
+96,Bangladesh,South Asia,5.903714071981282e-4,1.0416666666666665,Low Tier,Needs Urgent Improvement

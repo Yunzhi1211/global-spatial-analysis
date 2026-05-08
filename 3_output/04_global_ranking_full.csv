@@ -1,0 +1,97 @@
+country_name,region,parks_per_100k,global_rank,global_percentile,tier_numeric,performance_status
+Denmark,Europe & Central Asia,8.842905778838928,1,100,Top Tier,Global Leader
+Greenland,Europe & Central Asia,8.82441185295,2,98.95833333333334,Advanced,Global Leader
+Netherlands,Europe & Central Asia,6.971364639543728,3,97.91666666666666,Advanced,Global Leader
+Austria,Europe & Central Asia,6.182362438841339,4,96.875,Developing,Global Leader
+Belgium,Europe & Central Asia,5.787567175590165,5,95.83333333333334,Developing,Global Leader
+Estonia,Europe & Central Asia,5.634471101094274,6,94.79166666666666,Developing,Global Leader
+Sweden,Europe & Central Asia,5.292296390339185,7,93.75,Developing,Global Leader
+Hungary,Europe & Central Asia,5.007769851642996,8,92.70833333333334,Developing,Global Leader
+Luxembourg,Europe & Central Asia,4.134110546116003,9,91.66666666666666,Developing,Global Leader
+Spain,Europe & Central Asia,4.128815528833049,10,90.625,Developing,Global Leader
+Italy,Europe & Central Asia,3.9228201155505213,11,89.58333333333334,Developing,Global Leader
+Czechia,Europe & Central Asia,3.7761951282772546,12,88.54166666666666,Developing,Global Leader
+Faroe Islands,Europe & Central Asia,3.7097492209526637,13,87.5,Developing,Global Leader
+Australia,East Asia & Pacific,3.482108132832509,14,86.45833333333334,Emerging,Global Leader
+Iceland,Europe & Central Asia,3.1413365863618874,15,85.41666666666666,Emerging,Global Leader
+Slovakia,Europe & Central Asia,3.0929247137940026,16,84.375,Emerging,Global Leader
+Israel,Middle East & North Africa,2.9191734240125555,17,83.33333333333334,Emerging,Global Leader
+Croatia,Europe & Central Asia,2.7232825877720463,18,82.29166666666666,Emerging,Global Leader
+Monaco,Europe & Central Asia,2.5686470935758137,19,81.25,Emerging,Global Leader
+Liechtenstein,Europe & Central Asia,2.532094295191553,20,80.20833333333334,Emerging,Global Leader
+Canada,North America,2.5195234818304346,21,79.16666666666666,Emerging,Global Leader
+Andorra,Europe & Central Asia,2.50925286995797,22,78.125,Emerging,Global Leader
+Marshall Islands,East Asia & Pacific,2.4951967462634426,23,77.08333333333334,Emerging,Global Leader
+Germany,Europe & Central Asia,2.426127746349859,24,76.04166666666666,Emerging,Global Leader
+Lithuania,Europe & Central Asia,2.3308055864465773,25,75,Emerging,Global Leader
+Norway,Europe & Central Asia,1.7408427548048635,26,73.95833333333334,Emerging,Above Global Average
+New Zealand,East Asia & Pacific,1.7317039573371118,27,72.91666666666666,Emerging,Above Global Average
+France,Europe & Central Asia,1.6895346105051479,28,71.875,Emerging,Above Global Average
+Latvia,Europe & Central Asia,1.6494775146949823,29,70.83333333333334,Emerging,Above Global Average
+Portugal,Europe & Central Asia,1.5717345394031934,30,69.79166666666666,Emerging,Above Global Average
+Switzerland,Europe & Central Asia,1.458342447973633,31,68.75,Emerging,Above Global Average
+Belarus,Europe & Central Asia,1.4412546240704043,32,67.70833333333334,Emerging,Above Global Average
+Bulgaria,Europe & Central Asia,1.3920904821690998,33,66.66666666666666,Emerging,Above Global Average
+Cyprus,Europe & Central Asia,1.3519908064625161,34,65.625,Emerging,Above Global Average
+Malta,Middle East & North Africa,1.129703095198197,35,64.58333333333334,Emerging,Above Global Average
+Serbia,Europe & Central Asia,0.720239587698848,36,63.541666666666664,Low Tier,Above Global Average
+Costa Rica,Latin America & Caribbean,0.6887370824900404,37,62.5,Low Tier,Above Global Average
+Ireland,Europe & Central Asia,0.6522361340352929,38,61.458333333333336,Low Tier,Above Global Average
+Romania,Europe & Central Asia,0.5879727445234276,39,60.416666666666664,Low Tier,Above Global Average
+Singapore,East Asia & Pacific,0.567675627308178,40,59.375,Low Tier,Above Global Average
+Ukraine,Europe & Central Asia,0.47991698459339804,41,58.333333333333336,Low Tier,Above Global Average
+North Macedonia,Europe & Central Asia,0.43674988207753185,42,57.291666666666664,Low Tier,Above Global Average
+Greece,Europe & Central Asia,0.43116325354641355,43,56.25,Low Tier,Above Global Average
+Georgia,Europe & Central Asia,0.430976198800701,44,55.208333333333336,Low Tier,Above Global Average
+Bosnia and Herzegovina,Europe & Central Asia,0.3744381088129625,45,54.166666666666664,Low Tier,Above Global Average
+Barbados,Latin America & Caribbean,0.35421050021606837,46,53.125,Low Tier,Above Global Average
+Montenegro,Europe & Central Asia,0.3207230380169053,47,52.083333333333336,Low Tier,Above Global Average
+Armenia,Europe & Central Asia,0.23575373838070862,48,51.041666666666664,Low Tier,Above Global Average
+Japan,East Asia & Pacific,0.23176825214346272,49,50,Low Tier,Above Global Average
+Chile,Latin America & Caribbean,0.19945751646956514,50,48.95833333333333,Low Tier,Below Global Average
+Argentina,Latin America & Caribbean,0.16516948238791201,51,47.91666666666667,Low Tier,Below Global Average
+Colombia,Latin America & Caribbean,0.1642894816230038,52,46.875,Low Tier,Below Global Average
+Bhutan,South Asia,0.12805507392619417,53,45.83333333333333,Low Tier,Below Global Average
+United Arab Emirates,Middle East & North Africa,0.11910697165859534,54,44.79166666666667,Low Tier,Below Global Average
+Kazakhstan,Europe & Central Asia,0.11480134201770548,55,43.75,Low Tier,Below Global Average
+Brazil,Latin America & Caribbean,0.11411920078614815,56,42.70833333333333,Low Tier,Below Global Average
+Panama,Latin America & Caribbean,0.11361640330005661,57,41.66666666666667,Low Tier,Below Global Average
+United Kingdom,Europe & Central Asia,0.10502337139814212,58,40.625,Low Tier,Below Global Average
+"Taiwan, Province of China",East Asia & Pacific,0.104,59,39.58333333333333,Low Tier,Below Global Average
+Mexico,Latin America & Caribbean,0.09952328579362554,60,38.54166666666667,Low Tier,Below Global Average
+"Korea, Republic of",East Asia & Pacific,0.08321629992888491,61,37.5,Low Tier,Below Global Average
+"Moldova, Republic of",Europe & Central Asia,0.079093462371680745,62,36.45833333333333,Low Tier,Below Global Average
+Türkiye,Europe & Central Asia,0.06825142313337035,63,35.41666666666667,Low Tier,Below Global Average
+Ecuador,Latin America & Caribbean,0.061714898823753306,64,34.375,Low Tier,Below Global Average
+Uruguay,Latin America & Caribbean,0.05898116524959503,65,33.33333333333333,Low Tier,Below Global Average
+Peru,Latin America & Caribbean,0.04480897307452706,66,32.29166666666667,Low Tier,Below Global Average
+Kyrgyzstan,Europe & Central Asia,0.04300939611940555,67,31.25,Low Tier,Below Global Average
+Albania,Europe & Central Asia,0.04078908940805242,68,30.208333333333332,Low Tier,Below Global Average
+"Venezuela, Bolivarian Republic of",Latin America & Caribbean,0.035444631816583104,69,29.166666666666668,Low Tier,Below Global Average
+"Bolivia, Plurinational State of",Latin America & Caribbean,0.03312038581275026,70,28.125,Low Tier,Below Global Average
+Oman,Middle East & North Africa,0.021140638946215255,71,27.083333333333332,Low Tier,Below Global Average
+Cuba,Latin America & Caribbean,0.018083476946279417,72,26.041666666666668,Low Tier,Below Global Average
+Dominican Republic,Latin America & Caribbean,0.01780827504239705,73,25,Low Tier,Below Global Average
+Malaysia,East Asia & Pacific,0.017293312419569884,74,23.958333333333336,Low Tier,Needs Urgent Improvement
+Thailand,East Asia & Pacific,0.016728159147356807,75,22.916666666666664,Low Tier,Needs Urgent Improvement
+Tunisia,Middle East & North Africa,0.016502556988692612,76,21.875,Low Tier,Needs Urgent Improvement
+Paraguay,Latin America & Caribbean,0.014791884107363045,77,20.833333333333336,Low Tier,Needs Urgent Improvement
+Nepal,South Asia,0.010095763023635258,78,19.791666666666664,Low Tier,Needs Urgent Improvement
+Azerbaijan,Europe & Central Asia,0.00986022538897603,79,18.75,Low Tier,Needs Urgent Improvement
+Honduras,Latin America & Caribbean,0.009556691824976453,80,17.708333333333336,Low Tier,Needs Urgent Improvement
+Saudi Arabia,Middle East & North Africa,0.009323944411389335,81,16.666666666666664,Low Tier,Needs Urgent Improvement
+"Iran, Islamic Republic of",Middle East & North Africa,0.007819110813845894,82,15.625,Low Tier,Needs Urgent Improvement
+Algeria,Middle East & North Africa,0.00659668478328868,83,14.583333333333334,Low Tier,Needs Urgent Improvement
+Madagascar,Sub-Saharan Africa,0.006570893484798124,84,13.541666666666666,Low Tier,Needs Urgent Improvement
+Kenya,Sub-Saharan Africa,0.0055297030672949565,85,12.5,Low Tier,Needs Urgent Improvement
+Morocco,Middle East & North Africa,0.005357755554760227,86,11.458333333333332,Low Tier,Needs Urgent Improvement
+China,East Asia & Pacific,0.005240143749889355,87,10.416666666666668,Low Tier,Needs Urgent Improvement
+Namibia,NA,0.004,88,9.375,Low Tier,Needs Urgent Improvement
+Indonesia,East Asia & Pacific,0.0028691262856657992,89,8.333333333333332,Low Tier,Needs Urgent Improvement
+Uzbekistan,Europe & Central Asia,0.0028621348291613183,90,7.291666666666667,Low Tier,Needs Urgent Improvement
+Iraq,Middle East & North Africa,0.0022690889433172735,91,6.25,Low Tier,Needs Urgent Improvement
+Viet Nam,East Asia & Pacific,0.002006407361588866,92,5.208333333333334,Low Tier,Needs Urgent Improvement
+Jersey,Europe & Central Asia,0.002,93,4.166666666666666,Low Tier,Needs Urgent Improvement
+Egypt,Middle East & North Africa,0.0017759110978904395,94,3.125,Low Tier,Needs Urgent Improvement
+India,South Asia,0.001683710479663495,95,2.083333333333333,Low Tier,Needs Urgent Improvement
+Bangladesh,South Asia,5.903714071981282e-4,96,1.0416666666666665,Low Tier,Needs Urgent Improvement

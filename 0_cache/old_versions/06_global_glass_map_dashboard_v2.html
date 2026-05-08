@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Dog Parks Analysis - Interactive Map Dashboard</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+    
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.25);
+      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      --blur: 20px;
+      --primary-green: #10b981;
+      --light-green: #d1fae5;
+      --accent-green: #34d399;
+      --dark-green: #059669;
+      --text-dark: #064e3b;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%);
+      min-height: 100vh;
+    }
+    
+    .glass-solid {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 16px;
+      box-shadow: var(--glass-shadow);
+    }
+    
+    /* Header */
+    .header {
+      padding: 24px 40px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    
+    .header .subtitle {
+      color: var(--text-dark);
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+    
+    .header .meta {
+      margin-top: 8px;
+      color: var(--dark-green);
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 24px 24px;
+    }
+    
+    /* Stats Row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .stat-card {
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-3px);
+    }
+    
+    .stat-card .icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-size: 1.2rem;
+      color: white;
+    }
+    
+    .stat-card .value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark-green);
+    }
+    
+    .stat-card .label {
+      font-size: 0.8rem;
+      color: var(--text-dark);
+      margin-top: 6px;
+      opacity: 0.7;
+    }
+    
+    /* Main Grid - Map + Sidebar */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    /* Map Container - Full Height */
+    .map-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .map-container {
+      flex: 1;
+      min-height: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #map {
+      width: 100%;
+      height: 100%;
+      border-radius: 14px;
+    }
+    
+    .map-legend {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      padding: 12px 16px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      border: 1px solid rgba(16, 185, 129, 0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    .map-legend h4 {
+      font-size: 0.75rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      font-size: 0.7rem;
+      color: var(--text-dark);
+    }
+    
+    .legend-color {
+      width: 18px;
+      height: 10px;
+      border-radius: 2px;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .panel {
+      padding: 18px;
+    }
+    
+    .panel h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark-green);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .panel h3 i {
+      color: var(--primary-green);
+    }
+    
+    /* Search */
+    .search-box {
+      position: relative;
+    }
+    
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 1.5px solid rgba(16, 185, 129, 0.2);
+      border-radius: 10px;
+      font-size: 0.85rem;
+      background: rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
+      outline: none;
+    }
+    
+    .search-box input:focus {
+      border-color: var(--primary-green);
+      background: white;
+    }
+    
+    .search-box i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary-green);
+      font-size: 0.85rem;
+    }
+    
+    /* Country List */
+    .country-list {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 12px;
+    }
+    
+    .country-list::-webkit-scrollbar { width: 5px; }
+    .country-list::-webkit-scrollbar-track { background: rgba(16, 185, 129, 0.08); border-radius: 3px; }
+    .country-list::-webkit-scrollbar-thumb { background: var(--primary-green); border-radius: 3px; }
+    
+    .country-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 4px;
+    }
+    
+    .country-item:hover {
+      background: rgba(16, 185, 129, 0.1);
+    }
+    
+    .country-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .country-rank {
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+      color: white;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    
+    .country-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+    
+    .country-value {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--dark-green);
+    }
+    
+    /* Tier Badge */
+    .tier-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .tier-top-tier { background: #dcfce7; color: #166534; }
+    .tier-advanced { background: #d1fae5; color: #047857; }
+    .tier-developing { background: #fef3c7; color: #92400e; }
+    .tier-emerging { background: #fed7aa; color: #9a3412; }
+    .tier-low-tier { background: #fecaca; color: #991b1b; }
+    
+    /* Region Stats */
+    .region-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .region-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      background: rgba(16, 185, 129, 0.04);
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+    
+    .region-item:hover {
+      background: rgba(16, 185, 129, 0.1);
+    }
+    
+    .region-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--light-green), var(--accent-green));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    
+    .region-details { flex: 1; }
+    .region-name { font-size: 0.8rem; font-weight: 600; color: var(--text-dark); }
+    .region-meta { font-size: 0.7rem; color: var(--text-dark); opacity: 0.6; }
+    .region-value { font-size: 0.9rem; font-weight: 700; color: var(--dark-green); }
+    
+    /* Bottom Section */
+    .bottom-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    /* Data Table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .data-table th {
+      text-align: left;
+      padding: 10px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--dark-green);
+      background: rgba(16, 185, 129, 0.08);
+    }
+    
+    .data-table th:first-child { border-radius: 8px 0 0 8px; }
+    .data-table th:last-child { border-radius: 0 8px 8px 0; }
+    
+    .data-table td {
+      padding: 10px 12px;
+      font-size: 0.8rem;
+      color: var(--text-dark);
+      border-bottom: 1px solid rgba(16, 185, 129, 0.08);
+    }
+    
+    .data-table tr:hover td {
+      background: rgba(16, 185, 129, 0.04);
+    }
+    
+    /* Country Detail */
+    .country-detail {
+      display: none;
+    }
+    
+    .country-detail.active {
+      display: block;
+    }
+    
+    .detail-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.15);
+    }
+    
+    .detail-flag {
+      width: 50px;
+      height: 34px;
+      background: var(--light-green);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+    
+    .detail-title h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark-green);
+    }
+    
+    .detail-title span {
+      font-size: 0.8rem;
+      color: var(--text-dark);
+      opacity: 0.6;
+    }
+    
+    .detail-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    .detail-stat {
+      padding: 14px;
+      background: rgba(16, 185, 129, 0.05);
+      border-radius: 10px;
+      text-align: center;
+    }
+    
+    .detail-stat .value {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark-green);
+    }
+    
+    .detail-stat .label {
+      font-size: 0.7rem;
+      color: var(--text-dark);
+      opacity: 0.6;
+      margin-top: 4px;
+    }
+    
+    /* Placeholder */
+    .select-prompt {
+      text-align: center;
+      padding: 30px;
+      color: var(--text-dark);
+      opacity: 0.5;
+    }
+    
+    .select-prompt i {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      display: block;
+      color: var(--primary-green);
+    }
+    
+    .select-prompt p {
+      font-size: 0.85rem;
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-dark);
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .main-grid { grid-template-columns: 1fr; }
+      .map-container { min-height: 450px; }
+      .sidebar { flex-direction: row; flex-wrap: wrap; }
+      .sidebar .panel { flex: 1; min-width: 280px; }
+    }
+    
+    @media (max-width: 768px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .bottom-section { grid-template-columns: 1fr; }
+      .header h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1><i class="fas fa-paw"></i> Global Dog Parks Analysis</h1>
+    <p class="subtitle">Worldwide Pet Park Provision & Urban Livability Explorer</p>
+    <p class="meta">Analysis Year: 2023 | Countries: 96 | Total Parks: 17,159</p>
+  </header>
+  
+  <div class="container">
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card glass-solid">
+        <div class="icon"><i class="fas fa-globe"></i></div>
+        <div class="value">96</div>
+        <div class="label">Countries Analyzed</div>
+      </div>
+      <div class="stat-card glass-solid">
+        <div class="icon"><i class="fas fa-tree"></i></div>
+        <div class="value">17,159</div>
+        <div class="label">Total Dog Parks</div>
+      </div>
+      <div class="stat-card glass-solid">
+        <div class="icon"><i class="fas fa-chart-line"></i></div>
+        <div class="value">1.34</div>
+        <div class="label">Avg Parks per 100k</div>
+      </div>
+      <div class="stat-card glass-solid">
+        <div class="icon"><i class="fas fa-map-marked-alt"></i></div>
+        <div class="value">8</div>
+        <div class="label">Regions Covered</div>
+      </div>
+    </div>
+    
+    <!-- Main Grid -->
+    <div class="main-grid">
+      <!-- Map -->
+      <div class="map-wrapper glass-solid">
+        <div class="map-container">
+          <div id="map"></div>
+          <div class="map-legend">
+            <h4>Parks per 100k Population</h4>
+            <div class="legend-item"><div class="legend-color" style="background: #064e3b;"></div><span>> 5.0 (Top Tier)</span></div>
+            <div class="legend-item"><div class="legend-color" style="background: #059669;"></div><span>2.0 - 5.0 (Advanced)</span></div>
+            <div class="legend-item"><div class="legend-color" style="background: #34d399;"></div><span>1.0 - 2.0 (Developing)</span></div>
+            <div class="legend-item"><div class="legend-color" style="background: #a7f3d0;"></div><span>0.5 - 1.0 (Emerging)</span></div>
+            <div class="legend-item"><div class="legend-color" style="background: #d1fae5;"></div><span>< 0.5 (Low)</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="panel glass-solid">
+          <h3><i class="fas fa-trophy"></i> Top Countries</h3>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search countries...">
+          </div>
+          <div class="country-list" id="countryList"></div>
+        </div>
+        
+        <div class="panel glass-solid">
+          <h3><i class="fas fa-chart-pie"></i> Regional Overview</h3>
+          <div class="region-stats" id="regionStats"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom Section -->
+    <div class="bottom-section">
+      <div class="panel glass-solid">
+        <h3><i class="fas fa-layer-group"></i> Tier Distribution</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Tier</th><th>Countries</th><th>%</th><th>Avg/100k</th></tr>
+          </thead>
+          <tbody id="tierTable"></tbody>
+        </table>
+      </div>
+      
+      <div class="panel glass-solid">
+        <div class="country-detail" id="countryDetail">
+          <div class="detail-header">
+            <div class="detail-flag" id="detailFlag">🌍</div>
+            <div class="detail-title">
+              <h2 id="detailName">Select a Country</h2>
+              <span id="detailRegion">Click on map or list</span>
+            </div>
+          </div>
+          <div class="detail-stats">
+            <div class="detail-stat">
+              <div class="value" id="detailParks">-</div>
+              <div class="label">Total Dog Parks</div>
+            </div>
+            <div class="detail-stat">
+              <div class="value" id="detailRate">-</div>
+              <div class="label">Parks per 100k</div>
+            </div>
+            <div class="detail-stat">
+              <div class="value" id="detailRank">-</div>
+              <div class="label">Global Rank</div>
+            </div>
+            <div class="detail-stat">
+              <div class="value" id="detailTier">-</div>
+              <div class="label">Performance Tier</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="select-prompt" id="selectPrompt">
+          <i class="fas fa-hand-pointer"></i>
+          <h3 style="margin-bottom: 8px; color: var(--dark-green);">Country Details</h3>
+          <p>Click on a country in the map or list to view detailed statistics</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <p>Data Source: OpenStreetMap & World Bank | Analysis: Global Dog Parks Research Project 2023</p>
+  </footer>
+  
+  <script>
+    const countryData = [{"rank":1,"name":"Denmark","region":"Europe & Central Asia","parks":522,"rate":8.8429,"tier":"Top Tier","lat":55.8986,"lon":10.6357},{"rank":2,"name":"Greenland","region":"Europe & Central Asia","parks":5,"rate":8.8244,"tier":"Top Tier","lat":67.7893,"lon":-51.7271},{"rank":3,"name":"Netherlands","region":"Europe & Central Asia","parks":1234,"rate":6.9714,"tier":"Top Tier","lat":51.9576,"lon":5.4505},{"rank":4,"name":"Austria","region":"Europe & Central Asia","parks":559,"rate":6.1824,"tier":"Advanced","lat":47.887,"lon":15.3538},{"rank":5,"name":"Belgium","region":"Europe & Central Asia","parks":676,"rate":5.7876,"tier":"Advanced","lat":51.0081,"lon":4.4269},{"rank":6,"name":"Estonia","region":"Europe & Central Asia","parks":76,"rate":5.6345,"tier":"Advanced","lat":59.1959,"lon":25.1031},{"rank":7,"name":"Sweden","region":"Europe & Central Asia","parks":555,"rate":5.2923,"tier":"Developing","lat":58.3939,"lon":15.5801},{"rank":8,"name":"Hungary","region":"Europe & Central Asia","parks":481,"rate":5.0078,"tier":"Developing","lat":47.3551,"lon":19.0775},{"rank":9,"name":"Luxembourg","region":"Europe & Central Asia","parks":27,"rate":4.1341,"tier":"Developing","lat":49.5992,"lon":6.1005},{"rank":10,"name":"Spain","region":"Europe & Central Asia","parks":1973,"rate":4.1288,"tier":"Developing","lat":40.0334,"lon":-2.3103},{"rank":11,"name":"Italy","region":"Europe & Central Asia","parks":2315,"rate":3.9228,"tier":"Emerging","lat":44.3708,"lon":10.6635},{"rank":12,"name":"Czechia","region":"Europe & Central Asia","parks":403,"rate":3.7762,"tier":"Emerging","lat":49.7793,"lon":15.4935},{"rank":13,"name":"Faroe Islands","region":"Europe & Central Asia","parks":2,"rate":3.7097,"tier":"Emerging","lat":62.2269,"lon":-6.5721},{"rank":14,"name":"Australia","region":"East Asia & Pacific","parks":906,"rate":3.4821,"tier":"Emerging","lat":-31.4069,"lon":147.8068},{"rank":15,"name":"Iceland","region":"Europe & Central Asia","parks":12,"rate":3.1413,"tier":"Emerging","lat":64.1906,"lon":-21.6419},{"rank":16,"name":"Slovakia","region":"Europe & Central Asia","parks":168,"rate":3.0929,"tier":"Emerging","lat":48.4942,"lon":18.8958},{"rank":17,"name":"Israel","region":"Middle East & North Africa","parks":279,"rate":2.9192,"tier":"Emerging","lat":32.0871,"lon":34.8866},{"rank":18,"name":"Croatia","region":"Europe & Central Asia","parks":105,"rate":2.7233,"tier":"Emerging","lat":45.1106,"lon":15.9359},{"rank":19,"name":"Monaco","region":"Europe & Central Asia","parks":1,"rate":2.5686,"tier":"Low Tier","lat":43.7301,"lon":7.4131},{"rank":20,"name":"Liechtenstein","region":"Europe & Central Asia","parks":1,"rate":2.5321,"tier":"Low Tier","lat":47.1667,"lon":9.4957},{"rank":21,"name":"Canada","region":"North America","parks":981,"rate":2.5195,"tier":"Low Tier","lat":47.6182,"lon":-94.8839},{"rank":22,"name":"Andorra","region":"Europe & Central Asia","parks":2,"rate":2.5093,"tier":"Low Tier","lat":42.5052,"lon":1.5251},{"rank":23,"name":"Marshall Islands","region":"East Asia & Pacific","parks":1,"rate":2.4952,"tier":"Low Tier","lat":8.7364,"lon":167.736},{"rank":24,"name":"Germany","region":"Europe & Central Asia","parks":2018,"rate":2.4261,"tier":"Low Tier","lat":51.2786,"lon":9.4581},{"rank":25,"name":"Lithuania","region":"Europe & Central Asia","parks":66,"rate":2.3308,"tier":"Low Tier","lat":55.1071,"lon":24.0552},{"rank":26,"name":"Norway","region":"Europe & Central Asia","parks":95,"rate":1.7408,"tier":"Low Tier","lat":61.0363,"lon":10.4686},{"rank":27,"name":"New Zealand","region":"East Asia & Pacific","parks":88,"rate":1.7317,"tier":"Low Tier","lat":-40.9098,"lon":173.9285},{"rank":28,"name":"France","region":"Europe & Central Asia","parks":1152,"rate":1.6895,"tier":"Low Tier","lat":46.1933,"lon":3.9379},{"rank":29,"name":"Latvia","region":"Europe & Central Asia","parks":31,"rate":1.6495,"tier":"Low Tier","lat":56.6974,"lon":24.3801},{"rank":30,"name":"Portugal","region":"Europe & Central Asia","parks":164,"rate":1.5717,"tier":"Low Tier","lat":39.0583,"lon":-9.3606},{"rank":31,"name":"Switzerland","region":"Europe & Central Asia","parks":128,"rate":1.4583,"tier":"Low Tier","lat":46.9473,"lon":7.7954},{"rank":32,"name":"Belarus","region":"Europe & Central Asia","parks":133,"rate":1.4413,"tier":"Low Tier","lat":53.5248,"lon":27.049},{"rank":33,"name":"Bulgaria","region":"Europe & Central Asia","parks":90,"rate":1.3921,"tier":"Low Tier","lat":42.5954,"lon":24.8378},{"rank":34,"name":"Cyprus","region":"Europe & Central Asia","parks":18,"rate":1.352,"tier":"Low Tier","lat":34.9115,"lon":33.2027},{"rank":35,"name":"Malta","region":"Middle East & North Africa","parks":6,"rate":1.1297,"tier":"Low Tier","lat":35.8788,"lon":14.4679},{"rank":36,"name":"Serbia","region":"Europe & Central Asia","parks":48,"rate":0.7202,"tier":"Low Tier","lat":44.9503,"lon":20.3187},{"rank":37,"name":"Costa Rica","region":"Latin America & Caribbean","parks":35,"rate":0.6887,"tier":"Low Tier","lat":9.9331,"lon":-84.0887},{"rank":38,"name":"Ireland","region":"Europe & Central Asia","parks":34,"rate":0.6522,"tier":"Low Tier","lat":53.1,"lon":-6.7399},{"rank":39,"name":"Romania","region":"Europe & Central Asia","parks":112,"rate":0.588,"tier":"Low Tier","lat":45.2804,"lon":24.8414},{"rank":40,"name":"Singapore","region":"East Asia & Pacific","parks":32,"rate":0.5677,"tier":"Low Tier","lat":1.3363,"lon":103.855},{"rank":41,"name":"Ukraine","region":"Europe & Central Asia","parks":197,"rate":0.4799,"tier":"Low Tier","lat":49.439,"lon":31.9541},{"rank":42,"name":"North Macedonia","region":"Europe & Central Asia","parks":8,"rate":0.4367,"tier":"Low Tier","lat":41.9969,"lon":21.4368},{"rank":43,"name":"Greece","region":"Europe & Central Asia","parks":45,"rate":0.4312,"tier":"Low Tier","lat":38.4867,"lon":23.5624},{"rank":44,"name":"Georgia","region":"Europe & Central Asia","parks":16,"rate":0.431,"tier":"Low Tier","lat":41.7257,"lon":44.5979},{"rank":45,"name":"Bosnia and Herzegovina","region":"Europe & Central Asia","parks":12,"rate":0.3744,"tier":"Low Tier","lat":44.1684,"lon":17.9557},{"rank":46,"name":"Barbados","region":"Latin America & Caribbean","parks":1,"rate":0.3542,"tier":"Low Tier","lat":13.1164,"lon":-59.5986},{"rank":47,"name":"Montenegro","region":"Europe & Central Asia","parks":2,"rate":0.3207,"tier":"Low Tier","lat":42.3654,"lon":19.0376},{"rank":48,"name":"Armenia","region":"Europe & Central Asia","parks":7,"rate":0.2358,"tier":"Low Tier","lat":40.1696,"lon":44.4924},{"rank":49,"name":"Japan","region":"East Asia & Pacific","parks":290,"rate":0.2318,"tier":"Low Tier","lat":35.9741,"lon":138.073},{"rank":50,"name":"Chile","region":"Latin America & Caribbean","parks":39,"rate":0.1995,"tier":"Low Tier","lat":-33.1459,"lon":-70.6853},{"rank":51,"name":"Argentina","region":"Latin America & Caribbean","parks":75,"rate":0.1652,"tier":"Low Tier","lat":-34.6459,"lon":-59.0604},{"rank":52,"name":"Colombia","region":"Latin America & Caribbean","parks":85,"rate":0.1643,"tier":"Low Tier","lat":5.2391,"lon":-74.3737},{"rank":53,"name":"Bhutan","region":"South Asia","parks":1,"rate":0.1281,"tier":"Low Tier","lat":27.5023,"lon":90.5068},{"rank":54,"name":"United Arab Emirates","region":"Middle East & North Africa","parks":12,"rate":0.1191,"tier":"Low Tier","lat":25.0245,"lon":55.1337},{"rank":55,"name":"Kazakhstan","region":"Europe & Central Asia","parks":23,"rate":0.1148,"tier":"Low Tier","lat":45.9098,"lon":75.8618},{"rank":56,"name":"Brazil","region":"Latin America & Caribbean","parks":240,"rate":0.1141,"tier":"Low Tier","lat":-19.4979,"lon":-44.8502},{"rank":57,"name":"Panama","region":"Latin America & Caribbean","parks":5,"rate":0.1136,"tier":"Low Tier","lat":8.997,"lon":-79.5362},{"rank":58,"name":"United Kingdom","region":"Europe & Central Asia","parks":71,"rate":0.105,"tier":"Low Tier","lat":52.5316,"lon":-1.4887},{"rank":59,"name":"Taiwan","region":"East Asia & Pacific","parks":52,"rate":0.104,"tier":"Low Tier","lat":24.8463,"lon":121.2795},{"rank":60,"name":"Mexico","region":"Latin America & Caribbean","parks":128,"rate":0.0995,"tier":"Low Tier","lat":20.3946,"lon":-99.4525},{"rank":61,"name":"South Korea","region":"East Asia & Pacific","parks":43,"rate":0.0832,"tier":"Low Tier","lat":37.0901,"lon":127.2328},{"rank":62,"name":"Moldova","region":"Europe & Central Asia","parks":2,"rate":0.0791,"tier":"Low Tier","lat":46.9119,"lon":29.1679},{"rank":63,"name":"Turkey","region":"Europe & Central Asia","parks":58,"rate":0.0683,"tier":"Low Tier","lat":39.8818,"lon":29.6088},{"rank":64,"name":"Ecuador","region":"Latin America & Caribbean","parks":11,"rate":0.0617,"tier":"Low Tier","lat":-0.9193,"lon":-78.9917},{"rank":65,"name":"Uruguay","region":"Latin America & Caribbean","parks":2,"rate":0.059,"tier":"Low Tier","lat":-34.6929,"lon":-56.9934},{"rank":66,"name":"Peru","region":"Latin America & Caribbean","parks":15,"rate":0.0448,"tier":"Low Tier","lat":-11.146,"lon":-77.0343},{"rank":67,"name":"Kyrgyzstan","region":"Europe & Central Asia","parks":3,"rate":0.043,"tier":"Low Tier","lat":42.1016,"lon":73.983},{"rank":68,"name":"Albania","region":"Europe & Central Asia","parks":1,"rate":0.0408,"tier":"Low Tier","lat":41.3255,"lon":19.818},{"rank":69,"name":"Venezuela","region":"Latin America & Caribbean","parks":10,"rate":0.0354,"tier":"Low Tier","lat":10.432,"lon":-67.0343},{"rank":70,"name":"Bolivia","region":"Latin America & Caribbean","parks":4,"rate":0.0331,"tier":"Low Tier","lat":-16.5162,"lon":-68.1217},{"rank":71,"name":"Oman","region":"Middle East & North Africa","parks":1,"rate":0.0211,"tier":"Low Tier","lat":23.6237,"lon":58.2674},{"rank":72,"name":"Cuba","region":"Latin America & Caribbean","parks":2,"rate":0.0181,"tier":"Low Tier","lat":22.7545,"lon":-81.1522},{"rank":73,"name":"Dominican Republic","region":"Latin America & Caribbean","parks":2,"rate":0.0178,"tier":"Low Tier","lat":18.8348,"lon":-70.234},{"rank":74,"name":"Malaysia","region":"East Asia & Pacific","parks":6,"rate":0.0173,"tier":"Low Tier","lat":3.6925,"lon":103.8058},{"rank":75,"name":"Thailand","region":"East Asia & Pacific","parks":12,"rate":0.0167,"tier":"Low Tier","lat":13.7387,"lon":100.5354},{"rank":76,"name":"Tunisia","region":"Middle East & North Africa","parks":2,"rate":0.0165,"tier":"Low Tier","lat":36.802,"lon":10.6077},{"rank":77,"name":"Paraguay","region":"Latin America & Caribbean","parks":1,"rate":0.0148,"tier":"Low Tier","lat":-25.4338,"lon":-54.6423},{"rank":78,"name":"Nepal","region":"South Asia","parks":3,"rate":0.0101,"tier":"Low Tier","lat":28.1623,"lon":83.4824},{"rank":79,"name":"Azerbaijan","region":"Europe & Central Asia","parks":1,"rate":0.0099,"tier":"Low Tier","lat":39.8471,"lon":46.7721},{"rank":80,"name":"Honduras","region":"Latin America & Caribbean","parks":1,"rate":0.0096,"tier":"Low Tier","lat":15.4668,"lon":-88.0041},{"rank":81,"name":"Saudi Arabia","region":"Middle East & North Africa","parks":3,"rate":0.0093,"tier":"Low Tier","lat":26.9979,"lon":39.0161},{"rank":82,"name":"Iran","region":"Middle East & North Africa","parks":7,"rate":0.0078,"tier":"Low Tier","lat":33.5819,"lon":52.2563},{"rank":83,"name":"Algeria","region":"Middle East & North Africa","parks":3,"rate":0.0066,"tier":"Low Tier","lat":35.3915,"lon":4.1537},{"rank":84,"name":"Madagascar","region":"Sub-Saharan Africa","parks":2,"rate":0.0066,"tier":"Low Tier","lat":-18.8661,"lon":47.5},{"rank":85,"name":"Kenya","region":"Sub-Saharan Africa","parks":3,"rate":0.0055,"tier":"Low Tier","lat":-2.061,"lon":37.8007},{"rank":86,"name":"Morocco","region":"Middle East & North Africa","parks":2,"rate":0.0054,"tier":"Low Tier","lat":32.711,"lon":-5.5421},{"rank":87,"name":"China","region":"East Asia & Pacific","parks":74,"rate":0.0052,"tier":"Low Tier","lat":23.867,"lon":114.7053},{"rank":88,"name":"Namibia","region":"Sub-Saharan Africa","parks":2,"rate":0.004,"tier":"Low Tier","lat":-22.5934,"lon":17.1095},{"rank":89,"name":"Indonesia","region":"East Asia & Pacific","parks":8,"rate":0.0029,"tier":"Low Tier","lat":-5.6709,"lon":114.6193},{"rank":90,"name":"Uzbekistan","region":"Europe & Central Asia","parks":1,"rate":0.0029,"tier":"Low Tier","lat":41.3278,"lon":69.159},{"rank":91,"name":"Iraq","region":"Middle East & North Africa","parks":1,"rate":0.0023,"tier":"Low Tier","lat":33.3682,"lon":43.7735},{"rank":92,"name":"Vietnam","region":"East Asia & Pacific","parks":2,"rate":0.002,"tier":"Low Tier","lat":14.4222,"lon":106.5473},{"rank":93,"name":"Jersey","region":"Europe & Central Asia","parks":1,"rate":0.002,"tier":"Low Tier","lat":49.1824,"lon":-2.0789},{"rank":94,"name":"Egypt","region":"Middle East & North Africa","parks":2,"rate":0.0018,"tier":"Low Tier","lat":28.7297,"lon":32.5263},{"rank":95,"name":"India","region":"South Asia","parks":24,"rate":0.0017,"tier":"Low Tier","lat":21.2478,"lon":77.4348},{"rank":96,"name":"Bangladesh","region":"South Asia","parks":1,"rate":0.0006,"tier":"Low Tier","lat":22.0697,"lon":90.0365}];
+    
+    const regionalData = [
+      {"name":"Europe & Central Asia","countries":48,"avgRate":1.61,"totalParks":13654},
+      {"name":"East Asia & Pacific","countries":12,"avgRate":0.09,"totalParks":1514},
+      {"name":"North America","countries":1,"avgRate":2.52,"totalParks":981},
+      {"name":"Latin America & Caribbean","countries":17,"avgRate":0.06,"totalParks":656},
+      {"name":"Middle East & North Africa","countries":11,"avgRate":0.01,"totalParks":318}
+    ];
+    
+    const tierData = [
+      {"tier":"Top Tier","class":"tier-top-tier","count":3,"pct":3.1,"avgRate":8.21},
+      {"tier":"Advanced","class":"tier-advanced","count":3,"pct":3.1,"avgRate":5.87},
+      {"tier":"Developing","class":"tier-developing","count":4,"pct":4.2,"avgRate":4.64},
+      {"tier":"Emerging","class":"tier-emerging","count":8,"pct":8.3,"avgRate":3.35},
+      {"tier":"Low Tier","class":"tier-low-tier","count":78,"pct":81.2,"avgRate":0.53}
+    ];
+    
+    const regionIcons = {
+      "Europe & Central Asia": "🏰",
+      "North America": "🗽",
+      "East Asia & Pacific": "🏯",
+      "Latin America & Caribbean": "🌴",
+      "Middle East & North Africa": "🕌",
+      "Sub-Saharan Africa": "🌍",
+      "South Asia": "🏛️"
+    };
+    
+    // Initialize map
+    const map = L.map("map", {
+      center: [30, 10],
+      zoom: 2,
+      minZoom: 2,
+      maxZoom: 8,
+      worldCopyJump: true
+    });
+    
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+      attribution: "OpenStreetMap © CARTO",
+      subdomains: "abcd",
+      maxZoom: 19
+    }).addTo(map);
+    
+    function getColor(rate) {
+      return rate > 5 ? "#064e3b" :
+             rate > 2 ? "#059669" :
+             rate > 1 ? "#34d399" :
+             rate > 0.5 ? "#a7f3d0" : "#d1fae5";
+    }
+    
+    const markers = [];
+    countryData.forEach(c => {
+      if (!c.lat || !c.lon) return;
+      const marker = L.circleMarker([c.lat, c.lon], {
+        radius: Math.max(5, Math.min(20, Math.sqrt(c.parks) / 2.5)),
+        fillColor: getColor(c.rate),
+        color: "#fff",
+        weight: 1.5,
+        opacity: 1,
+        fillOpacity: 0.85
+      }).addTo(map);
+      
+      const tierClass = c.tier.toLowerCase().replace(/ /g, "-");
+      marker.bindPopup(`
+        <div style="font-family:Inter,sans-serif;min-width:160px;">
+          <h4 style="margin:0 0 6px;color:#064e3b;font-size:1rem;">${c.name}</h4>
+          <p style="margin:2px 0;color:#065f46;font-size:0.8rem;"><b>Region:</b> ${c.region}</p>
+          <p style="margin:2px 0;color:#065f46;font-size:0.8rem;"><b>Dog Parks:</b> ${c.parks.toLocaleString()}</p>
+          <p style="margin:2px 0;color:#065f46;font-size:0.8rem;"><b>Per 100k:</b> ${c.rate.toFixed(2)}</p>
+          <p style="margin:2px 0;color:#065f46;font-size:0.8rem;"><b>Rank:</b> #${c.rank}</p>
+          <p style="margin:4px 0 0;"><span class="tier-badge ${tierClass}">${c.tier}</span></p>
+        </div>
+      `);
+      
+      marker.on("click", () => showCountryDetail(c));
+      markers.push({ marker, country: c });
+    });
+    
+    function renderCountryList(filter = "") {
+      const list = document.getElementById("countryList");
+      const filtered = countryData.filter(c => c.name.toLowerCase().includes(filter.toLowerCase()));
+      list.innerHTML = filtered.slice(0, 15).map(c => {
+        const safeName = c.name.replace(/'/g, "\\'");
+        return `<div class="country-item" onclick="selectCountry('${safeName}')">
+          <div class="country-info">
+            <span class="country-rank">${c.rank}</span>
+            <span class="country-name">${c.name}</span>
+          </div>
+          <span class="country-value">${c.rate.toFixed(2)}</span>
+        </div>`;
+      }).join("");
+    }
+    
+    function renderRegionalStats() {
+      const container = document.getElementById("regionStats");
+      container.innerHTML = regionalData.map(r => `
+        <div class="region-item">
+          <div class="region-icon">${regionIcons[r.name] || "🌐"}</div>
+          <div class="region-details">
+            <div class="region-name">${r.name}</div>
+            <div class="region-meta">${r.countries} countries</div>
+          </div>
+          <div class="region-value">${r.avgRate.toFixed(2)}</div>
+        </div>
+      `).join("");
+    }
+    
+    function renderTierTable() {
+      const table = document.getElementById("tierTable");
+      table.innerHTML = tierData.map(t => `
+        <tr>
+          <td><span class="tier-badge ${t.class}">${t.tier}</span></td>
+          <td>${t.count}</td>
+          <td>${t.pct.toFixed(1)}%</td>
+          <td>${t.avgRate.toFixed(2)}</td>
+        </tr>
+      `).join("");
+    }
+    
+    function showCountryDetail(c) {
+      document.getElementById("selectPrompt").style.display = "none";
+      document.getElementById("countryDetail").classList.add("active");
+      document.getElementById("detailFlag").textContent = "🌍";
+      document.getElementById("detailName").textContent = c.name;
+      document.getElementById("detailRegion").textContent = c.region;
+      document.getElementById("detailParks").textContent = c.parks.toLocaleString();
+      document.getElementById("detailRate").textContent = c.rate.toFixed(2);
+      document.getElementById("detailRank").textContent = "#" + c.rank;
+      const tierClass = c.tier.toLowerCase().replace(/ /g, "-");
+      document.getElementById("detailTier").innerHTML = `<span class="tier-badge ${tierClass}">${c.tier}</span>`;
+      
+      markers.forEach(m => {
+        if (m.country.name === c.name) {
+          m.marker.openPopup();
+          map.setView([c.lat, c.lon], 4);
+        }
+      });
+    }
+    
+    function selectCountry(name) {
+      const c = countryData.find(x => x.name === name);
+      if (c) showCountryDetail(c);
+    }
+    
+    document.getElementById("searchInput").addEventListener("input", e => renderCountryList(e.target.value));
+    
+    renderCountryList();
+    renderRegionalStats();
+    renderTierTable();
+  </script>
+</body>
+</html>

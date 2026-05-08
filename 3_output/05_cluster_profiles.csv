@@ -1,0 +1,5 @@
+cluster_id,cluster_label,n_countries,avg_parks_per_100k,median_parks_per_100k,min_parks_per_100k,max_parks_per_100k,avg_population,total_parks,top_countries,regions_represented
+4,Leaders (High Parks),16,4.544,4.026,2.426,8.843,21888511,13251,"Denmark, Netherlands, Austria","Europe & Central Asia, East Asia & Pacific, Middle East & North Africa, North America"
+2,Developing (Moderate Parks),8,3.739,2.855,2.495,8.824,167986,51,"Greenland, Luxembourg, Faroe Islands","Europe & Central Asia, East Asia & Pacific"
+1,Transitioning (Low-Moderate),31,0.791,0.568,0.041,2.331,8681827,2582,"Lithuania, Norway, New Zealand","Europe & Central Asia, East Asia & Pacific, Middle East & North Africa, Latin America & Caribbean, South Asia"
+3,Emerging (Low Parks),41,0.041,0.017,0.001,0.232,124463813,1275,"Japan, Argentina, Colombia","East Asia & Pacific, Latin America & Caribbean, Europe & Central Asia, Middle East & North Africa, South Asia, Sub-Saharan Africa, NA"

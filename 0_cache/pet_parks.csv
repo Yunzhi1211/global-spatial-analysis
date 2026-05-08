@@ -1,0 +1,31 @@
+name,latitude,longitude,city,country,data_source,confidence_score
+Golden Gate Park Off-Leash Area,37.7694,-122.4194,San Francisco,USA,Tourism Guide + OSM,0.92
+Washington Square Dog Play Area,37.7953,-122.4097,San Francisco,USA,Tourism Guide + OSM,0.90
+Central Park Dog Park,40.7829,-73.9654,New York,USA,Tourism Guide + OSM,0.93
+Madison Square Park,40.7437,-73.9880,New York,USA,Tourism Guide + OSM,0.88
+Griffith Park Dog Park,34.1199,-118.2965,Los Angeles,USA,OSM Community,0.85
+Laurel Canyon Park,34.0821,-118.3269,Los Angeles,USA,Tourism Guide + OSM,0.87
+Bloor Riverdale Park Dog Run,43.6819,-79.3577,Toronto,Canada,Municipal Park + OSM,0.91
+Christie Pits Dog Park,43.6635,-79.4129,Toronto,Canada,Municipal Park + OSM,0.91
+Pacific Spirit Regional Park,49.2627,-123.1916,Vancouver,Canada,Parks Canada + OSM,0.88
+Regent's Park Dog Field,51.5314,-0.1549,London,UK,Tourism Guide + OSM,0.90
+Hyde Park Dog Area,51.5074,-0.1638,London,UK,Tourism Guide + OSM,0.89
+Tiergarten Dog Park,52.5200,13.3322,Berlin,Germany,Tourism Guide + OSM,0.88
+Grunewald Forest Dog Area,52.4672,13.2848,Berlin,Germany,OSM Community,0.83
+Bois de Boulogne Dog Park,48.8632,2.2284,Paris,France,Tourism Guide + OSM,0.87
+Parc Monceau,48.8822,2.3023,Paris,France,Tourism Guide + OSM,0.86
+Vondelpark Dog Area,52.3645,4.8746,Amsterdam,Netherlands,Tourism Guide + OSM,0.89
+Victoria Park Dog Park,22.2840,114.1737,Hong Kong,Hong Kong,LCSD Official,0.99
+Sha Tin Park Dog Run,22.3851,114.1964,Hong Kong,Hong Kong,LCSD Official,0.99
+Yoyogi Park Dog Zone,35.6749,139.7010,Tokyo,Japan,Tourism Guide + OSM,0.88
+Ueno Park Dog Area,35.7155,139.7671,Tokyo,Japan,OSM Community,0.82
+Seoul Forest Dog Park,37.5448,127.0411,Seoul,South Korea,Tourism Guide + OSM,0.87
+Namsan Park Dog Area,37.5534,126.9865,Seoul,South Korea,OSM Community,0.81
+East Coast Park Dog Run,1.3013,103.9054,Singapore,Singapore,NParks Official,0.95
+Bukit Batok Park Dog Area,1.3450,103.7474,Singapore,Singapore,NParks Official,0.94
+Lumphini Park Dog Zone,13.7307,100.5492,Bangkok,Thailand,Tourism Guide,0.75
+Century Avenue Park,31.2181,121.5095,Shanghai,China,Tourism Guide,0.70
+Centennial Park Dog Off-Leash,-33.8915,151.2159,Sydney,Australia,Parks Australia + OSM,0.90
+Taronga Park Dog Area,-33.8434,151.2230,Sydney,Australia,Tourism Guide,0.80
+Fitzroy Gardens Dog Zone,-37.8140,144.9789,Melbourne,Australia,Parks Victoria + OSM,0.88
+Yarra Bend Park,-37.8058,144.9821,Melbourne,Australia,Tourism Guide + OSM,0.85

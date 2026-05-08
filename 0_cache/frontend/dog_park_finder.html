@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐕 Dog Park Finder - OpenStreetMap Edition</title>
+    
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    
+    <!-- Leaflet Draw (for radius circle) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-draw/1.0.4/leaflet.draw.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-draw/1.0.4/leaflet.draw.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        .sidebar {
+            width: 400px;
+            background: white;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #1f77b4;
+        }
+        
+        .sidebar h2 {
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #555;
+            border-bottom: 2px solid #1f77b4;
+            padding-bottom: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 13px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1f77b4;
+            box-shadow: 0 0 5px rgba(31, 119, 180, 0.3);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 12px;
+            background: #1f77b4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #1557a0;
+        }
+        
+        button.secondary {
+            background: #666;
+        }
+        
+        button.secondary:hover {
+            background: #555;
+        }
+        
+        .stats {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            border-left: 4px solid #1f77b4;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        
+        .stat-label {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .stat-value {
+            color: #1f77b4;
+            font-weight: bold;
+        }
+        
+        .results {
+            margin-top: 20px;
+        }
+        
+        .result-item {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .result-item:hover {
+            background: #f9f9f9;
+            border-color: #1f77b4;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .result-name {
+            font-weight: 600;
+            color: #1f77b4;
+            margin-bottom: 5px;
+        }
+        
+        .result-info {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .result-distance {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2ca02c;
+            margin-top: 5px;
+        }
+        
+        #map {
+            flex: 1;
+            position: relative;
+        }
+        
+        .map-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            max-width: 300px;
+            z-index: 10;
+            font-size: 13px;
+        }
+        
+        .instructions {
+            background: #e8f4f8;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border-left: 4px solid #1f77b4;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        .marker-blue {
+            background-color: #2196F3;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            border: 3px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .marker-green {
+            background-color: #4CAF50;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .data-source {
+            font-size: 11px;
+            color: #999;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <h1>🐕 Dog Park Finder</h1>
+            <p style="color: #666; font-size: 13px; margin-bottom: 15px;">Find pet parks and off-leash areas near you</p>
+            
+            <div class="instructions">
+                <strong>How to use:</strong><br>
+                1. Click on the map to set location<br>
+                2. Adjust search radius<br>
+                3. Click "Find Dog Parks"
+            </div>
+            
+            <h2>📍 Location</h2>
+            
+            <div class="form-group">
+                <label>Latitude</label>
+                <input type="number" id="latitude" placeholder="Click on map or enter" step="0.0001">
+            </div>
+            
+            <div class="form-group">
+                <label>Longitude</label>
+                <input type="number" id="longitude" placeholder="Click on map or enter" step="0.0001">
+            </div>
+            
+            <h2>🔍 Search Parameters</h2>
+            
+            <div class="form-group">
+                <label>Search Radius</label>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <input type="range" id="radius" min="1" max="50" value="5" 
+                           style="flex: 1; height: 6px; cursor: pointer;">
+                    <span id="radiusValue" style="min-width: 40px; text-align: right; font-weight: bold; color: #1f77b4;">5</span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Distance Unit</label>
+                <select id="unit">
+                    <option value="km">Kilometers</option>
+                    <option value="mi">Miles</option>
+                </select>
+            </div>
+            
+            <div class="button-group">
+                <button onclick="findDogParks()">🐕 Find Dog Parks</button>
+                <button class="secondary" onclick="resetSearch()">Reset</button>
+            </div>
+            
+            <div class="stats" id="stats" style="display: none;">
+                <div class="stat-item">
+                    <span class="stat-label">Parks Found:</span>
+                    <span class="stat-value" id="parkCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Nearest:</span>
+                    <span class="stat-value" id="nearestDist">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Average Dist:</span>
+                    <span class="stat-value" id="avgDist">-</span>
+                </div>
+            </div>
+            
+            <div class="results" id="results"></div>
+            
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button style="flex: 1; background: #4CAF50;" onclick="exportData()">📥 Export CSV</button>
+            </div>
+            
+            <div class="data-source">
+                Data sources: OpenStreetMap (realtime), LCSD HK (official)
+            </div>
+        </div>
+        
+        <!-- MAP -->
+        <div id="map"></div>
+        
+        <div class="map-info">
+            <strong>🗺️ Click on map</strong> to set your search location
+        </div>
+    </div>
+
+    <script>
+        // ============================================================================
+        // Initialize Map
+        // ============================================================================
+        
+        let map = L.map('map').setView([22.3193, 114.1694], 11); // Default: Hong Kong
+        let allParks = [];
+        let searchLocation = null;
+        let radiusCircle = null;
+        let markers = [];
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+        
+        // ============================================================================
+        // Haversine Distance Formula (like Dog Park Finder)
+        // ============================================================================
+        
+        function calculateDistance(lat1, lon1, lat2, lon2, unit = 'km') {
+            const R = unit === 'km' ? 6371 : 3959; // Earth radius
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLon/2) * Math.sin(dLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return (R * c).toFixed(2);
+        }
+        
+        // ============================================================================
+        // Map Click Handler
+        // ============================================================================
+        
+        map.on('click', function(e) {
+            const lat = e.latlng.lat.toFixed(4);
+            const lon = e.latlng.lng.toFixed(4);
+            
+            document.getElementById('latitude').value = lat;
+            document.getElementById('longitude').value = lon;
+            
+            // 更新搜索位置标记
+            if (searchLocation) {
+                map.removeLayer(searchLocation);
+            }
+            
+            searchLocation = L.marker([lat, lon], {
+                icon: L.divIcon({
+                    html: '<div style="background-color: #2196F3; border-radius: 50%; width: 30px; height: 30px; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+                    iconSize: [30, 30],
+                    className: ''
+                })
+            }).addTo(map);
+            
+            // 更新半径圆
+            updateRadiusCircle(lat, lon);
+        });
+        
+        // ============================================================================
+        // Radius Slider
+        // ============================================================================
+        
+        document.getElementById('radius').addEventListener('input', function() {
+            document.getElementById('radiusValue').textContent = this.value;
+            
+            const lat = parseFloat(document.getElementById('latitude').value);
+            const lon = parseFloat(document.getElementById('longitude').value);
+            
+            if (!isNaN(lat) && !isNaN(lon)) {
+                updateRadiusCircle(lat, lon);
+            }
+        });
+        
+        function updateRadiusCircle(lat, lon) {
+            const radius = parseInt(document.getElementById('radius').value);
+            const unit = document.getElementById('unit').value;
+            const radiusMeters = unit === 'km' ? radius * 1000 : radius * 1609.34;
+            
+            if (radiusCircle) {
+                map.removeLayer(radiusCircle);
+            }
+            
+            radiusCircle = L.circle([lat, lon], {
+                radius: radiusMeters,
+                color: '#2196F3',
+                fillColor: '#2196F3',
+                fillOpacity: 0.1,
+                weight: 2,
+                dashArray: '5, 5'
+            }).addTo(map);
+        }
+        
+        // ============================================================================
+        // Load Parks Data
+        // ============================================================================
+        
+        let parkData = [];
+        
+        // Try to load OSM practical version first, then fall back to full version
+        Promise.resolve()
+            .then(() => fetch('data/pet_parks_osm_practical.geojson'))
+            .catch(() => fetch('data/pet_gardens_osm_real.geojson'))
+            .then(r => r.json())
+            .then(data => {
+                parkData = data.features || [];
+                console.log('✅ Loaded', parkData.length, 'parks from OSM dataset');
+            })
+            .catch(e => {
+                console.warn('❌ No GeoJSON data found. Run GLOBAL_pet_gardens_OSM_PRACTICAL.R to generate data.');
+                parkData = [];
+            });
+        
+        // ============================================================================
+        // Find Dog Parks
+        // ============================================================================
+        
+        function findDogParks() {
+            const lat = parseFloat(document.getElementById('latitude').value);
+            const lon = parseFloat(document.getElementById('longitude').value);
+            const radius = parseInt(document.getElementById('radius').value);
+            const unit = document.getElementById('unit').value;
+            
+            if (isNaN(lat) || isNaN(lon)) {
+                alert('Please set location on map first');
+                return;
+            }
+            
+            // 清除旧标记
+            markers.forEach(m => map.removeLayer(m));
+            markers = [];
+            
+            // 过滤距离内的公园
+            const nearbyParks = parkData.map(feature => {
+                const props = feature.properties || {};
+                const [lon_p, lat_p] = feature.geometry.coordinates;
+                const distance = calculateDistance(lat, lon, lat_p, lon_p, unit);
+                return {
+                    ...props,
+                    latitude: lat_p,
+                    longitude: lon_p,
+                    distance: parseFloat(distance)
+                };
+            }).filter(p => p.distance <= radius)
+             .sort((a, b) => a.distance - b.distance);
+            
+            // 显示结果
+            displayResults(nearbyParks, lat, lon, unit);
+            
+            // 在地图上显示标记
+            nearbyParks.forEach(park => {
+                const marker = L.marker([park.latitude, park.longitude], {
+                    icon: L.divIcon({
+                        html: '<div style="background-color: #4CAF50; border-radius: 50%; width: 24px; height: 24px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+                        iconSize: [24, 24],
+                        className: ''
+                    })
+                }).bindPopup(`
+                    <strong>${park.name || 'Park'}</strong><br>
+                    Distance: ${park.distance} ${unit}<br>
+                    Type: ${park.pet_garden_type || 'Pet Area'}
+                `).addTo(map);
+                
+                markers.push(marker);
+            });
+            
+            // 更新统计
+            updateStats(nearbyParks, unit);
+        }
+        
+        function displayResults(parks, userLat, userLon, unit) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+            
+            if (parks.length === 0) {
+                resultsDiv.innerHTML = '<p style="color: #999; text-align: center;">No dog parks found in this area</p>';
+                return;
+            }
+            
+            parks.forEach(park => {
+                const div = document.createElement('div');
+                div.className = 'result-item';
+                div.onclick = () => {
+                    map.setView([park.latitude, park.longitude], 16);
+                };
+                
+                div.innerHTML = `
+                    <div class="result-name">${park.name || 'Unknown Park'}</div>
+                    <div class="result-info">
+                        ${park.city ? 'City: ' + park.city + '<br>' : ''}
+                        ${park.pet_garden_type || 'Pet Recreation Area'}<br>
+                        ${park.data_source || 'OpenStreetMap'}
+                    </div>
+                    <div class="result-distance">📍 ${park.distance} ${unit}</div>
+                `;
+                
+                resultsDiv.appendChild(div);
+            });
+        }
+        
+        function updateStats(parks, unit) {
+            if (parks.length === 0) {
+                document.getElementById('stats').style.display = 'none';
+                return;
+            }
+            
+            const distances = parks.map(p => p.distance);
+            const avgDist = (distances.reduce((a,b) => a+b) / distances.length).toFixed(1);
+            
+            document.getElementById('parkCount').textContent = parks.length;
+            document.getElementById('nearestDist').textContent = distances[0] + ' ' + unit;
+            document.getElementById('avgDist').textContent = avgDist + ' ' + unit;
+            document.getElementById('stats').style.display = 'block';
+        }
+        
+        // ============================================================================
+        // Export Data
+        // ============================================================================
+        
+        function exportData() {
+            const resultsDiv = document.getElementById('results');
+            const items = resultsDiv.querySelectorAll('.result-item');
+            
+            if (items.length === 0) {
+                alert('No results to export. Search first!');
+                return;
+            }
+            
+            let csv = 'Name,Type,City,Distance,Latitude,Longitude,Data Source\n';
+            
+            items.forEach(item => {
+                const name = item.querySelector('.result-name').textContent;
+                const info = item.querySelector('.result-info').textContent;
+                const distance = item.querySelector('.result-distance').textContent.replace('📍 ', '').replace(/ (km|mi)/, '');
+                
+                csv += `"${name}","","","${distance}","","","OSM"\n`;
+            });
+            
+            const blob = new Blob([csv], {type: 'text/csv'});
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'dog_parks_' + new Date().getTime() + '.csv';
+            a.click();
+        }
+        
+        // ============================================================================
+        // Reset
+        // ============================================================================
+        
+        function resetSearch() {
+            document.getElementById('latitude').value = '';
+            document.getElementById('longitude').value = '';
+            document.getElementById('radius').value = '5';
+            document.getElementById('radiusValue').textContent = '5';
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('stats').style.display = 'none';
+            
+            markers.forEach(m => map.removeLayer(m));
+            markers = [];
+            
+            if (searchLocation) map.removeLayer(searchLocation);
+            if (radiusCircle) map.removeLayer(radiusCircle);
+            
+            map.setView([22.3193, 114.1694], 11);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,961 @@
+[
+  {
+    "rank": 1,
+    "name": "Denmark",
+    "region": "Europe & Central Asia",
+    "parks": 522,
+    "rate": 8.8429,
+    "tier": "Top Tier",
+    "lat": 55.8986,
+    "lon": 10.6357
+  },
+  {
+    "rank": 2,
+    "name": "Greenland",
+    "region": "Europe & Central Asia",
+    "parks": 5,
+    "rate": 8.8244,
+    "tier": "Top Tier",
+    "lat": 67.7893,
+    "lon": -51.7271
+  },
+  {
+    "rank": 3,
+    "name": "Netherlands",
+    "region": "Europe & Central Asia",
+    "parks": 1234,
+    "rate": 6.9714,
+    "tier": "Top Tier",
+    "lat": 51.9576,
+    "lon": 5.4505
+  },
+  {
+    "rank": 4,
+    "name": "Austria",
+    "region": "Europe & Central Asia",
+    "parks": 559,
+    "rate": 6.1824,
+    "tier": "Advanced",
+    "lat": 47.887,
+    "lon": 15.3538
+  },
+  {
+    "rank": 5,
+    "name": "Belgium",
+    "region": "Europe & Central Asia",
+    "parks": 676,
+    "rate": 5.7876,
+    "tier": "Advanced",
+    "lat": 51.0081,
+    "lon": 4.4269
+  },
+  {
+    "rank": 6,
+    "name": "Estonia",
+    "region": "Europe & Central Asia",
+    "parks": 76,
+    "rate": 5.6345,
+    "tier": "Advanced",
+    "lat": 59.1959,
+    "lon": 25.1031
+  },
+  {
+    "rank": 7,
+    "name": "Sweden",
+    "region": "Europe & Central Asia",
+    "parks": 555,
+    "rate": 5.2923,
+    "tier": "Developing",
+    "lat": 58.3939,
+    "lon": 15.5801
+  },
+  {
+    "rank": 8,
+    "name": "Hungary",
+    "region": "Europe & Central Asia",
+    "parks": 481,
+    "rate": 5.0078,
+    "tier": "Developing",
+    "lat": 47.3551,
+    "lon": 19.0775
+  },
+  {
+    "rank": 9,
+    "name": "Luxembourg",
+    "region": "Europe & Central Asia",
+    "parks": 27,
+    "rate": 4.1341,
+    "tier": "Developing",
+    "lat": 49.5992,
+    "lon": 6.1005
+  },
+  {
+    "rank": 10,
+    "name": "Spain",
+    "region": "Europe & Central Asia",
+    "parks": 1973,
+    "rate": 4.1288,
+    "tier": "Developing",
+    "lat": 40.0334,
+    "lon": -2.3103
+  },
+  {
+    "rank": 11,
+    "name": "Italy",
+    "region": "Europe & Central Asia",
+    "parks": 2315,
+    "rate": 3.9228,
+    "tier": "Emerging",
+    "lat": 44.3708,
+    "lon": 10.6635
+  },
+  {
+    "rank": 12,
+    "name": "Czechia",
+    "region": "Europe & Central Asia",
+    "parks": 403,
+    "rate": 3.7762,
+    "tier": "Emerging",
+    "lat": 49.7793,
+    "lon": 15.4935
+  },
+  {
+    "rank": 13,
+    "name": "Faroe Islands",
+    "region": "Europe & Central Asia",
+    "parks": 2,
+    "rate": 3.7097,
+    "tier": "Emerging",
+    "lat": 62.2269,
+    "lon": -6.5721
+  },
+  {
+    "rank": 14,
+    "name": "Australia",
+    "region": "East Asia & Pacific",
+    "parks": 906,
+    "rate": 3.4821,
+    "tier": "Emerging",
+    "lat": -31.4069,
+    "lon": 147.8068
+  },
+  {
+    "rank": 15,
+    "name": "Iceland",
+    "region": "Europe & Central Asia",
+    "parks": 12,
+    "rate": 3.1413,
+    "tier": "Emerging",
+    "lat": 64.1906,
+    "lon": -21.6419
+  },
+  {
+    "rank": 16,
+    "name": "Slovakia",
+    "region": "Europe & Central Asia",
+    "parks": 168,
+    "rate": 3.0929,
+    "tier": "Emerging",
+    "lat": 48.4942,
+    "lon": 18.8958
+  },
+  {
+    "rank": 17,
+    "name": "Israel",
+    "region": "Middle East & North Africa",
+    "parks": 279,
+    "rate": 2.9192,
+    "tier": "Emerging",
+    "lat": 32.0871,
+    "lon": 34.8866
+  },
+  {
+    "rank": 18,
+    "name": "Croatia",
+    "region": "Europe & Central Asia",
+    "parks": 105,
+    "rate": 2.7233,
+    "tier": "Emerging",
+    "lat": 45.1106,
+    "lon": 15.9359
+  },
+  {
+    "rank": 19,
+    "name": "Monaco",
+    "region": "Europe & Central Asia",
+    "parks": 1,
+    "rate": 2.5686,
+    "tier": "Low Tier",
+    "lat": 43.7301,
+    "lon": 7.4131
+  },
+  {
+    "rank": 20,
+    "name": "Liechtenstein",
+    "region": "Europe & Central Asia",
+    "parks": 1,
+    "rate": 2.5321,
+    "tier": "Low Tier",
+    "lat": 47.1667,
+    "lon": 9.4957
+  },
+  {
+    "rank": 21,
+    "name": "Canada",
+    "region": "North America",
+    "parks": 981,
+    "rate": 2.5195,
+    "tier": "Low Tier",
+    "lat": 47.6182,
+    "lon": -94.8839
+  },
+  {
+    "rank": 22,
+    "name": "Andorra",
+    "region": "Europe & Central Asia",
+    "parks": 2,
+    "rate": 2.5093,
+    "tier": "Low Tier",
+    "lat": 42.5052,
+    "lon": 1.5251
+  },
+  {
+    "rank": 23,
+    "name": "Marshall Islands",
+    "region": "East Asia & Pacific",
+    "parks": 1,
+    "rate": 2.4952,
+    "tier": "Low Tier",
+    "lat": 8.7364,
+    "lon": 167.736
+  },
+  {
+    "rank": 24,
+    "name": "Germany",
+    "region": "Europe & Central Asia",
+    "parks": 2018,
+    "rate": 2.4261,
+    "tier": "Low Tier",
+    "lat": 51.2786,
+    "lon": 9.4581
+  },
+  {
+    "rank": 25,
+    "name": "Lithuania",
+    "region": "Europe & Central Asia",
+    "parks": 66,
+    "rate": 2.3308,
+    "tier": "Low Tier",
+    "lat": 55.1071,
+    "lon": 24.0552
+  },
+  {
+    "rank": 26,
+    "name": "Norway",
+    "region": "Europe & Central Asia",
+    "parks": 95,
+    "rate": 1.7408,
+    "tier": "Low Tier",
+    "lat": 61.0363,
+    "lon": 10.4686
+  },
+  {
+    "rank": 27,
+    "name": "New Zealand",
+    "region": "East Asia & Pacific",
+    "parks": 88,
+    "rate": 1.7317,
+    "tier": "Low Tier",
+    "lat": -40.9098,
+    "lon": 173.9285
+  },
+  {
+    "rank": 28,
+    "name": "France",
+    "region": "Europe & Central Asia",
+    "parks": 1152,
+    "rate": 1.6895,
+    "tier": "Low Tier",
+    "lat": 46.1933,
+    "lon": 3.9379
+  },
+  {
+    "rank": 29,
+    "name": "Latvia",
+    "region": "Europe & Central Asia",
+    "parks": 31,
+    "rate": 1.6495,
+    "tier": "Low Tier",
+    "lat": 56.6974,
+    "lon": 24.3801
+  },
+  {
+    "rank": 30,
+    "name": "Portugal",
+    "region": "Europe & Central Asia",
+    "parks": 164,
+    "rate": 1.5717,
+    "tier": "Low Tier",
+    "lat": 39.0583,
+    "lon": -9.3606
+  },
+  {
+    "rank": 31,
+    "name": "Switzerland",
+    "region": "Europe & Central Asia",
+    "parks": 128,
+    "rate": 1.4583,
+    "tier": "Low Tier",
+    "lat": 46.9473,
+    "lon": 7.7954
+  },
+  {
+    "rank": 32,
+    "name": "Belarus",
+    "region": "Europe & Central Asia",
+    "parks": 133,
+    "rate": 1.4413,
+    "tier": "Low Tier",
+    "lat": 53.5248,
+    "lon": 27.049
+  },
+  {
+    "rank": 33,
+    "name": "Bulgaria",
+    "region": "Europe & Central Asia",
+    "parks": 90,
+    "rate": 1.3921,
+    "tier": "Low Tier",
+    "lat": 42.5954,
+    "lon": 24.8378
+  },
+  {
+    "rank": 34,
+    "name": "Cyprus",
+    "region": "Europe & Central Asia",
+    "parks": 18,
+    "rate": 1.352,
+    "tier": "Low Tier",
+    "lat": 34.9115,
+    "lon": 33.2027
+  },
+  {
+    "rank": 35,
+    "name": "Malta",
+    "region": "Middle East & North Africa",
+    "parks": 6,
+    "rate": 1.1297,
+    "tier": "Low Tier",
+    "lat": 35.8788,
+    "lon": 14.4679
+  },
+  {
+    "rank": 36,
+    "name": "Serbia",
+    "region": "Europe & Central Asia",
+    "parks": 48,
+    "rate": 0.7202,
+    "tier": "Low Tier",
+    "lat": 44.9503,
+    "lon": 20.3187
+  },
+  {
+    "rank": 37,
+    "name": "Costa Rica",
+    "region": "Latin America & Caribbean",
+    "parks": 35,
+    "rate": 0.6887,
+    "tier": "Low Tier",
+    "lat": 9.9331,
+    "lon": -84.0887
+  },
+  {
+    "rank": 38,
+    "name": "Ireland",
+    "region": "Europe & Central Asia",
+    "parks": 34,
+    "rate": 0.6522,
+    "tier": "Low Tier",
+    "lat": 53.1,
+    "lon": -6.7399
+  },
+  {
+    "rank": 39,
+    "name": "Romania",
+    "region": "Europe & Central Asia",
+    "parks": 112,
+    "rate": 0.588,
+    "tier": "Low Tier",
+    "lat": 45.2804,
+    "lon": 24.8414
+  },
+  {
+    "rank": 40,
+    "name": "Singapore",
+    "region": "East Asia & Pacific",
+    "parks": 32,
+    "rate": 0.5677,
+    "tier": "Low Tier",
+    "lat": 1.3363,
+    "lon": 103.855
+  },
+  {
+    "rank": 41,
+    "name": "Ukraine",
+    "region": "Europe & Central Asia",
+    "parks": 197,
+    "rate": 0.4799,
+    "tier": "Low Tier",
+    "lat": 49.439,
+    "lon": 31.9541
+  },
+  {
+    "rank": 42,
+    "name": "North Macedonia",
+    "region": "Europe & Central Asia",
+    "parks": 8,
+    "rate": 0.4367,
+    "tier": "Low Tier",
+    "lat": 41.9969,
+    "lon": 21.4368
+  },
+  {
+    "rank": 43,
+    "name": "Greece",
+    "region": "Europe & Central Asia",
+    "parks": 45,
+    "rate": 0.4312,
+    "tier": "Low Tier",
+    "lat": 38.4867,
+    "lon": 23.5624
+  },
+  {
+    "rank": 44,
+    "name": "Georgia",
+    "region": "Europe & Central Asia",
+    "parks": 16,
+    "rate": 0.431,
+    "tier": "Low Tier",
+    "lat": 41.7257,
+    "lon": 44.5979
+  },
+  {
+    "rank": 45,
+    "name": "Bosnia and Herzegovina",
+    "region": "Europe & Central Asia",
+    "parks": 12,
+    "rate": 0.3744,
+    "tier": "Low Tier",
+    "lat": 44.1684,
+    "lon": 17.9557
+  },
+  {
+    "rank": 46,
+    "name": "Barbados",
+    "region": "Latin America & Caribbean",
+    "parks": 1,
+    "rate": 0.3542,
+    "tier": "Low Tier",
+    "lat": 13.1164,
+    "lon": -59.5986
+  },
+  {
+    "rank": 47,
+    "name": "Montenegro",
+    "region": "Europe & Central Asia",
+    "parks": 2,
+    "rate": 0.3207,
+    "tier": "Low Tier",
+    "lat": 42.3654,
+    "lon": 19.0376
+  },
+  {
+    "rank": 48,
+    "name": "Armenia",
+    "region": "Europe & Central Asia",
+    "parks": 7,
+    "rate": 0.2358,
+    "tier": "Low Tier",
+    "lat": 40.1696,
+    "lon": 44.4924
+  },
+  {
+    "rank": 49,
+    "name": "Japan",
+    "region": "East Asia & Pacific",
+    "parks": 290,
+    "rate": 0.2318,
+    "tier": "Low Tier",
+    "lat": 35.9741,
+    "lon": 138.073
+  },
+  {
+    "rank": 50,
+    "name": "Chile",
+    "region": "Latin America & Caribbean",
+    "parks": 39,
+    "rate": 0.1995,
+    "tier": "Low Tier",
+    "lat": -33.1459,
+    "lon": -70.6853
+  },
+  {
+    "rank": 51,
+    "name": "Argentina",
+    "region": "Latin America & Caribbean",
+    "parks": 75,
+    "rate": 0.1652,
+    "tier": "Low Tier",
+    "lat": -34.6459,
+    "lon": -59.0604
+  },
+  {
+    "rank": 52,
+    "name": "Colombia",
+    "region": "Latin America & Caribbean",
+    "parks": 85,
+    "rate": 0.1643,
+    "tier": "Low Tier",
+    "lat": 5.2391,
+    "lon": -74.3737
+  },
+  {
+    "rank": 53,
+    "name": "Bhutan",
+    "region": "South Asia",
+    "parks": 1,
+    "rate": 0.1281,
+    "tier": "Low Tier",
+    "lat": 27.5023,
+    "lon": 90.5068
+  },
+  {
+    "rank": 54,
+    "name": "United Arab Emirates",
+    "region": "Middle East & North Africa",
+    "parks": 12,
+    "rate": 0.1191,
+    "tier": "Low Tier",
+    "lat": 25.0245,
+    "lon": 55.1337
+  },
+  {
+    "rank": 55,
+    "name": "Kazakhstan",
+    "region": "Europe & Central Asia",
+    "parks": 23,
+    "rate": 0.1148,
+    "tier": "Low Tier",
+    "lat": 45.9098,
+    "lon": 75.8618
+  },
+  {
+    "rank": 56,
+    "name": "Brazil",
+    "region": "Latin America & Caribbean",
+    "parks": 240,
+    "rate": 0.1141,
+    "tier": "Low Tier",
+    "lat": -19.4979,
+    "lon": -44.8502
+  },
+  {
+    "rank": 57,
+    "name": "Panama",
+    "region": "Latin America & Caribbean",
+    "parks": 5,
+    "rate": 0.1136,
+    "tier": "Low Tier",
+    "lat": 8.997,
+    "lon": -79.5362
+  },
+  {
+    "rank": 58,
+    "name": "United Kingdom",
+    "region": "Europe & Central Asia",
+    "parks": 71,
+    "rate": 0.105,
+    "tier": "Low Tier",
+    "lat": 52.5316,
+    "lon": -1.4887
+  },
+  {
+    "rank": 59,
+    "name": "Taiwan, Province of China",
+    "region": "East Asia & Pacific",
+    "parks": 52,
+    "rate": 0.104,
+    "tier": "Low Tier",
+    "lat": 24.8463,
+    "lon": 121.2795
+  },
+  {
+    "rank": 60,
+    "name": "Mexico",
+    "region": "Latin America & Caribbean",
+    "parks": 128,
+    "rate": 0.0995,
+    "tier": "Low Tier",
+    "lat": 20.3946,
+    "lon": -99.4525
+  },
+  {
+    "rank": 61,
+    "name": "Korea, Republic of",
+    "region": "East Asia & Pacific",
+    "parks": 43,
+    "rate": 0.0832,
+    "tier": "Low Tier",
+    "lat": 37.0901,
+    "lon": 127.2328
+  },
+  {
+    "rank": 62,
+    "name": "Moldova, Republic of",
+    "region": "Europe & Central Asia",
+    "parks": 2,
+    "rate": 0.0791,
+    "tier": "Low Tier",
+    "lat": 46.9119,
+    "lon": 29.1679
+  },
+  {
+    "rank": 63,
+    "name": "Türkiye",
+    "region": "Europe & Central Asia",
+    "parks": 58,
+    "rate": 0.0683,
+    "tier": "Low Tier",
+    "lat": 39.8818,
+    "lon": 29.6088
+  },
+  {
+    "rank": 64,
+    "name": "Ecuador",
+    "region": "Latin America & Caribbean",
+    "parks": 11,
+    "rate": 0.0617,
+    "tier": "Low Tier",
+    "lat": -0.9193,
+    "lon": -78.9917
+  },
+  {
+    "rank": 65,
+    "name": "Uruguay",
+    "region": "Latin America & Caribbean",
+    "parks": 2,
+    "rate": 0.059,
+    "tier": "Low Tier",
+    "lat": -34.6929,
+    "lon": -56.9934
+  },
+  {
+    "rank": 66,
+    "name": "Peru",
+    "region": "Latin America & Caribbean",
+    "parks": 15,
+    "rate": 0.0448,
+    "tier": "Low Tier",
+    "lat": -11.146,
+    "lon": -77.0343
+  },
+  {
+    "rank": 67,
+    "name": "Kyrgyzstan",
+    "region": "Europe & Central Asia",
+    "parks": 3,
+    "rate": 0.043,
+    "tier": "Low Tier",
+    "lat": 42.1016,
+    "lon": 73.983
+  },
+  {
+    "rank": 68,
+    "name": "Albania",
+    "region": "Europe & Central Asia",
+    "parks": 1,
+    "rate": 0.0408,
+    "tier": "Low Tier",
+    "lat": 41.3255,
+    "lon": 19.818
+  },
+  {
+    "rank": 69,
+    "name": "Venezuela, Bolivarian Republic of",
+    "region": "Latin America & Caribbean",
+    "parks": 10,
+    "rate": 0.0354,
+    "tier": "Low Tier",
+    "lat": 10.432,
+    "lon": -67.0343
+  },
+  {
+    "rank": 70,
+    "name": "Bolivia, Plurinational State of",
+    "region": "Latin America & Caribbean",
+    "parks": 4,
+    "rate": 0.0331,
+    "tier": "Low Tier",
+    "lat": -16.5162,
+    "lon": -68.1217
+  },
+  {
+    "rank": 71,
+    "name": "Oman",
+    "region": "Middle East & North Africa",
+    "parks": 1,
+    "rate": 0.0211,
+    "tier": "Low Tier",
+    "lat": 23.6237,
+    "lon": 58.2674
+  },
+  {
+    "rank": 72,
+    "name": "Cuba",
+    "region": "Latin America & Caribbean",
+    "parks": 2,
+    "rate": 0.0181,
+    "tier": "Low Tier",
+    "lat": 22.7545,
+    "lon": -81.1522
+  },
+  {
+    "rank": 73,
+    "name": "Dominican Republic",
+    "region": "Latin America & Caribbean",
+    "parks": 2,
+    "rate": 0.0178,
+    "tier": "Low Tier",
+    "lat": 18.8348,
+    "lon": -70.234
+  },
+  {
+    "rank": 74,
+    "name": "Malaysia",
+    "region": "East Asia & Pacific",
+    "parks": 6,
+    "rate": 0.0173,
+    "tier": "Low Tier",
+    "lat": 3.6925,
+    "lon": 103.8058
+  },
+  {
+    "rank": 75,
+    "name": "Thailand",
+    "region": "East Asia & Pacific",
+    "parks": 12,
+    "rate": 0.0167,
+    "tier": "Low Tier",
+    "lat": 13.7387,
+    "lon": 100.5354
+  },
+  {
+    "rank": 76,
+    "name": "Tunisia",
+    "region": "Middle East & North Africa",
+    "parks": 2,
+    "rate": 0.0165,
+    "tier": "Low Tier",
+    "lat": 36.802,
+    "lon": 10.6077
+  },
+  {
+    "rank": 77,
+    "name": "Paraguay",
+    "region": "Latin America & Caribbean",
+    "parks": 1,
+    "rate": 0.0148,
+    "tier": "Low Tier",
+    "lat": -25.4338,
+    "lon": -54.6423
+  },
+  {
+    "rank": 78,
+    "name": "Nepal",
+    "region": "South Asia",
+    "parks": 3,
+    "rate": 0.0101,
+    "tier": "Low Tier",
+    "lat": 28.1623,
+    "lon": 83.4824
+  },
+  {
+    "rank": 79,
+    "name": "Azerbaijan",
+    "region": "Europe & Central Asia",
+    "parks": 1,
+    "rate": 0.0099,
+    "tier": "Low Tier",
+    "lat": 39.8471,
+    "lon": 46.7721
+  },
+  {
+    "rank": 80,
+    "name": "Honduras",
+    "region": "Latin America & Caribbean",
+    "parks": 1,
+    "rate": 0.0096,
+    "tier": "Low Tier",
+    "lat": 15.4668,
+    "lon": -88.0041
+  },
+  {
+    "rank": 81,
+    "name": "Saudi Arabia",
+    "region": "Middle East & North Africa",
+    "parks": 3,
+    "rate": 0.0093,
+    "tier": "Low Tier",
+    "lat": 26.9979,
+    "lon": 39.0161
+  },
+  {
+    "rank": 82,
+    "name": "Iran, Islamic Republic of",
+    "region": "Middle East & North Africa",
+    "parks": 7,
+    "rate": 0.0078,
+    "tier": "Low Tier",
+    "lat": 33.5819,
+    "lon": 52.2563
+  },
+  {
+    "rank": 83,
+    "name": "Algeria",
+    "region": "Middle East & North Africa",
+    "parks": 3,
+    "rate": 0.0066,
+    "tier": "Low Tier",
+    "lat": 35.3915,
+    "lon": 4.1537
+  },
+  {
+    "rank": 84,
+    "name": "Madagascar",
+    "region": "Sub-Saharan Africa",
+    "parks": 2,
+    "rate": 0.0066,
+    "tier": "Low Tier",
+    "lat": -18.8661,
+    "lon": 47.5
+  },
+  {
+    "rank": 85,
+    "name": "Kenya",
+    "region": "Sub-Saharan Africa",
+    "parks": 3,
+    "rate": 0.0055,
+    "tier": "Low Tier",
+    "lat": -2.061,
+    "lon": 37.8007
+  },
+  {
+    "rank": 86,
+    "name": "Morocco",
+    "region": "Middle East & North Africa",
+    "parks": 2,
+    "rate": 0.0054,
+    "tier": "Low Tier",
+    "lat": 32.711,
+    "lon": -5.5421
+  },
+  {
+    "rank": 87,
+    "name": "China",
+    "region": "East Asia & Pacific",
+    "parks": 74,
+    "rate": 0.0052,
+    "tier": "Low Tier",
+    "lat": 23.867,
+    "lon": 114.7053
+  },
+  {
+    "rank": 88,
+    "name": "Namibia",
+    "parks": 2,
+    "rate": 0.004,
+    "tier": "Low Tier",
+    "lat": -22.5934,
+    "lon": 17.1095
+  },
+  {
+    "rank": 89,
+    "name": "Indonesia",
+    "region": "East Asia & Pacific",
+    "parks": 8,
+    "rate": 0.0029,
+    "tier": "Low Tier",
+    "lat": -5.6709,
+    "lon": 114.6193
+  },
+  {
+    "rank": 90,
+    "name": "Uzbekistan",
+    "region": "Europe & Central Asia",
+    "parks": 1,
+    "rate": 0.0029,
+    "tier": "Low Tier",
+    "lat": 41.3278,
+    "lon": 69.159
+  },
+  {
+    "rank": 91,
+    "name": "Iraq",
+    "region": "Middle East & North Africa",
+    "parks": 1,
+    "rate": 0.0023,
+    "tier": "Low Tier",
+    "lat": 33.3682,
+    "lon": 43.7735
+  },
+  {
+    "rank": 92,
+    "name": "Viet Nam",
+    "region": "East Asia & Pacific",
+    "parks": 2,
+    "rate": 0.002,
+    "tier": "Low Tier",
+    "lat": 14.4222,
+    "lon": 106.5473
+  },
+  {
+    "rank": 93,
+    "name": "Jersey",
+    "region": "Europe & Central Asia",
+    "parks": 1,
+    "rate": 0.002,
+    "tier": "Low Tier",
+    "lat": 49.1824,
+    "lon": -2.0789
+  },
+  {
+    "rank": 94,
+    "name": "Egypt",
+    "region": "Middle East & North Africa",
+    "parks": 2,
+    "rate": 0.0018,
+    "tier": "Low Tier",
+    "lat": 28.7297,
+    "lon": 32.5263
+  },
+  {
+    "rank": 95,
+    "name": "India",
+    "region": "South Asia",
+    "parks": 24,
+    "rate": 0.0017,
+    "tier": "Low Tier",
+    "lat": 21.2478,
+    "lon": 77.4348
+  },
+  {
+    "rank": 96,
+    "name": "Bangladesh",
+    "region": "South Asia",
+    "parks": 1,
+    "rate": 0.0006,
+    "tier": "Low Tier",
+    "lat": 22.0697,
+    "lon": 90.0365
+  }
+]

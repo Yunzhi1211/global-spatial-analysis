@@ -1,0 +1,23 @@
+{
+    "header": {
+        "status": {
+            "name": "Success",
+            "code": 0,
+            "description": "Query success",
+            "param": null,
+            "apiHelp": "https:\/\/www.censtatd.gov.hk\/en\/web_table.html?id=130-06801&api_popup=1"
+        },
+        "title": "Domestic households by District Council district and household size",
+        "tablenote": [
+            "Figures are compiled based on the survey results of the General Household Survey (GHS) from January to December of the year concerned as well as the mid-year population estimates and may be regarded as referring to the overall situation of the whole year.     The GHS covers the land-based non-institutional population and thus does not cover (a) inmates of institutions; and (b) persons living on board vessels. The land-based non-institutional population constitutes about 99% of the Hong Kong Resident Population.     Number of domestic households are rounded to the nearest hundred.     Figures may not add up to the total due to rounding.     For annual estimates less than 1 000, they should be interpreted with caution due to relatively large sampling error."
+        ],
+        "source": "General Household Survey Social Analysis and Research Section, Census and Statistics Department (Enquiry telephone no. : 3863 2791 Enquiry e-mail : ghs@censtatd.gov.hk)",
+        "count": {
+            "noOfRecords": 0,
+            "started": "2026-04-17T14:09:20+00:00",
+            "finished": "2026-04-17T14:09:20+00:00",
+            "durationSeconds": 0.021631
+        }
+    },
+    "dataSet": []
+}

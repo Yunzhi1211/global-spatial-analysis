@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(html|csv|RData\\)$\")",
+      "Bash(python update_dashboard.py)",
+      "Bash(python enhance_dashboard.py)",
+      "Bash(grep -E '^[0-9]_?cache?$')",
+      "Bash(grep -E '\\\\.\\(json|py|html|js|css\\)$')",
+      "Bash(Rscript 06_interactive_global_dashboard.R)",
+      "Bash(python fix_dashboard_data_mapping.py)",
+      "Bash(start 10_fancy_dashboard.html)",
+      "Bash(start test_data.html)",
+      "Bash(python3 -c ' *)",
+      "Bash(start 10_fancy_dashboard_standalone.html)"
+    ]
+  }
+}

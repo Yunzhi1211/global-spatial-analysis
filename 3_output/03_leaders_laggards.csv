@@ -1,0 +1,9 @@
+region,leader_score,laggard_score,regional_gap,gap_ratio,leaders,laggards
+Europe & Central Asia,8.842905778838928,0.002,8.840905778838927,8.825255268302323,Denmark | Greenland | Netherlands,Bangladesh | India | Egypt
+East Asia & Pacific,3.482108132832509,0.002006407361588866,3.48010172547092,3.475135595191797,Denmark | Greenland | Netherlands,Bangladesh | India | Egypt
+Middle East & North Africa,2.9191734240125555,0.0017759110978904395,2.917397512914665,2.9139984218759105,Denmark | Greenland | Netherlands,Bangladesh | India | Egypt
+North America,2.5195234818304346,2.5195234818304346,0,0.7158706270429769,Denmark | Greenland | Netherlands,Bangladesh | India | Egypt
+Latin America & Caribbean,0.6887370824900404,0.009556691824976453,0.679180390665064,0.6822173415987266,Denmark | Greenland | Netherlands,Bangladesh | India | Egypt
+South Asia,0.12805507392619417,5.903714071981282e-4,0.12746470251899605,0.1279795184777779,Denmark | Greenland | Netherlands,Bangladesh | India | Egypt
+Sub-Saharan Africa,0.006570893484798124,0.0055297030672949565,0.0010411904175031675,0.006534758212267716,Denmark | Greenland | Netherlands,Bangladesh | India | Egypt
+NA,0.004,0.004,0,0.00398406374501992,Denmark | Greenland | Netherlands,Bangladesh | India | Egypt

@@ -1,0 +1,60 @@
+osm_id,name,latitude,longitude,country,country_code,city,region,pet_garden_type,data_source,data_quality,confidence_score,data_category,data_completeness,pet_id,quality_score,distance_km
+HK_LCSD_16,Aberdeen Country Park Pet Area,22.2475,114.1565,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_16,95,NA
+HK_LCSD_32,Aberdeen Promenade Pet Garden,22.248,114.155,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_32,95,NA
+HK_LCSD_35,Ap Lei Chau Wind Tower Park Pet Garden,22.2438,114.152,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_35,95,NA
+HK_LCSD_9,Butterfly Estate Pet Garden,22.372,113.962,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_9,95,NA
+HK_LCSD_37,Central Dog Exercise Area,22.288,114.141,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_37,95,NA
+HK_LCSD_15,Chai Wan Park Pet Garden,22.2639,114.237,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_15,95,NA
+HK_LCSD_34,Discovery Bay Pet Garden,22.2944,114.0157,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_34,95,NA
+HK_LCSD_11,Fanling Pet Garden,22.492,114.138,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_11,95,NA
+HK_LCSD_31,Hung Hom Park Pet Garden,22.3075,114.187,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_31,95,NA
+HK_LCSD_28,Kai Tak Pet Garden,22.3287,114.203,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_28,95,NA
+HK_LCSD_23,Kennedy Town Pet Garden,22.282,114.1283,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_23,95,NA
+HK_LCSD_8,Kowloon Park Pet Garden,22.301,114.1702,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_8,95,NA
+HK_LCSD_3,Kowloon Tsai Park Pet Garden,22.3362,114.1759,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_3,95,NA
+HK_LCSD_20,Kwai Chung Park Pet Garden,22.3578,114.1268,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_20,95,NA
+HK_LCSD_27,Kwun Tong Promenade Pet Garden,22.3118,114.225,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_27,95,NA
+HK_LCSD_2,Lai Chi Kok Park Pet Garden,22.3365,114.1488,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_2,95,NA
+HK_LCSD_29,Lei Yue Mun Park Pet Garden,22.299,114.235,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_29,95,NA
+HK_LCSD_19,Ma On Shan Park Pet Garden,22.424,114.232,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_19,95,NA
+HK_LCSD_1,Morse Park Pet Garden,22.3425,114.1946,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_1,95,NA
+HK_LCSD_24,Pok Fu Lam Pet Garden,22.2594,114.1354,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_24,95,NA
+HK_LCSD_6,Quarry Bay Park Pet Garden,22.2876,114.2132,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_6,95,NA
+HK_LCSD_22,Sai Kung Pet Garden,22.3818,114.2713,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_22,95,NA
+HK_LCSD_12,Sha Tin Park Pet Garden,22.3813,114.1895,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_12,95,NA
+HK_LCSD_25,Sham Shui Po Park Pet Garden,22.3318,114.159,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_25,95,NA
+HK_LCSD_10,Sheung Shui Pet Garden,22.5024,114.1278,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_10,95,NA
+HK_LCSD_17,South Horizons Pet Garden,22.2433,114.1485,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_17,95,NA
+HK_LCSD_30,Tai Kok Tsui Pet Garden,22.3224,114.1615,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_30,95,NA
+HK_LCSD_5,Tai Po Waterfront Park Pet Garden,22.4458,114.1709,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_5,95,NA
+HK_LCSD_13,Tin Shui Wai Park Pet Garden,22.465,114.003,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_13,95,NA
+HK_LCSD_36,To Kwa Wan Pet Garden,22.326,114.189,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_36,95,NA
+HK_LCSD_21,Tseung Kwan O Pet Garden,22.31,114.258,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_21,95,NA
+HK_LCSD_26,Tsing Yi Park Pet Garden,22.3445,114.1052,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_26,95,NA
+HK_LCSD_18,Tsuen Wan Riviera Park Pet Garden,22.3715,114.113,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_18,95,NA
+HK_LCSD_4,Tuen Mun Park Pet Garden,22.392,113.9765,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_4,95,NA
+HK_LCSD_33,Tung Chung North Park Pet Garden,22.292,113.943,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_33,95,NA
+HK_LCSD_7,Victoria Park Pet Garden,22.2825,114.1887,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_7,95,NA
+HK_LCSD_38,Wan Chai Dog Exercise Area,22.277,114.173,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_38,95,NA
+HK_LCSD_39,Yau Ma Tei Pet Garden,22.312,114.17,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_39,95,NA
+HK_LCSD_14,Yuen Long Park Pet Garden,22.4443,114.0217,Hong Kong,HK,Hong Kong,Asia-Pacific,Official Pet Garden,LCSD Official Registry,⭐⭐⭐⭐⭐,0.99,GOVERNMENT_VERIFIED,COMPLETE,PET_14,95,NA
+OSM_AU_2,Brighton Beach Dog Area,-37.8732,144.9873,Australia,AU,Melbourne,Oceania,Dog Beach,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_52,85,NA
+OSM_AU_1,Centennial Park Dog Zone,-33.8903,151.215,Australia,AU,Sydney,Oceania,Pet Recreation Area,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_51,85,NA
+OSM_CA_2,Jericho Beach Dog Area,49.2706,-123.1929,Canada,CA,Vancouver,North America,Dog Beach,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_50,85,NA
+OSM_CA_1,Stanley Park Off-Leash Area,49.32,-123.1617,Canada,CA,Vancouver,North America,Off-Leash Area,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_49,85,NA
+OSM_FR_1,Bois de Boulogne Dog Park,48.8467,2.2287,France,FR,Paris,Europe,Pet Park,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_55,85,NA
+OSM_DE_1,Tiergarten Park Dog Area,52.5195,13.3645,Germany,DE,Berlin,Europe,Pet Park,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_54,85,NA
+OSM_IT_1,Sempione Park Dog Area,45.4778,9.1857,Italy,IT,Milan,Europe,Off-Leash Area,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_56,85,NA
+OSM_JP_1,Yoyogi Park Dog Run,35.6724,139.6985,Japan,JP,Tokyo,Asia-Pacific,Dog Run,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_53,85,NA
+OSM_SG_1,Bishan Park Dog Run,1.3574,103.8482,Singapore,SG,Bishan,Asia-Pacific,Dog Run,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_40,85,NA
+OSM_SG_2,Punggol Park Dog Area,1.4004,103.9133,Singapore,SG,Punggol,Asia-Pacific,Pet Park,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_41,85,NA
+OSM_KR_1,Seoul Forest Dog Park,37.5446,127.0394,South Korea,KR,Seoul,Asia-Pacific,Dog Park,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_58,85,NA
+OSM_ES_1,Citadel Park Dog Zone,41.3845,2.1838,Spain,ES,Barcelona,Europe,Pet Recreation Area,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_57,85,NA
+OSM_TH_1,Benjakitti Park Pet Area,13.7245,100.5634,Thailand,TH,Bangkok,Asia-Pacific,Pet Park,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_59,85,NA
+OSM_UK_1,Hyde Park Dog Exercise Area,51.5074,-0.1657,UK,GB,London,Europe,Off-Leash Area,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_47,85,NA
+OSM_UK_2,Regent's Park Dog Area,51.5237,-0.1548,UK,GB,London,Europe,Pet Park,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_48,85,NA
+OSM_US_CA_3,Fort Funston Dog Recreation Area,37.7389,-122.5109,USA,US,San Francisco,North America,Off-Leash Area,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_44,85,NA
+OSM_US_CA_1,Golden Gate Park Off-Leash Area,37.7694,-122.4862,USA,US,San Francisco,North America,Off-Leash Area,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_42,85,NA
+OSM_US_CA_2,Huntington Dog Beach,33.6413,-117.991,USA,US,Huntington Beach,North America,Dog Beach,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_43,85,NA
+OSM_US_NY_2,Madison Square Park Dog Run,40.7453,-73.9879,USA,US,New York,North America,Fenced Dog Run,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_46,85,NA
+OSM_US_NY_1,Washington Square Dog Run,40.7327,-74.0026,USA,US,New York,North America,Fenced Dog Run,OpenStreetMap Reference,⭐⭐⭐⭐,0.85,OSM_VERIFIED,GOOD,PET_45,85,NA

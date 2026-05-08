@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Europe & Central Asia",
+    "countries": 48,
+    "avgRate": 1.6106,
+    "totalParks": 13654
+  },
+  {
+    "name": "East Asia & Pacific",
+    "countries": 12,
+    "avgRate": 0.0936,
+    "totalParks": 1514
+  },
+  {
+    "name": "North America",
+    "countries": 1,
+    "avgRate": 2.5195,
+    "totalParks": 981
+  },
+  {
+    "name": "Latin America & Caribbean",
+    "countries": 17,
+    "avgRate": 0.0617,
+    "totalParks": 656
+  },
+  {
+    "name": "Middle East & North Africa",
+    "countries": 11,
+    "avgRate": 0.0093,
+    "totalParks": 318
+  }
+]

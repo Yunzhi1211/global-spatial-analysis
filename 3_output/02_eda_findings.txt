@@ -1,0 +1,40 @@
+GLOBAL EXPLORATORY ANALYSIS FINDINGS
+
+SAMPLE SIZE:
+- Countries analyzed: 96
+- Total dog parks: 17159
+- Average parks per country: 178.7
+- Median parks per country: 16
+
+GLOBAL METRICS:
+- Mean: 1.34 parks per 100k population
+- Median: 0.23 parks per 100k
+- Std Dev: 2.01
+- Range: 0.00 - 8.84 parks per 100k
+
+REGIONAL LEADERS:
+- Highest average: North America (2.52 parks/100k)
+- Most total parks: Europe & Central Asia (13654 parks)
+- Fastest-growing region: Europe & Central Asia
+
+TIER DISTRIBUTION:
+- Top Tier countries: 3 (3.1%)
+- Advanced countries: 3 (3.1%)
+- Developing countries: 4 (4.2%)
+- Emerging countries: 8 (8.3%)
+- Low Tier countries: 78 (81.2%)
+
+TOP 5 COUNTRIES:
+  Denmark: 8.84/100k (Top Tier)
+  Greenland: 8.82/100k (Top Tier)
+  Netherlands: 6.97/100k (Top Tier)
+  Austria: 6.18/100k (Advanced)
+  Belgium: 5.79/100k (Advanced)
+
+FINDINGS:
+1. Significant global variation in dog park provision
+2. Regional clustering evident in the data
+3. Developed nations show higher parks per capita
+4. Emerging markets showing rapid growth potential
+5. Opportunity for benchmarking and capacity building
+

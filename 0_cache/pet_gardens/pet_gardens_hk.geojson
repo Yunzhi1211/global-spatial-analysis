@@ -1,0 +1,590 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1946,
+          22.3425
+        ]
+      },
+      "properties": {
+        "name": "Morse Park Pet Garden",
+        "district": "Wong Tai Sin",
+        "address": "Morse Park, Fung Mo Street, Wong Tai Sin"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1488,
+          22.3365
+        ]
+      },
+      "properties": {
+        "name": "Lai Chi Kok Park Pet Garden",
+        "district": "Sham Shui Po",
+        "address": "Lai Chi Kok Park, Lai Wan Road, Lai Chi Kok"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1759,
+          22.3362
+        ]
+      },
+      "properties": {
+        "name": "Kowloon Tsai Park Pet Garden",
+        "district": "Kowloon City",
+        "address": "Kowloon Tsai Park, Inverness Road, Kowloon Tong"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.9765,
+          22.392
+        ]
+      },
+      "properties": {
+        "name": "Tuen Mun Park Pet Garden",
+        "district": "Tuen Mun",
+        "address": "Tuen Mun Park, Tuen Mun"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1709,
+          22.4458
+        ]
+      },
+      "properties": {
+        "name": "Tai Po Waterfront Park Pet Garden",
+        "district": "Tai Po",
+        "address": "Tai Po Waterfront Park, Tai Po"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.2132,
+          22.2876
+        ]
+      },
+      "properties": {
+        "name": "Quarry Bay Park Pet Garden",
+        "district": "Eastern",
+        "address": "Quarry Bay Park, Quarry Bay"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1887,
+          22.2825
+        ]
+      },
+      "properties": {
+        "name": "Victoria Park Pet Garden",
+        "district": "Wan Chai",
+        "address": "Victoria Park, Causeway Bay"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1702,
+          22.301
+        ]
+      },
+      "properties": {
+        "name": "Kowloon Park Pet Garden",
+        "district": "Yau Tsim Mong",
+        "address": "Kowloon Park, Tsim Sha Tsui"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.962,
+          22.372
+        ]
+      },
+      "properties": {
+        "name": "Butterfly Estate Pet Garden",
+        "district": "Tuen Mun",
+        "address": "Butterfly Estate, Tuen Mun"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1278,
+          22.5024
+        ]
+      },
+      "properties": {
+        "name": "Sheung Shui Pet Garden",
+        "district": "North",
+        "address": "North District Park, Sheung Shui"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.138,
+          22.492
+        ]
+      },
+      "properties": {
+        "name": "Fanling Pet Garden",
+        "district": "North",
+        "address": "Fanling, North District"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1895,
+          22.3813
+        ]
+      },
+      "properties": {
+        "name": "Sha Tin Park Pet Garden",
+        "district": "Sha Tin",
+        "address": "Sha Tin Park, Sha Tin"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.003,
+          22.465
+        ]
+      },
+      "properties": {
+        "name": "Tin Shui Wai Park Pet Garden",
+        "district": "Yuen Long",
+        "address": "Tin Shui Wai Park, Tin Shui Wai"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.0217,
+          22.4443
+        ]
+      },
+      "properties": {
+        "name": "Yuen Long Park Pet Garden",
+        "district": "Yuen Long",
+        "address": "Yuen Long Park, Yuen Long"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.237,
+          22.2639
+        ]
+      },
+      "properties": {
+        "name": "Chai Wan Park Pet Garden",
+        "district": "Eastern",
+        "address": "Chai Wan Park, Chai Wan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1565,
+          22.2475
+        ]
+      },
+      "properties": {
+        "name": "Aberdeen Country Park Pet Area",
+        "district": "Southern",
+        "address": "Aberdeen, Southern District"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1485,
+          22.2433
+        ]
+      },
+      "properties": {
+        "name": "South Horizons Pet Garden",
+        "district": "Southern",
+        "address": "South Horizons, Ap Lei Chau"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.113,
+          22.3715
+        ]
+      },
+      "properties": {
+        "name": "Tsuen Wan Riviera Park Pet Garden",
+        "district": "Tsuen Wan",
+        "address": "Riviera Park, Tsuen Wan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.232,
+          22.424
+        ]
+      },
+      "properties": {
+        "name": "Ma On Shan Park Pet Garden",
+        "district": "Sha Tin",
+        "address": "Ma On Shan Park, Ma On Shan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1268,
+          22.3578
+        ]
+      },
+      "properties": {
+        "name": "Kwai Chung Park Pet Garden",
+        "district": "Kwai Tsing",
+        "address": "Kwai Chung Park, Kwai Chung"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.258,
+          22.31
+        ]
+      },
+      "properties": {
+        "name": "Tseung Kwan O Pet Garden",
+        "district": "Sai Kung",
+        "address": "Tseung Kwan O, Sai Kung"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.2713,
+          22.3818
+        ]
+      },
+      "properties": {
+        "name": "Sai Kung Pet Garden",
+        "district": "Sai Kung",
+        "address": "Sai Kung Town, Sai Kung"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1283,
+          22.282
+        ]
+      },
+      "properties": {
+        "name": "Kennedy Town Pet Garden",
+        "district": "Central and Western",
+        "address": "Kennedy Town, Central and Western"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1354,
+          22.2594
+        ]
+      },
+      "properties": {
+        "name": "Pok Fu Lam Pet Garden",
+        "district": "Southern",
+        "address": "Pok Fu Lam, Southern District"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.159,
+          22.3318
+        ]
+      },
+      "properties": {
+        "name": "Sham Shui Po Park Pet Garden",
+        "district": "Sham Shui Po",
+        "address": "Sham Shui Po Park, Sham Shui Po"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1052,
+          22.3445
+        ]
+      },
+      "properties": {
+        "name": "Tsing Yi Park Pet Garden",
+        "district": "Kwai Tsing",
+        "address": "Tsing Yi Park, Tsing Yi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.225,
+          22.3118
+        ]
+      },
+      "properties": {
+        "name": "Kwun Tong Promenade Pet Garden",
+        "district": "Kwun Tong",
+        "address": "Kwun Tong Promenade, Kwun Tong"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.203,
+          22.3287
+        ]
+      },
+      "properties": {
+        "name": "Kai Tak Pet Garden",
+        "district": "Kowloon City",
+        "address": "Kai Tak, Kowloon City"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.235,
+          22.299
+        ]
+      },
+      "properties": {
+        "name": "Lei Yue Mun Park Pet Garden",
+        "district": "Kwun Tong",
+        "address": "Lei Yue Mun Park, Kwun Tong"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1615,
+          22.3224
+        ]
+      },
+      "properties": {
+        "name": "Tai Kok Tsui Pet Garden",
+        "district": "Yau Tsim Mong",
+        "address": "Cherry Street Park, Tai Kok Tsui"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.187,
+          22.3075
+        ]
+      },
+      "properties": {
+        "name": "Hung Hom Park Pet Garden",
+        "district": "Kowloon City",
+        "address": "Hung Hom Park, Hung Hom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.155,
+          22.248
+        ]
+      },
+      "properties": {
+        "name": "Aberdeen Promenade Pet Garden",
+        "district": "Southern",
+        "address": "Aberdeen Promenade, Aberdeen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.943,
+          22.292
+        ]
+      },
+      "properties": {
+        "name": "Tung Chung North Park Pet Garden",
+        "district": "Islands",
+        "address": "Tung Chung North Park, Tung Chung"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.0157,
+          22.2944
+        ]
+      },
+      "properties": {
+        "name": "Discovery Bay Pet Garden",
+        "district": "Islands",
+        "address": "Discovery Bay, Lantau Island"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.152,
+          22.2438
+        ]
+      },
+      "properties": {
+        "name": "Ap Lei Chau Wind Tower Park Pet Garden",
+        "district": "Southern",
+        "address": "Ap Lei Chau Wind Tower Park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.189,
+          22.326
+        ]
+      },
+      "properties": {
+        "name": "To Kwa Wan Pet Garden",
+        "district": "Kowloon City",
+        "address": "Sung Wong Toi Garden, To Kwa Wan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.141,
+          22.288
+        ]
+      },
+      "properties": {
+        "name": "Central Dog Exercise Area",
+        "district": "Central and Western",
+        "address": "Sun Yat Sen Memorial Park, Sai Ying Pun"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.173,
+          22.277
+        ]
+      },
+      "properties": {
+        "name": "Wan Chai Dog Exercise Area",
+        "district": "Wan Chai",
+        "address": "Wan Chai Park, Wan Chai"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.17,
+          22.312
+        ]
+      },
+      "properties": {
+        "name": "Yau Ma Tei Pet Garden",
+        "district": "Yau Tsim Mong",
+        "address": "Yau Ma Tei, Yau Tsim Mong"
+      }
+    }
+  ]
+}

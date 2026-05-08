@@ -1,0 +1,97 @@
+country_name,region,tier_numeric,composite_score,global_rank,gap_to_next_tier,improvement_opportunity
+Faroe Islands,Europe & Central Asia,Developing,45.973911688492905,13,14.026088311507095,High
+Czechia,Europe & Central Asia,Developing,46.349638544315894,12,13.650361455684106,High
+Malta,Middle East & North Africa,Emerging,31.38471187559092,35,13.61528812440908,High
+Italy,Europe & Central Asia,Developing,47.17874823175157,11,12.82125176824843,High
+Cyprus,Europe & Central Asia,Emerging,32.641666083973334,34,12.358333916026666,High
+Bulgaria,Europe & Central Asia,Emerging,32.86841481357011,33,12.131585186429888,High
+Belarus,Europe & Central Asia,Emerging,33.1464197231212,32,11.853580276878802,High
+Switzerland,Europe & Central Asia,Emerging,33.24304500233747,31,11.756954997662532,High
+Spain,Europe & Central Asia,Developing,48.34357556368204,10,11.656424436317963,High
+Luxembourg,Europe & Central Asia,Developing,48.37351691410313,9,11.626483085896872,High
+Portugal,Europe & Central Asia,Emerging,33.88423504252908,30,11.115764957470923,High
+Latvia,Europe & Central Asia,Emerging,34.32384260971927,29,10.676157390280729,High
+Netherlands,Europe & Central Asia,Advanced,64.41713197811163,3,10.582868021888373,High
+France,Europe & Central Asia,Emerging,34.550350565862175,28,10.449649434137825,High
+New Zealand,East Asia & Pacific,Emerging,34.78880251475173,27,10.21119748524827,High
+Norway,Europe & Central Asia,Emerging,34.840479010367744,26,10.159520989632256,High
+Lithuania,Europe & Central Asia,Emerging,38.176499071051545,25,6.823500928948455,Medium
+Hungary,Europe & Central Asia,Developing,53.31373486195367,8,6.6862651380463305,Medium
+Germany,Europe & Central Asia,Emerging,38.7155103792388,24,6.2844896207611995,Medium
+Marshall Islands,East Asia & Pacific,Emerging,39.106069846590145,23,5.893930153409855,Medium
+Andorra,Europe & Central Asia,Emerging,39.18555199038879,22,5.814448009611212,Medium
+Canada,North America,Emerging,39.24362847487967,21,5.756371525120329,Medium
+Liechtenstein,Europe & Central Asia,Emerging,39.31471174199856,20,5.685288258001442,Medium
+Monaco,Europe & Central Asia,Emerging,39.52140420149587,19,5.478595798504131,Medium
+Sweden,Europe & Central Asia,Developing,54.9226264564395,7,5.077373543560498,Medium
+Bangladesh,South Asia,Low Tier,25,96,5,Low
+India,South Asia,Low Tier,25.00618242520249,95,4.993817574797511,Low
+Egypt,Middle East & North Africa,Low Tier,25.006703785355224,94,4.993296214644776,Low
+Jersey,Europe & Central Asia,Low Tier,25.00797092462692,93,4.992029075373079,Low
+Viet Nam,East Asia & Pacific,Low Tier,25.00800715587006,92,4.991992844129939,Low
+Iraq,Middle East & North Africa,Low Tier,25.00949252236981,91,4.990507477630189,Low
+Uzbekistan,Europe & Central Asia,Low Tier,25.012845975953617,90,4.987154024046383,Low
+Indonesia,East Asia & Pacific,Low Tier,25.012885510035936,89,4.987114489964064,Low
+Namibia,NA,Low Tier,25.01928017965711,88,4.980719820342891,Low
+China,East Asia & Pacific,Low Tier,25.0262927306279,87,4.973707269372099,Low
+Morocco,Middle East & North Africa,Low Tier,25.026957781575824,86,4.973042218424176,Low
+Kenya,Sub-Saharan Africa,Low Tier,25.027930080711357,85,4.972069919288643,Low
+Madagascar,Sub-Saharan Africa,Low Tier,25.03381762469462,84,4.9661823753053795,Low
+Algeria,Middle East & North Africa,Low Tier,25.033963464880717,83,4.966036535119283,Low
+"Iran, Islamic Republic of",Middle East & North Africa,Low Tier,25.04087582874827,82,4.95912417125173,Low
+Saudi Arabia,Middle East & North Africa,Low Tier,25.04938510221458,81,4.950614897785421,Low
+Honduras,Latin America & Caribbean,Low Tier,25.050701202143514,80,4.9492987978564855,Low
+Azerbaijan,Europe & Central Asia,Low Tier,25.05241757138626,79,4.947582428613739,Low
+Nepal,South Asia,Low Tier,25.053749448976045,78,4.9462505510239545,Low
+Paraguay,Latin America & Caribbean,Low Tier,25.080304264470307,77,4.919695735529693,Low
+Tunisia,Middle East & North Africa,Low Tier,25.089977482414398,76,4.9100225175856025,Low
+Thailand,East Asia & Pacific,Low Tier,25.091253178588243,75,4.908746821411757,Low
+Malaysia,East Asia & Pacific,Low Tier,25.09444890983154,74,4.9055510901684585,Low
+Dominican Republic,Latin America & Caribbean,Low Tier,25.097360831647826,73,4.902639168352174,Low
+Cuba,Latin America & Caribbean,Low Tier,25.098916995905725,72,4.901083004094275,Low
+Oman,Middle East & North Africa,Low Tier,25.11620410826866,71,4.883795891731339,Low
+"Bolivia, Plurinational State of",Latin America & Caribbean,Low Tier,25.18394511452403,70,4.816054885475971,Low
+"Venezuela, Bolivarian Republic of",Latin America & Caribbean,Low Tier,25.197087859929148,69,4.802912140070852,Low
+Albania,Europe & Central Asia,Low Tier,25.22730877687912,68,4.77269122312088,Low
+Kyrgyzstan,Europe & Central Asia,Low Tier,25.239863784301086,67,4.760136215698914,Low
+Peru,Latin America & Caribbean,Low Tier,25.250039721667044,66,4.749960278332956,Low
+Uruguay,Latin America & Caribbean,Low Tier,25.33017818948938,65,4.669821810510619,Low
+Ecuador,Latin America & Caribbean,Low Tier,25.345636434576747,64,4.654363565423253,Low
+Türkiye,Europe & Central Asia,Low Tier,25.38259804479099,63,4.6174019552090115,Low
+Croatia,Europe & Central Asia,Emerging,40.39581032178799,18,4.604189678212009,Low
+"Moldova, Republic of",Europe & Central Asia,Low Tier,25.443905738187663,62,4.556094261812337,Low
+"Korea, Republic of",East Asia & Pacific,Low Tier,25.467218848878893,61,4.532781151121107,Low
+Mexico,Latin America & Caribbean,Low Tier,25.559428779837898,60,4.440571220162102,Low
+"Taiwan, Province of China",East Asia & Pacific,Low Tier,25.584742931166474,59,4.415257068833526,Low
+United Kingdom,Europe & Central Asia,Low Tier,25.590529715232567,58,4.409470284767433,Low
+Panama,Latin America & Caribbean,Low Tier,25.63912010986321,57,4.36087989013679,Low
+Brazil,Latin America & Caribbean,Low Tier,25.641963242362586,56,4.358036757637414,Low
+Kazakhstan,Europe & Central Asia,Low Tier,25.645820496939727,55,4.354179503060273,Low
+United Arab Emirates,Middle East & North Africa,Low Tier,25.670167228776904,54,4.329832771223096,Low
+Bhutan,South Asia,Low Tier,25.72076541406714,53,4.279234585932858,Low
+Colombia,Latin America & Caribbean,Low Tier,25.925657492822644,52,4.074342507177356,Low
+Argentina,Latin America & Caribbean,Low Tier,25.9306335693612,51,4.0693664306388015,Low
+Chile,Latin America & Caribbean,Low Tier,26.12451963031778,50,3.8754803696822187,Low
+Japan,East Asia & Pacific,Low Tier,26.30722480529232,49,3.6927751947076786,Low
+Armenia,Europe & Central Asia,Low Tier,26.32976124543048,48,3.670238754569521,Low
+Israel,Middle East & North Africa,Emerging,41.50350003434828,17,3.496499965651722,Low
+Montenegro,Europe & Central Asia,Low Tier,26.810230985091554,47,3.189769014908446,Low
+Estonia,Europe & Central Asia,Developing,56.85749699084444,6,3.1425030091555612,Low
+Barbados,Latin America & Caribbean,Low Tier,26.9995901102536,46,3.0004098897464004,Low
+Bosnia and Herzegovina,Europe & Central Asia,Low Tier,27.113969702390143,45,2.8860302976098566,Low
+Georgia,Europe & Central Asia,Low Tier,27.433671541685648,44,2.566328458314352,Low
+Greece,Europe & Central Asia,Low Tier,27.434729266597586,43,2.5652707334024143,Low
+North Macedonia,Europe & Central Asia,Low Tier,27.466319570006252,42,2.5336804299937477,Low
+Slovakia,Europe & Central Asia,Emerging,42.48599885832946,16,2.5140011416705406,Low
+Ukraine,Europe & Central Asia,Low Tier,27.710413455639337,41,2.289586544360663,Low
+Belgium,Europe & Central Asia,Developing,57.723198266141736,5,2.276801733858264,Low
+Iceland,Europe & Central Asia,Emerging,42.75974996500903,15,2.2402500349909715,Low
+Singapore,East Asia & Pacific,Low Tier,28.206655891421605,40,1.7933441085783954,Low
+Romania,Europe & Central Asia,Low Tier,28.321428528904036,39,1.6785714710959638,Low
+Ireland,Europe & Central Asia,Low Tier,28.68481405945101,38,1.3151859405489894,Low
+Costa Rica,Latin America & Caribbean,Low Tier,28.891213326910243,37,1.1087866730897566,Low
+Serbia,Europe & Central Asia,Low Tier,29.069348259658348,36,0.9306517403416521,Low
+Australia,East Asia & Pacific,Emerging,44.68668612804282,14,0.3133138719571775,Low
+Greenland,Europe & Central Asia,Advanced,74.89542373780637,2,0.10457626219363192,Low
+Austria,Europe & Central Asia,Developing,59.95561842455046,4,0.0443815754495418,Low
+Denmark,Europe & Central Asia,Top Tier,75,1,0,Low

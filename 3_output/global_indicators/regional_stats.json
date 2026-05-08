@@ -1,0 +1,72 @@
+[
+  {
+    "region": "East Asia & Pacific",
+    "n_countries": 37,
+    "total_pop": 2364906595,
+    "avg_elderly_ratio": 9.76,
+    "avg_youth_ratio": 25.06,
+    "avg_life_expectancy": 74.11,
+    "avg_gdp_per_capita": 19545.65,
+    "avg_pop_density": 1117.4
+  },
+  {
+    "region": "Europe & Central Asia",
+    "n_countries": 56,
+    "total_pop": 928055753,
+    "avg_elderly_ratio": 18.19,
+    "avg_youth_ratio": 17.38,
+    "avg_life_expectancy": 79.15,
+    "avg_gdp_per_capita": 44560.8,
+    "avg_pop_density": 455.06
+  },
+  {
+    "region": "Latin America & Caribbean",
+    "n_countries": 39,
+    "total_pop": 661960942,
+    "avg_elderly_ratio": 10.7,
+    "avg_youth_ratio": 21.62,
+    "avg_life_expectancy": 75.36,
+    "avg_gdp_per_capita": 18096.71,
+    "avg_pop_density": 164.37
+  },
+  {
+    "region": "Middle East, North Africa, Afghanistan & Pakistan",
+    "n_countries": 22,
+    "total_pop": 807856984,
+    "avg_elderly_ratio": 5.83,
+    "avg_youth_ratio": 26.88,
+    "avg_life_expectancy": 76.23,
+    "avg_gdp_per_capita": 17877.32,
+    "avg_pop_density": 301.31
+  },
+  {
+    "region": "North America",
+    "n_countries": 3,
+    "total_pop": 381464223,
+    "avg_elderly_ratio": 19.82,
+    "avg_youth_ratio": 15.35,
+    "avg_life_expectancy": 81.16,
+    "avg_gdp_per_capita": 93909.92,
+    "avg_pop_density": 413.16
+  },
+  {
+    "region": "South Asia",
+    "n_countries": 6,
+    "total_pop": 1677384532,
+    "avg_elderly_ratio": 7.23,
+    "avg_youth_ratio": 23.93,
+    "avg_life_expectancy": 75,
+    "avg_gdp_per_capita": 4743.62,
+    "avg_pop_density": 691.99
+  },
+  {
+    "region": "Sub-Saharan Africa",
+    "n_countries": 48,
+    "total_pop": 1291044964,
+    "avg_elderly_ratio": 3.65,
+    "avg_youth_ratio": 38.87,
+    "avg_life_expectancy": 64.78,
+    "avg_gdp_per_capita": 2619.61,
+    "avg_pop_density": 122.6
+  }
+]
