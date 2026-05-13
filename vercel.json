@@ -1,8 +1,9 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
-      "destination": "/3_output/10_fancy_dashboard.html"
+      "destination": "/3_output/global_dog_parks_dashboard.html",
+      "permanent": false
     }
   ]
 }

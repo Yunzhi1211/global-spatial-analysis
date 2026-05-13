@@ -2,11 +2,11 @@
 
 # Global Dog Parks Analysis
 
-This project analyzes dog-park accessibility and urban livability across 195+ countries using OpenStreetMap-based park data and comparative indicators.
+This project analyzes dog-park accessibility and urban livability across 100+ countries using OpenStreetMap-based park data and comparative indicators.
 
 ## Project Scope
 
-- Countries analyzed: 195+
+- Countries analyzed: 100+
 - Analysis level: country-level global comparison
 - Core indicator: dog parks per 100,000 population
 - Key outputs: ranking tables, regional profiles, clustering results, interactive dashboard
@@ -33,15 +33,47 @@ This project analyzes dog-park accessibility and urban livability across 195+ co
 
 1. Open this workspace in VS Code or RStudio.
 2. Run 2_R_script/RUN_ALL_ANALYSIS_GLOBAL.R for full pipeline execution.
-3. Open 3_output/10_fancy_dashboard.html in your browser.
+3. Open 3_output/global_dog_parks_dashboard.html in your browser.
+
+## Python Collection Modes
+
+The Python collector is unified in 1_python_data_collection/api_global_mega.py.
+
+- Full run (all ISO code elements):
+	- python 1_python_data_collection/api_global_mega.py --mode full
+- Targeted recovery for US and HK (merge into existing output files):
+	- python 1_python_data_collection/api_global_mega.py --mode targeted
+- Targeted recovery for HK only:
+	- python 1_python_data_collection/api_global_mega.py --mode targeted --only-hk
+- Targeted recovery for US only:
+	- python 1_python_data_collection/api_global_mega.py --mode targeted --only-us
+
+The targeted mode updates existing output files in-place and refreshes coverage status.
+
+## ISO 3166-1 Scope Definition
+
+This project uses ISO 3166-1 alpha-2 code elements as the global country/region scope.
+
+- Scope basis: code elements for countries and territories
+- Current total in this workflow: 249
+- Important note: this is not the same as sovereign-state counts
+
+This definition is automatically written into output metadata:
+
+- 3_output/dashboard/pet_parks_by_country.geojson (FeatureCollection properties)
+- 3_output/dashboard/dataset_metadata.json (structured metadata summary)
 
 ## Key Output Files
 
-- 3_output/01_master_global_dataset.csv: integrated master dataset
-- 3_output/04_global_ranking_full.csv: full country ranking
-- 3_output/03_peer_country_groups.csv: peer-country mapping
-- 3_output/05_country_clusters_kmeans.csv: clustering results
-- 3_output/10_fancy_dashboard.html: interactive dashboard
+- 3_output/dashboard/pet_parks_by_country.csv: latest mega collector CSV output
+- 3_output/dashboard/pet_parks_by_country.geojson: latest mega collector GeoJSON output
+- 3_output/dashboard/country_coverage_report.csv: latest coverage status by ISO code
+- 3_output/dashboard/dataset_metadata.json: ISO scope definition and run summary
+- 3_output/global_dog_parks_dashboard.html: interactive dashboard
+
+Historical generated files previously stored under 3_output have been archived to:
+
+- 0_cache/3_output_archive_20260510
 
 ## Methodology Summary
 
@@ -49,10 +81,6 @@ This project analyzes dog-park accessibility and urban livability across 195+ co
 - Normalization: per-100k population metrics
 - Comparative scoring: scaled indicators for cross-country ranking
 - Segmentation: K-means clustering for country groups
-
-## Current AI Insights Note
-
-The AI Insights section in the dashboard currently uses local JavaScript template generation based on selected countries and existing dataset fields. It is not connected to a live LLM API by default.
 
 ## Limitations
 
@@ -62,5 +90,5 @@ The AI Insights section in the dashboard currently uses local JavaScript templat
 
 ## Maintenance
 
-- Last major update: 2026
+- Last major update: May 2026
 - Recommended: rerun the pipeline when source data is refreshed

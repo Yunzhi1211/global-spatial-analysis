@@ -62,3 +62,4 @@ analysis_results_global/
 0_proposal_draft/
 0_final_essay/
 .vercel
+.env*.local

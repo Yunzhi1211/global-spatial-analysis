@@ -1,0 +1,23 @@
+{
+  "dataset": "Global Dog Parks Dataset",
+  "generated_at": "2026-05-10 21:27:54",
+  "mode": "targeted_recovery",
+  "source": "OpenStreetMap contributors via Overpass API",
+  "query_tag": "leisure=dog_park",
+  "iso_standard": "ISO 3166-1 alpha-2",
+  "iso_scope": "code elements for countries and territories",
+  "iso_total_code_elements": 249,
+  "iso_note": "This scope is not equivalent to sovereign-state counts.",
+  "summary": {
+    "countries_queried": 249,
+    "successful_queries": 249,
+    "countries_with_data": 106,
+    "failed_queries": 0,
+    "zero_result_queries": 142
+  },
+  "files": {
+    "csv": "3_output\\dashboard\\pet_parks_by_country.csv",
+    "geojson": "3_output\\dashboard\\pet_parks_by_country.geojson",
+    "coverage": "3_output\\dashboard\\country_coverage_report.csv"
+  }
+}

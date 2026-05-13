@@ -1,0 +1,250 @@
+country_code,country_name,query_status,park_count,has_data,is_priority_country,is_missing_after_run
+AW,Aruba,success_zero_results,0,False,False,True
+AF,Afghanistan,success_zero_results,0,False,False,True
+AO,Angola,success_zero_results,0,False,False,True
+AI,Anguilla,success_zero_results,0,False,False,True
+AX,Åland Islands,success_zero_results,0,False,False,True
+AL,Albania,success_with_data,1,True,False,False
+AD,Andorra,success_with_data,2,True,False,False
+AE,United Arab Emirates,success_with_data,12,True,False,False
+AR,Argentina,success_with_data,77,True,False,False
+AM,Armenia,success_with_data,7,True,False,False
+AS,American Samoa,success_zero_results,0,False,False,True
+AQ,Antarctica,success_zero_results,0,False,False,True
+TF,French Southern Territories,success_zero_results,0,False,False,True
+AG,Antigua and Barbuda,success_zero_results,0,False,False,True
+AU,Australia,success_with_data,913,True,False,False
+AT,Austria,success_with_data,561,True,False,False
+AZ,Azerbaijan,success_with_data,1,True,False,False
+BI,Burundi,success_zero_results,0,False,False,True
+BE,Belgium,success_with_data,682,True,False,False
+BJ,Benin,success_zero_results,0,False,False,True
+BQ,"Bonaire, Sint Eustatius and Saba",success_zero_results,0,False,False,True
+BF,Burkina Faso,success_zero_results,0,False,False,True
+BD,Bangladesh,success_with_data,1,True,False,False
+BG,Bulgaria,success_with_data,90,True,False,False
+BH,Bahrain,success_zero_results,0,False,False,True
+BS,Bahamas,success_zero_results,0,False,False,True
+BA,Bosnia and Herzegovina,success_with_data,12,True,False,False
+BL,Saint Barthélemy,success_zero_results,0,False,False,True
+BY,Belarus,success_with_data,136,True,False,False
+BZ,Belize,success_zero_results,0,False,False,True
+BM,Bermuda,success_zero_results,0,False,False,True
+BO,"Bolivia, Plurinational State of",success_with_data,4,True,False,False
+BR,Brazil,success_with_data,246,True,True,False
+BB,Barbados,success_with_data,1,True,False,False
+BN,Brunei Darussalam,success_zero_results,0,False,False,True
+BT,Bhutan,success_with_data,1,True,False,False
+BV,Bouvet Island,success_zero_results,0,False,False,True
+BW,Botswana,success_zero_results,0,False,False,True
+CF,Central African Republic,success_zero_results,0,False,False,True
+CA,Canada,success_with_data,987,True,False,False
+CC,Cocos (Keeling) Islands,success_zero_results,0,False,False,True
+CH,Switzerland,success_with_data,129,True,False,False
+CL,Chile,success_with_data,39,True,False,False
+CN,China,success_with_data,36,True,True,False
+CI,Côte d'Ivoire,success_zero_results,0,False,False,True
+CM,Cameroon,success_zero_results,0,False,False,True
+CD,"Congo, The Democratic Republic of the",success_zero_results,0,False,False,True
+CG,Congo,success_zero_results,0,False,False,True
+CK,Cook Islands,success_zero_results,0,False,False,True
+CO,Colombia,success_with_data,85,True,False,False
+KM,Comoros,success_zero_results,0,False,False,True
+CV,Cabo Verde,success_zero_results,0,False,False,True
+CR,Costa Rica,success_with_data,35,True,False,False
+CU,Cuba,success_with_data,1,True,False,False
+CW,Curaçao,success_zero_results,0,False,False,True
+CX,Christmas Island,success_zero_results,0,False,False,True
+KY,Cayman Islands,success_zero_results,0,False,False,True
+CY,Cyprus,success_with_data,18,True,False,False
+CZ,Czechia,success_with_data,405,True,False,False
+DE,Germany,success_with_data,2021,True,True,False
+DJ,Djibouti,success_zero_results,0,False,False,True
+DM,Dominica,success_zero_results,0,False,False,True
+DK,Denmark,success_with_data,522,True,False,False
+DO,Dominican Republic,success_with_data,2,True,False,False
+DZ,Algeria,success_with_data,3,True,False,False
+EC,Ecuador,success_with_data,11,True,False,False
+EG,Egypt,success_with_data,2,True,False,False
+ER,Eritrea,success_zero_results,0,False,False,True
+EH,Western Sahara,success_zero_results,0,False,False,True
+ES,Spain,success_with_data,1987,True,False,False
+EE,Estonia,success_with_data,76,True,False,False
+ET,Ethiopia,success_zero_results,0,False,False,True
+FI,Finland,success_with_data,530,True,False,False
+FJ,Fiji,success_zero_results,0,False,False,True
+FK,Falkland Islands (Malvinas),success_zero_results,0,False,False,True
+FR,France,success_with_data,1169,True,True,False
+FO,Faroe Islands,success_with_data,2,True,False,False
+FM,"Micronesia, Federated States of",success_zero_results,0,False,False,True
+GA,Gabon,success_zero_results,0,False,False,True
+GB,United Kingdom,success_with_data,514,True,True,False
+GE,Georgia,success_with_data,16,True,False,False
+GG,Guernsey,success_zero_results,0,False,False,True
+GH,Ghana,success_zero_results,0,False,False,True
+GI,Gibraltar,success_zero_results,0,False,False,True
+GN,Guinea,success_zero_results,0,False,False,True
+GP,Guadeloupe,success_zero_results,0,False,False,True
+GM,Gambia,success_zero_results,0,False,False,True
+GW,Guinea-Bissau,success_zero_results,0,False,False,True
+GQ,Equatorial Guinea,success_zero_results,0,False,False,True
+GR,Greece,success_with_data,45,True,False,False
+GD,Grenada,success_zero_results,0,False,False,True
+GL,Greenland,success_with_data,5,True,False,False
+GT,Guatemala,success_with_data,2,True,False,False
+GF,French Guiana,success_zero_results,0,False,False,True
+GU,Guam,success_zero_results,0,False,False,True
+GY,Guyana,success_zero_results,0,False,False,True
+HK,Hong Kong,success_with_data,42,True,True,False
+HM,Heard Island and McDonald Islands,success_zero_results,0,False,False,True
+HN,Honduras,success_with_data,1,True,False,False
+HR,Croatia,success_with_data,106,True,False,False
+HT,Haiti,success_zero_results,0,False,False,True
+HU,Hungary,success_with_data,484,True,False,False
+ID,Indonesia,success_with_data,9,True,False,False
+IM,Isle of Man,success_zero_results,0,False,False,True
+IN,India,success_with_data,24,True,True,False
+IO,British Indian Ocean Territory,success_zero_results,0,False,False,True
+IE,Ireland,success_with_data,34,True,False,False
+IR,"Iran, Islamic Republic of",success_with_data,7,True,False,False
+IQ,Iraq,success_with_data,1,True,False,False
+IS,Iceland,success_with_data,12,True,False,False
+IL,Israel,success_with_data,282,True,False,False
+IT,Italy,success_with_data,2331,True,False,False
+JM,Jamaica,success_zero_results,0,False,False,True
+JE,Jersey,success_with_data,1,True,False,False
+JO,Jordan,success_zero_results,0,False,False,True
+JP,Japan,success_with_data,298,True,True,False
+KZ,Kazakhstan,success_with_data,24,True,False,False
+KE,Kenya,success_with_data,3,True,False,False
+KG,Kyrgyzstan,success_with_data,3,True,False,False
+KH,Cambodia,success_zero_results,0,False,False,True
+KI,Kiribati,success_zero_results,0,False,False,True
+KN,Saint Kitts and Nevis,success_zero_results,0,False,False,True
+KR,"Korea, Republic of",success_with_data,44,True,False,False
+KW,Kuwait,success_zero_results,0,False,False,True
+LA,Lao People's Democratic Republic,success_zero_results,0,False,False,True
+LB,Lebanon,success_zero_results,0,False,False,True
+LR,Liberia,success_zero_results,0,False,False,True
+LY,Libya,success_zero_results,0,False,False,True
+LC,Saint Lucia,success_zero_results,0,False,False,True
+LI,Liechtenstein,success_with_data,1,True,False,False
+LK,Sri Lanka,success_zero_results,0,False,False,True
+LS,Lesotho,success_zero_results,0,False,False,True
+LT,Lithuania,success_with_data,68,True,False,False
+LU,Luxembourg,success_with_data,28,True,False,False
+LV,Latvia,success_with_data,31,True,False,False
+MO,Macao,success_zero_results,0,False,False,True
+MF,Saint Martin (French part),success_zero_results,0,False,False,True
+MA,Morocco,success_with_data,2,True,False,False
+MC,Monaco,success_with_data,1,True,False,False
+MD,"Moldova, Republic of",success_with_data,2,True,False,False
+MG,Madagascar,success_with_data,2,True,False,False
+MV,Maldives,success_zero_results,0,False,False,True
+MX,Mexico,success_with_data,132,True,False,False
+MH,Marshall Islands,success_with_data,1,True,False,False
+MK,North Macedonia,success_with_data,8,True,False,False
+ML,Mali,success_zero_results,0,False,False,True
+MT,Malta,success_with_data,6,True,False,False
+MM,Myanmar,success_zero_results,0,False,False,True
+ME,Montenegro,success_with_data,2,True,False,False
+MN,Mongolia,success_with_data,1,True,False,False
+MP,Northern Mariana Islands,success_zero_results,0,False,False,True
+MZ,Mozambique,success_with_data,1,True,False,False
+MR,Mauritania,success_zero_results,0,False,False,True
+MS,Montserrat,success_zero_results,0,False,False,True
+MQ,Martinique,success_zero_results,0,False,False,True
+MU,Mauritius,success_zero_results,0,False,False,True
+MW,Malawi,success_zero_results,0,False,False,True
+MY,Malaysia,success_with_data,6,True,False,False
+YT,Mayotte,success_zero_results,0,False,False,True
+,Namibia,success_with_data,0,False,False,True
+NC,New Caledonia,success_zero_results,0,False,False,True
+NE,Niger,success_zero_results,0,False,False,True
+NF,Norfolk Island,success_zero_results,0,False,False,True
+NG,Nigeria,success_zero_results,0,False,False,True
+NI,Nicaragua,success_zero_results,0,False,False,True
+NU,Niue,success_zero_results,0,False,False,True
+NL,Netherlands,success_with_data,1247,True,False,False
+NO,Norway,success_with_data,97,True,False,False
+NP,Nepal,success_with_data,3,True,False,False
+NR,Nauru,success_zero_results,0,False,False,True
+NZ,New Zealand,success_with_data,88,True,False,False
+OM,Oman,success_with_data,1,True,False,False
+PK,Pakistan,success_zero_results,0,False,False,True
+PA,Panama,success_with_data,5,True,False,False
+PN,Pitcairn,success_zero_results,0,False,False,True
+PE,Peru,success_with_data,15,True,False,False
+PH,Philippines,success_with_data,20,True,False,False
+PW,Palau,success_zero_results,0,False,False,True
+PG,Papua New Guinea,success_zero_results,0,False,False,True
+PL,Poland,success_with_data,641,True,False,False
+PR,Puerto Rico,success_zero_results,0,False,False,True
+KP,"Korea, Democratic People's Republic of",success_zero_results,0,False,False,True
+PT,Portugal,success_with_data,167,True,False,False
+PY,Paraguay,success_with_data,1,True,False,False
+PS,"Palestine, State of",success_zero_results,0,False,False,True
+PF,French Polynesia,success_zero_results,0,False,False,True
+QA,Qatar,success_zero_results,0,False,False,True
+RE,Réunion,success_zero_results,0,False,False,True
+RO,Romania,success_with_data,113,True,False,False
+RU,Russian Federation,success_with_data,1471,True,False,False
+RW,Rwanda,success_zero_results,0,False,False,True
+SA,Saudi Arabia,success_with_data,3,True,False,False
+SD,Sudan,success_zero_results,0,False,False,True
+SN,Senegal,success_zero_results,0,False,False,True
+SG,Singapore,success_with_data,33,True,False,False
+GS,South Georgia and the South Sandwich Islands,success_zero_results,0,False,False,True
+SH,"Saint Helena, Ascension and Tristan da Cunha",success_zero_results,0,False,False,True
+SJ,Svalbard and Jan Mayen,success_zero_results,0,False,False,True
+SB,Solomon Islands,success_zero_results,0,False,False,True
+SL,Sierra Leone,success_zero_results,0,False,False,True
+SV,El Salvador,success_zero_results,0,False,False,True
+SM,San Marino,success_zero_results,0,False,False,True
+SO,Somalia,success_zero_results,0,False,False,True
+PM,Saint Pierre and Miquelon,success_zero_results,0,False,False,True
+RS,Serbia,success_with_data,49,True,False,False
+SS,South Sudan,success_zero_results,0,False,False,True
+ST,Sao Tome and Principe,success_zero_results,0,False,False,True
+SR,Suriname,success_zero_results,0,False,False,True
+SK,Slovakia,success_with_data,168,True,False,False
+SI,Slovenia,success_with_data,39,True,False,False
+SE,Sweden,success_with_data,559,True,False,False
+SZ,Eswatini,success_zero_results,0,False,False,True
+SX,Sint Maarten (Dutch part),success_zero_results,0,False,False,True
+SC,Seychelles,success_zero_results,0,False,False,True
+SY,Syrian Arab Republic,success_zero_results,0,False,False,True
+TC,Turks and Caicos Islands,success_zero_results,0,False,False,True
+TD,Chad,success_zero_results,0,False,False,True
+TG,Togo,success_zero_results,0,False,False,True
+TH,Thailand,success_with_data,12,True,False,False
+TJ,Tajikistan,success_zero_results,0,False,False,True
+TK,Tokelau,success_zero_results,0,False,False,True
+TM,Turkmenistan,success_zero_results,0,False,False,True
+TL,Timor-Leste,success_zero_results,0,False,False,True
+TO,Tonga,success_zero_results,0,False,False,True
+TT,Trinidad and Tobago,success_zero_results,0,False,False,True
+TN,Tunisia,success_with_data,2,True,False,False
+TR,Türkiye,success_with_data,59,True,False,False
+TV,Tuvalu,success_zero_results,0,False,False,True
+TW,"Taiwan, Province of China",success_with_data,52,True,False,False
+TZ,"Tanzania, United Republic of",success_zero_results,0,False,False,True
+UG,Uganda,success_zero_results,0,False,False,True
+UA,Ukraine,success_with_data,190,True,False,False
+UM,United States Minor Outlying Islands,success_zero_results,0,False,False,True
+UY,Uruguay,success_with_data,2,True,False,False
+US,United States,success_with_data,8188,True,True,False
+UZ,Uzbekistan,success_with_data,1,True,False,False
+VA,Holy See (Vatican City State),success_zero_results,0,False,False,True
+VC,Saint Vincent and the Grenadines,success_zero_results,0,False,False,True
+VE,"Venezuela, Bolivarian Republic of",success_with_data,10,True,False,False
+VG,"Virgin Islands, British",success_zero_results,0,False,False,True
+VI,"Virgin Islands, U.S.",success_zero_results,0,False,False,True
+VN,Viet Nam,success_with_data,2,True,False,False
+VU,Vanuatu,success_zero_results,0,False,False,True
+WF,Wallis and Futuna,success_zero_results,0,False,False,True
+WS,Samoa,success_zero_results,0,False,False,True
+YE,Yemen,success_zero_results,0,False,False,True
+ZA,South Africa,success_with_data,20,True,False,False
+ZM,Zambia,success_zero_results,0,False,False,True
+ZW,Zimbabwe,success_zero_results,0,False,False,True
