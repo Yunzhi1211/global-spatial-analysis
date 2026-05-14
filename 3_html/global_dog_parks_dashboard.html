@@ -602,19 +602,19 @@
     /* Charts Row */
     .charts-row {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
       margin-bottom: 18px;
     }
 
     .chart-card {
       padding: 18px;
-      min-height: 280px;
+      min-height: 300px;
     }
 
     .chart-container {
       position: relative;
-      height: 200px;
+      height: 220px;
     }
 
     /* Layer Info Panel */
@@ -2688,21 +2688,21 @@
         </div>
       </div>
       <div class="chart-card glass">
-        <h3 class="panel-title"><i class="fas fa-chart-line"></i> Forest vs GDP</h3>
+        <h3 class="panel-title"><i class="fas fa-leaf"></i> Forest Cover</h3>
         <div class="chart-container">
-          <canvas id="greenGdpChart"></canvas>
+          <canvas id="forestChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card glass">
+        <h3 class="panel-title"><i class="fas fa-dollar-sign"></i> GDP per Capita</h3>
+        <div class="chart-container">
+          <canvas id="gdpChart"></canvas>
         </div>
       </div>
       <div class="chart-card glass">
         <h3 class="panel-title"><i class="fas fa-chart-pie"></i> Urbanization</h3>
         <div class="chart-container">
           <canvas id="urbanChart"></canvas>
-        </div>
-      </div>
-      <div class="chart-card glass">
-        <h3 class="panel-title"><i class="fas fa-dog"></i> Dog Parks by Region</h3>
-        <div class="chart-container">
-          <canvas id="dogparkChart"></canvas>
         </div>
       </div>
     </div>
@@ -2835,6 +2835,15 @@
           </div>
         </header>
         <div id="insightsContent"></div>
+        <h3 style="color:#ffffff;font-size:1.3rem;font-weight:600;margin-bottom:8px;margin-top:16px;"><i class="fas fa-film"></i> Time Evolution Animation</h3>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.75);margin:0 0 12px 0;line-height:1.6;">
+          World Bank annual indicators (2000-2024). Note: dog park currently snapshot-based (2023 static).
+        </p>
+        <div class="panel glass" style="padding:18px;background:rgba(255,255,255,0.05);">
+          <div style="background:rgba(0,0,0,0.4);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);">
+            <img src="../2_rscript/fig8_time_evolution.gif" alt="Time evolution animation" style="width:100%;display:block;border-radius:6px;" />
+          </div>
+        </div>
       </div>
     </div><!-- end #page-insights -->
 
@@ -4067,7 +4076,7 @@
     }
 
     function initDataCharts() {
-      // Age Distribution Chart - use sample data since age data not available
+      // Age Distribution Chart - top 10 countries
       const ageCtx = document.getElementById('ageChart').getContext('2d');
       const ageData = countryData.slice(0, 10);
       new Chart(ageCtx, {
@@ -4106,44 +4115,64 @@
         }
       });
 
-      // Parks per Capita vs GDP Chart
-      const greenGdpCtx = document.getElementById('greenGdpChart').getContext('2d');
-      new Chart(greenGdpCtx, {
-        type: 'scatter',
+      // Forest Cover Chart - Access Score Top 10
+      const forestCtx = document.getElementById('forestChart').getContext('2d');
+      const forestData = countryData.slice(0, 10);
+      
+      new Chart(forestCtx, {
+        type: 'bar',
         data: {
+          labels: forestData.map(c => c.country_name.substring(0, 10)),
           datasets: [{
-            data: countryData.slice(0, 20).map(c => ({
-              x: Math.log10(parseFloat(c.population) || 1),
-              y: parseFloat(c.parks_per_100k) || 0,
-              name: c.country_name || c.country || 'Unknown'
-            })),
-            backgroundColor: '#10b981',
-            pointRadius: 6
+            label: 'Access Score',
+            data: forestData.map(c => parseFloat(c.dog_park_access_score) || 0),
+            backgroundColor: '#10b981'
           }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          indexAxis: 'y',
           plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: ctx => `${ctx.raw.name}: ${ctx.raw.y.toFixed(1)}% forest`
-              }
-            }
+            legend: { display: false }
           },
           scales: {
             x: {
-              title: { display: true, text: 'GDP per Capita (log)', font: { size: 10 } }
-            },
-            y: {
-              title: { display: true, text: 'Forest Cover %', font: { size: 10 } }
+              max: 100
             }
           }
         }
       });
 
-      // Urbanization Chart - use development level data
+      // GDP per Capita Chart - Parks by Region
+      const gdpCtx = document.getElementById('gdpChart').getContext('2d');
+      const regionParks = {};
+      countryData.forEach(c => {
+        regionParks[c.region] = (regionParks[c.region] || 0) + parseInt(c.n_parks || 0);
+      });
+      const regionLabels = Object.keys(regionParks);
+      
+      new Chart(gdpCtx, {
+        type: 'bar',
+        data: {
+          labels: regionLabels.map(r => r.split(' ')[0]),
+          datasets: [{
+            label: 'Total Parks',
+            data: Object.values(regionParks),
+            backgroundColor: '#06d6a0'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+
+      // Urbanization Chart - Development Level Distribution
       const urbanCtx = document.getElementById('urbanChart').getContext('2d');
       const devCounts = {};
       countryData.forEach(c => {
@@ -4174,31 +4203,6 @@
         }
       });
 
-      // Dog Parks by Region Chart
-      const dogparkCtx = document.getElementById('dogparkChart').getContext('2d');
-      const regionParks = {};
-      countryData.forEach(c => {
-        regionParks[c.region] = (regionParks[c.region] || 0) + parseInt(c.n_parks || 0);
-      });
-      new Chart(dogparkCtx, {
-        type: 'bar',
-        data: {
-          labels: Object.keys(regionParks),
-          datasets: [{
-            data: Object.values(regionParks),
-            backgroundColor: ['#10b981', '#f59e0b', '#3b82f6', '#ec4899', '#ef4444'],
-            borderRadius: 6
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          indexAxis: 'y',
-          plugins: {
-            legend: { display: false }
-          }
-        }
-      });
     }
 
     // Render country list
